@@ -1,0 +1,31 @@
+-- Department Table
+CREATE TABLE CMP307.Department (
+		DepartmentID INT PRIMARY KEY IDENTITY(1,1),
+		DepartmentName VARCHAR(100) NOT NULL
+);
+GO
+
+-- Employee Table
+CREATE TABLE CMP307.Employee (
+		EmployeeID INT PRIMARY KEY IDENTITY(1,1),
+		FirstName VARCHAR(100) NOT NULL,
+		LastName VARCHAR(100) NOT NULL,
+		Email VARCHAR(255) NOT NULL UNIQUE,
+		DepartmentID INT FOREIGN KEY REFERENCES CMP307.Department(DepartmentID),
+		Password VARCHAR(255) NOT NULL,
+);
+GO
+
+-- Asset Table
+CREATE TABLE CMP307.Asset (
+		AssID INT PRIMARY KEY IDENTITY(1,1),
+		SystemName VARCHAR(255) NOT NULL,
+		Model VARCHAR(255) NOT NULL,
+		Manufacturer VARCHAR(255) NOT NULL,
+		Type VARCHAR(100) NOT NULL,
+		IPAddress VARCHAR(15),
+		PurchaseDate DATE,
+		Notes VARCHAR(512),
+		EmployeeID INT FOREIGN KEY REFERENCES CMP307.Employee(EmployeeID),
+);
+GO
