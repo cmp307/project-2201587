@@ -40,9 +40,10 @@ namespace CMP307Project
 
         private void profileBtn_Click(object sender, EventArgs e)
         {
-            ProfileForm newForm = new ProfileForm(username);
-            MessageBox.Show("Successful");
-            newForm.Show();
+
+            //ProfileForm newForm = new ProfileForm(username);
+            //MessageBox.Show("Successful");
+            //newForm.Show();
         }
     }
 }

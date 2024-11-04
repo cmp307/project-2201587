@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.assetsLbl = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.assetsTable = new System.Windows.Forms.DataGridView();
             this.mssql2201587DataSet = new CMP307Project.mssql2201587DataSet();
             this.mssql2201587DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.assetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -48,7 +48,7 @@
             this.deleteBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
             this.refreshBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assetsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
@@ -64,13 +64,13 @@
             this.assetsLbl.TabIndex = 0;
             this.assetsLbl.Text = "Assets";
             // 
-            // dataGridView1
+            // assetsTable
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.assetsTable.AllowUserToAddRows = false;
+            this.assetsTable.AllowUserToDeleteRows = false;
+            this.assetsTable.AutoGenerateColumns = false;
+            this.assetsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.assetsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.assIDDataGridViewTextBoxColumn,
             this.systemNameDataGridViewTextBoxColumn,
             this.modelDataGridViewTextBoxColumn,
@@ -80,12 +80,12 @@
             this.purchaseDateDataGridViewTextBoxColumn,
             this.notesDataGridViewTextBoxColumn,
             this.employeeIDDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.assetBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 94);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(946, 189);
-            this.dataGridView1.TabIndex = 1;
+            this.assetsTable.DataSource = this.assetBindingSource;
+            this.assetsTable.Location = new System.Drawing.Point(12, 94);
+            this.assetsTable.Name = "assetsTable";
+            this.assetsTable.ReadOnly = true;
+            this.assetsTable.Size = new System.Drawing.Size(946, 189);
+            this.assetsTable.TabIndex = 1;
             // 
             // mssql2201587DataSet
             // 
@@ -214,12 +214,12 @@
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.deleteBtn);
             this.Controls.Add(this.addBtn);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.assetsTable);
             this.Controls.Add(this.assetsLbl);
             this.Name = "AssetsForm";
             this.Text = "AssetsForm";
             this.Load += new System.EventHandler(this.AssetsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assetsTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).EndInit();
@@ -231,7 +231,7 @@
         #endregion
 
         private System.Windows.Forms.Label assetsLbl;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView assetsTable;
         private System.Windows.Forms.BindingSource mssql2201587DataSetBindingSource;
         private mssql2201587DataSet mssql2201587DataSet;
         private System.Windows.Forms.BindingSource assetBindingSource;
