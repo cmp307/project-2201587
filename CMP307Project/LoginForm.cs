@@ -41,18 +41,11 @@ namespace CMP307Project
                         // if user found
                         if (user != null)
                         {
-                            // login and send to profile with username and determine whether the user is logged in as admin or not
-                            //bool admin = false;
-                            /*
-                            if (adminpass == "admin123")
-                            {
-                                admin = true;
-                            }
-                            */
-                            //Form2 newForm = new Form2(username, admin);
+                            // login and send to profile with username
+                            MenuForm newForm = new MenuForm(username);
                             MessageBox.Show("Successful");
-                            //this.Hide();
-                            //newForm.Show();
+                            this.Hide();
+                            newForm.Show();
 
                         }
                         else
