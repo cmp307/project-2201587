@@ -16,5 +16,12 @@ namespace CMP307Project
         {
             InitializeComponent();
         }
+
+        private void AssetsForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'mssql2201587DataSet.Asset' table. You can move, or remove it, as needed.
+            this.assetTableAdapter.Fill(this.mssql2201587DataSet.Asset);
+
+        }
     }
 }
