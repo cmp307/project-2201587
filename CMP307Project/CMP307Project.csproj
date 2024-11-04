@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAsset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAsset.Designer.cs">
+      <DependentUpon>AddAsset.cs</DependentUpon>
+    </Compile>
     <Compile Include="Asset.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -72,6 +78,12 @@
     </Compile>
     <Compile Include="Department.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EditAsset.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAsset.Designer.cs">
+      <DependentUpon>EditAsset.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>Model1.tt</DependentUpon>

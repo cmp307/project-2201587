@@ -31,10 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.assetsLbl = new System.Windows.Forms.Label();
             this.assetsTable = new System.Windows.Forms.DataGridView();
-            this.mssql2201587DataSet = new CMP307Project.mssql2201587DataSet();
-            this.mssql2201587DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.assetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.assetTableAdapter = new CMP307Project.mssql2201587DataSetTableAdapters.AssetTableAdapter();
             this.assIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.systemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,14 +40,18 @@
             this.purchaseDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.assetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mssql2201587DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mssql2201587DataSet = new CMP307Project.mssql2201587DataSet();
+            this.assetTableAdapter = new CMP307Project.mssql2201587DataSetTableAdapters.AssetTableAdapter();
             this.addBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
             this.refreshBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.assetsTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // assetsLbl
@@ -86,25 +86,6 @@
             this.assetsTable.ReadOnly = true;
             this.assetsTable.Size = new System.Drawing.Size(946, 189);
             this.assetsTable.TabIndex = 1;
-            // 
-            // mssql2201587DataSet
-            // 
-            this.mssql2201587DataSet.DataSetName = "mssql2201587DataSet";
-            this.mssql2201587DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // mssql2201587DataSetBindingSource
-            // 
-            this.mssql2201587DataSetBindingSource.DataSource = this.mssql2201587DataSet;
-            this.mssql2201587DataSetBindingSource.Position = 0;
-            // 
-            // assetBindingSource
-            // 
-            this.assetBindingSource.DataMember = "Asset";
-            this.assetBindingSource.DataSource = this.mssql2201587DataSetBindingSource;
-            // 
-            // assetTableAdapter
-            // 
-            this.assetTableAdapter.ClearBeforeFill = true;
             // 
             // assIDDataGridViewTextBoxColumn
             // 
@@ -169,6 +150,25 @@
             this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
             this.employeeIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // assetBindingSource
+            // 
+            this.assetBindingSource.DataMember = "Asset";
+            this.assetBindingSource.DataSource = this.mssql2201587DataSetBindingSource;
+            // 
+            // mssql2201587DataSetBindingSource
+            // 
+            this.mssql2201587DataSetBindingSource.DataSource = this.mssql2201587DataSet;
+            this.mssql2201587DataSetBindingSource.Position = 0;
+            // 
+            // mssql2201587DataSet
+            // 
+            this.mssql2201587DataSet.DataSetName = "mssql2201587DataSet";
+            this.mssql2201587DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // assetTableAdapter
+            // 
+            this.assetTableAdapter.ClearBeforeFill = true;
+            // 
             // addBtn
             // 
             this.addBtn.Location = new System.Drawing.Point(52, 334);
@@ -177,6 +177,7 @@
             this.addBtn.TabIndex = 2;
             this.addBtn.Text = "Add Asset";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // deleteBtn
             // 
@@ -195,6 +196,7 @@
             this.editBtn.TabIndex = 4;
             this.editBtn.Text = "Edit Asset";
             this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // refreshBtn
             // 
@@ -204,6 +206,7 @@
             this.refreshBtn.TabIndex = 5;
             this.refreshBtn.Text = "Refresh";
             this.refreshBtn.UseVisualStyleBackColor = true;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
             // AssetsForm
             // 
@@ -220,9 +223,9 @@
             this.Text = "AssetsForm";
             this.Load += new System.EventHandler(this.AssetsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.assetsTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

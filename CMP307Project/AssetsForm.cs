@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace CMP307Project
 {
@@ -29,6 +30,23 @@ namespace CMP307Project
         {
             loadTable();
 
+        }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            loadTable();
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            AddAsset newForm = new AddAsset();
+            newForm.Show();
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            EditAsset newForm = new EditAsset();
+            newForm.Show();
         }
     }
 }
