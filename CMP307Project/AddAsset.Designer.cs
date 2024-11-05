@@ -34,7 +34,6 @@
             this.manuTB = new System.Windows.Forms.TextBox();
             this.typeTB = new System.Windows.Forms.TextBox();
             this.ipTB = new System.Windows.Forms.TextBox();
-            this.employeeTB = new System.Windows.Forms.TextBox();
             this.systemNameLbl = new System.Windows.Forms.Label();
             this.modelLbl = new System.Windows.Forms.Label();
             this.manufacturerLbl = new System.Windows.Forms.Label();
@@ -48,6 +47,8 @@
             this.addBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.autofillBtn = new System.Windows.Forms.Button();
+            this.employeeNum = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeNum)).BeginInit();
             this.SuspendLayout();
             // 
             // addAssetLbl
@@ -99,13 +100,6 @@
             this.ipTB.Name = "ipTB";
             this.ipTB.Size = new System.Drawing.Size(132, 20);
             this.ipTB.TabIndex = 5;
-            // 
-            // employeeTB
-            // 
-            this.employeeTB.Location = new System.Drawing.Point(233, 435);
-            this.employeeTB.Name = "employeeTB";
-            this.employeeTB.Size = new System.Drawing.Size(100, 20);
-            this.employeeTB.TabIndex = 6;
             // 
             // systemNameLbl
             // 
@@ -172,6 +166,7 @@
             // 
             // datePick
             // 
+            this.datePick.Checked = false;
             this.datePick.Location = new System.Drawing.Point(233, 286);
             this.datePick.Name = "datePick";
             this.datePick.Size = new System.Drawing.Size(132, 20);
@@ -203,6 +198,7 @@
             this.addBtn.TabIndex = 17;
             this.addBtn.Text = "Add Asset";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // cancelBtn
             // 
@@ -223,11 +219,19 @@
             this.autofillBtn.UseVisualStyleBackColor = true;
             this.autofillBtn.Click += new System.EventHandler(this.autofillBtn_Click);
             // 
+            // employeeNum
+            // 
+            this.employeeNum.Location = new System.Drawing.Point(233, 436);
+            this.employeeNum.Name = "employeeNum";
+            this.employeeNum.Size = new System.Drawing.Size(120, 20);
+            this.employeeNum.TabIndex = 20;
+            // 
             // AddAsset
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 537);
+            this.Controls.Add(this.employeeNum);
             this.Controls.Add(this.autofillBtn);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.addBtn);
@@ -241,7 +245,6 @@
             this.Controls.Add(this.manufacturerLbl);
             this.Controls.Add(this.modelLbl);
             this.Controls.Add(this.systemNameLbl);
-            this.Controls.Add(this.employeeTB);
             this.Controls.Add(this.ipTB);
             this.Controls.Add(this.typeTB);
             this.Controls.Add(this.manuTB);
@@ -250,6 +253,7 @@
             this.Controls.Add(this.addAssetLbl);
             this.Name = "AddAsset";
             this.Text = "AddAsset";
+            ((System.ComponentModel.ISupportInitialize)(this.employeeNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,7 +267,6 @@
         private System.Windows.Forms.TextBox manuTB;
         private System.Windows.Forms.TextBox typeTB;
         private System.Windows.Forms.TextBox ipTB;
-        private System.Windows.Forms.TextBox employeeTB;
         private System.Windows.Forms.Label systemNameLbl;
         private System.Windows.Forms.Label modelLbl;
         private System.Windows.Forms.Label manufacturerLbl;
@@ -277,5 +280,6 @@
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button autofillBtn;
+        private System.Windows.Forms.NumericUpDown employeeNum;
     }
 }
