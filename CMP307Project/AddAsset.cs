@@ -83,5 +83,10 @@ namespace CMP307Project
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

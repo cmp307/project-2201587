@@ -48,5 +48,10 @@ namespace CMP307Project
             EditAsset newForm = new EditAsset();
             newForm.Show();
         }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

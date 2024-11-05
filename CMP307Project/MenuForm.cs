@@ -27,14 +27,12 @@ namespace CMP307Project
         private void assetsBtn_Click(object sender, EventArgs e)
         {
             AssetsForm newForm = new AssetsForm();
-            MessageBox.Show("Successful");
             newForm.Show();
         }
 
         private void employeesBtn_Click(object sender, EventArgs e)
         {
             EmployeesForm newForm = new EmployeesForm();
-            MessageBox.Show("Successful");
             newForm.Show();
         }
 
@@ -42,7 +40,6 @@ namespace CMP307Project
         {
 
             //ProfileForm newForm = new ProfileForm(username);
-            //MessageBox.Show("Successful");
             //newForm.Show();
         }
     }
