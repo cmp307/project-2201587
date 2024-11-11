@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Management;
+using System.Net;
 
 namespace CMP307Project
 {
@@ -47,6 +48,15 @@ namespace CMP307Project
             modelTB.Text = getData("Model");
             manuTB.Text = getData("Manufacturer");
             typeTB.Text = getData("SystemType");
+            string ipAdd = Dns.GetHostEntry(Dns.GetHostName()).AddressList.FirstOrDefault(ip => ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork).ToString();
+            if (ipAdd != null)
+            {
+                ipTB.Text = ipAdd;
+            }
+            else
+            {
+                ipTB.Text = "unavailable";
+            }
 
         }
 
