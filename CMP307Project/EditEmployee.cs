@@ -12,6 +12,8 @@ namespace CMP307Project
 {
     public partial class EditEmployee : Form
     {
+        // setup database connection
+        mssql2201587Entities db = new mssql2201587Entities();
         public EditEmployee()
         {
             InitializeComponent();
