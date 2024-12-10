@@ -14,9 +14,11 @@ namespace CMP307Project
     {
         // setup database connection
         mssql2201587Entities db = new mssql2201587Entities();
-        public EditEmployee()
+        private Employee employee;
+        public EditEmployee(Employee employee)
         {
             InitializeComponent();
+            this.employee = employee;
         }
     }
 }
