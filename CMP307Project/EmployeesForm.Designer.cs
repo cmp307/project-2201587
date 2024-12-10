@@ -39,11 +39,11 @@
             this.assetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.refreshBtn = new System.Windows.Forms.Button();
             this.employeesTable = new System.Windows.Forms.DataGridView();
-            this.employeesLbl = new System.Windows.Forms.Label();
-            this.employeeBindingSource = new CMP307Project.employeeBindingSource();
             this.employeeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeBindingSource = new CMP307Project.employeeBindingSource();
+            this.employeesLbl = new System.Windows.Forms.Label();
             this.employeeTableAdapter = new CMP307Project.employeeBindingSourceTableAdapters.EmployeeTableAdapter();
-            this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,8 +53,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // closeBtn
@@ -84,6 +84,7 @@
             this.deleteBtn.TabIndex = 10;
             this.deleteBtn.Text = "Delete Employee";
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // addBtn
             // 
@@ -131,7 +132,7 @@
             this.employeesTable.AutoGenerateColumns = false;
             this.employeesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.employeesTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.employeeIDDataGridViewTextBoxColumn,
+            this.EmployeeID,
             this.FirstName,
             this.LastName,
             this.Email,
@@ -146,6 +147,16 @@
             this.employeesTable.Size = new System.Drawing.Size(647, 189);
             this.employeesTable.TabIndex = 8;
             // 
+            // employeeBindingSource1
+            // 
+            this.employeeBindingSource1.DataMember = "Employee";
+            this.employeeBindingSource1.DataSource = this.employeeBindingSource;
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataSetName = "employeeBindingSource";
+            this.employeeBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // employeesLbl
             // 
             this.employeesLbl.AutoSize = true;
@@ -156,26 +167,16 @@
             this.employeesLbl.TabIndex = 7;
             this.employeesLbl.Text = "Employees";
             // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataSetName = "employeeBindingSource";
-            this.employeeBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // employeeBindingSource1
-            // 
-            this.employeeBindingSource1.DataMember = "Employee";
-            this.employeeBindingSource1.DataSource = this.employeeBindingSource;
-            // 
             // employeeTableAdapter
             // 
             this.employeeTableAdapter.ClearBeforeFill = true;
             // 
-            // employeeIDDataGridViewTextBoxColumn
+            // EmployeeID
             // 
-            this.employeeIDDataGridViewTextBoxColumn.DataPropertyName = "EmployeeID";
-            this.employeeIDDataGridViewTextBoxColumn.HeaderText = "EmployeeID";
-            this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
-            this.employeeIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.EmployeeID.DataPropertyName = "EmployeeID";
+            this.EmployeeID.HeaderText = "EmployeeID";
+            this.EmployeeID.Name = "EmployeeID";
+            this.EmployeeID.ReadOnly = true;
             // 
             // FirstName
             // 
@@ -231,8 +232,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeesTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -254,7 +255,7 @@
         private employeeBindingSource employeeBindingSource;
         private System.Windows.Forms.BindingSource employeeBindingSource1;
         private employeeBindingSourceTableAdapters.EmployeeTableAdapter employeeTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeeIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
