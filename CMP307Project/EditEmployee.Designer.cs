@@ -69,6 +69,7 @@
             this.updateBtn.TabIndex = 51;
             this.updateBtn.Text = "Update Employee";
             this.updateBtn.UseVisualStyleBackColor = true;
+            this.updateBtn.Click += new System.EventHandler(this.updateBtn_Click);
             // 
             // departmentIDLbl
             // 
