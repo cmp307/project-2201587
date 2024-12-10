@@ -44,5 +44,12 @@ namespace CMP307Project
             // close employees page
             this.Close();
         }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            // open add employee form
+            AddEmployee newForm = new AddEmployee();
+            newForm.Show();
+        }
     }
 }
