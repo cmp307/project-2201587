@@ -141,6 +141,9 @@
     <EmbeddedResource Include="AssetsForm.resx">
       <DependentUpon>AssetsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditAsset.resx">
+      <DependentUpon>EditAsset.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
