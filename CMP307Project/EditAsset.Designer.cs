@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.employeeNum = new System.Windows.Forms.NumericUpDown();
-            this.autofillBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
             this.employeeIDLbl = new System.Windows.Forms.Label();
@@ -57,16 +56,6 @@
             this.employeeNum.Name = "employeeNum";
             this.employeeNum.Size = new System.Drawing.Size(120, 20);
             this.employeeNum.TabIndex = 40;
-            // 
-            // autofillBtn
-            // 
-            this.autofillBtn.Location = new System.Drawing.Point(67, 486);
-            this.autofillBtn.Name = "autofillBtn";
-            this.autofillBtn.Size = new System.Drawing.Size(75, 23);
-            this.autofillBtn.TabIndex = 39;
-            this.autofillBtn.Text = "Autofill";
-            this.autofillBtn.UseVisualStyleBackColor = true;
-            this.autofillBtn.Click += new System.EventHandler(this.autofillBtn_Click);
             // 
             // cancelBtn
             // 
@@ -233,7 +222,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 537);
             this.Controls.Add(this.employeeNum);
-            this.Controls.Add(this.autofillBtn);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.employeeIDLbl);
@@ -264,7 +252,6 @@
         #endregion
 
         private System.Windows.Forms.NumericUpDown employeeNum;
-        private System.Windows.Forms.Button autofillBtn;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Label employeeIDLbl;
