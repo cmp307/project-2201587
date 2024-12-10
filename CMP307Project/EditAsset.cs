@@ -65,5 +65,11 @@ namespace CMP307Project
                 ipTB.Text = "unavailable";
             }
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            // close add page
+            this.Close();
+        }
     }
 }
