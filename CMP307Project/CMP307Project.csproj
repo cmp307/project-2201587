@@ -164,6 +164,9 @@
     <EmbeddedResource Include="EditAsset.resx">
       <DependentUpon>EditAsset.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditEmployee.resx">
+      <DependentUpon>EditEmployee.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeesForm.resx">
       <DependentUpon>EmployeesForm.cs</DependentUpon>
     </EmbeddedResource>
