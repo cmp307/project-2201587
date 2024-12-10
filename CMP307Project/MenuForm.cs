@@ -12,37 +12,38 @@ namespace CMP307Project
 {
     public partial class MenuForm : Form
     {
-        string username;
+        //string username;
         public MenuForm(string username)
         {
-            this.username = username;
+            //this.username = username;
             InitializeComponent();
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
+            // close application
             System.Windows.Forms.Application.Exit();
         }
 
         private void assetsBtn_Click(object sender, EventArgs e)
         {
+            // open assets page
             AssetsForm newForm = new AssetsForm();
-            MessageBox.Show("Successful");
             newForm.Show();
         }
 
         private void employeesBtn_Click(object sender, EventArgs e)
         {
+            // open employees page
             EmployeesForm newForm = new EmployeesForm();
-            MessageBox.Show("Successful");
             newForm.Show();
         }
 
         private void profileBtn_Click(object sender, EventArgs e)
         {
-            ProfileForm newForm = new ProfileForm(username);
-            MessageBox.Show("Successful");
-            newForm.Show();
+
+            //ProfileForm newForm = new ProfileForm(username);
+            //newForm.Show();
         }
     }
 }
