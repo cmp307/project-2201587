@@ -120,6 +120,7 @@
             this.refreshBtn.TabIndex = 12;
             this.refreshBtn.Text = "Refresh";
             this.refreshBtn.UseVisualStyleBackColor = true;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
             // employeesTable
             // 

@@ -21,7 +21,7 @@ namespace CMP307Project
 
         private void loadTable()
         {
-            // get data from the database and update the assets table on the form
+            // get data from the database and update the employees table on the form
             db = new mssql2201587Entities();
             IQueryable<Employee> employees = from f in db.Employees select f;
             employeesTable.DataSource = employees.ToList();
@@ -29,10 +29,14 @@ namespace CMP307Project
 
         private void EmployeesForm_Load(object sender, EventArgs e)
         {
+            // load data from the database as soon as the form opens
             loadTable();
         }
 
-
-
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            // refresh table data
+            loadTable();
+        }
     }
 }
