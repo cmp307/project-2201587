@@ -12,9 +12,17 @@ namespace CMP307Project
 {
     public partial class AddEmployee : Form
     {
+        // setup database connection
+        mssql2201587Entities db = new mssql2201587Entities();
         public AddEmployee()
         {
             InitializeComponent();
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            // close add page
+            this.Close();
         }
     }
 }
