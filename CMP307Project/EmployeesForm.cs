@@ -109,7 +109,7 @@ namespace CMP307Project
                     if (emp != null)
                     {
                         // open edit asset form
-                        EditAsset newForm = new EditAsset(emp);
+                        EditEmployee newForm = new EditEmployee(emp);
                         newForm.Show();
                     }
 
