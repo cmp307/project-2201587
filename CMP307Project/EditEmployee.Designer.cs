@@ -178,6 +178,7 @@
             this.Controls.Add(this.editEmployeeLbl);
             this.Name = "EditEmployee";
             this.Text = "EditEmployee";
+            this.Load += new System.EventHandler(this.EditEmployee_Load);
             ((System.ComponentModel.ISupportInitialize)(this.departmentNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

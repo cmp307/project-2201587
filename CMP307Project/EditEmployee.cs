@@ -69,5 +69,14 @@ namespace CMP307Project
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void EditEmployee_Load(object sender, EventArgs e)
+        {
+            firstNameTB.Text = employee.FirstName;
+            lastNameTB.Text = employee.LastName;
+            emailTB.Text = employee.Email;
+            passwordTB.Text = employee.Password;
+            departmentNum.Value = employee.DepartmentID.Value;
+        }
     }
 }
