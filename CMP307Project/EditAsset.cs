@@ -14,11 +14,13 @@ namespace CMP307Project
 {
     public partial class EditAsset : Form
     {
-        // setup database connection
+        // setup global variables and database connection
         mssql2201587Entities db = new mssql2201587Entities();
+        private Asset asset;
         public EditAsset(Asset asset)
         {
             InitializeComponent();
+            this.asset = asset;
         }
 
         // get data value according to attribute name given
@@ -74,6 +76,26 @@ namespace CMP307Project
 
         private void EditAsset_Load(object sender, EventArgs e)
         {
+            sysNameTB.Text = asset.SystemName;
+            modelTB.Text = asset.Model;
+            manuTB.Text = asset.Manufacturer;
+            typeTB.Text = asset.Type;
+            if (asset.IPAddress != null)
+            {
+                ipTB.Text = asset.IPAddress;
+            }
+            if (asset.PurchaseDate != null)
+            {
+                datePick.Value = asset.PurchaseDate.Value;
+            }
+            if (asset.Notes != null)
+            {
+                notesTB.Text = asset.Notes;
+            }
+            if (asset.EmployeeID != null)
+            {
+                employeeNum.Value = asset.EmployeeID.Value;
+            }
 
         }
     }
