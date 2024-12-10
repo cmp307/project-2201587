@@ -20,5 +20,11 @@ namespace CMP307Project
             InitializeComponent();
             this.employee = employee;
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            // close add page
+            this.Close();
+        }
     }
 }
