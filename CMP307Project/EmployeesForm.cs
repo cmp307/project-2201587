@@ -16,5 +16,12 @@ namespace CMP307Project
         {
             InitializeComponent();
         }
+
+        private void EmployeesForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'employeeBindingSource.Employee' table. You can move, or remove it, as needed.
+            this.employeeTableAdapter.Fill(this.employeeBindingSource.Employee);
+
+        }
     }
 }
