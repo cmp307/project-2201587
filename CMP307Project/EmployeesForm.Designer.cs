@@ -39,16 +39,16 @@
             this.assetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.refreshBtn = new System.Windows.Forms.Button();
             this.employeesTable = new System.Windows.Forms.DataGridView();
-            this.employeeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeBindingSource = new CMP307Project.employeeBindingSource();
-            this.employeesLbl = new System.Windows.Forms.Label();
-            this.employeeTableAdapter = new CMP307Project.employeeBindingSourceTableAdapters.EmployeeTableAdapter();
             this.EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DepartmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeBindingSource = new CMP307Project.employeeBindingSource();
+            this.employeesLbl = new System.Windows.Forms.Label();
+            this.employeeTableAdapter = new CMP307Project.employeeBindingSourceTableAdapters.EmployeeTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
@@ -75,6 +75,7 @@
             this.editBtn.TabIndex = 11;
             this.editBtn.Text = "Edit Employee";
             this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // deleteBtn
             // 
@@ -147,30 +148,6 @@
             this.employeesTable.Size = new System.Drawing.Size(647, 189);
             this.employeesTable.TabIndex = 8;
             // 
-            // employeeBindingSource1
-            // 
-            this.employeeBindingSource1.DataMember = "Employee";
-            this.employeeBindingSource1.DataSource = this.employeeBindingSource;
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataSetName = "employeeBindingSource";
-            this.employeeBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // employeesLbl
-            // 
-            this.employeesLbl.AutoSize = true;
-            this.employeesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.employeesLbl.Location = new System.Drawing.Point(392, 18);
-            this.employeesLbl.Name = "employeesLbl";
-            this.employeesLbl.Size = new System.Drawing.Size(173, 37);
-            this.employeesLbl.TabIndex = 7;
-            this.employeesLbl.Text = "Employees";
-            // 
-            // employeeTableAdapter
-            // 
-            this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
             // EmployeeID
             // 
             this.EmployeeID.DataPropertyName = "EmployeeID";
@@ -212,6 +189,30 @@
             this.Password.HeaderText = "Password";
             this.Password.Name = "Password";
             this.Password.ReadOnly = true;
+            // 
+            // employeeBindingSource1
+            // 
+            this.employeeBindingSource1.DataMember = "Employee";
+            this.employeeBindingSource1.DataSource = this.employeeBindingSource;
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataSetName = "employeeBindingSource";
+            this.employeeBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeesLbl
+            // 
+            this.employeesLbl.AutoSize = true;
+            this.employeesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.employeesLbl.Location = new System.Drawing.Point(392, 18);
+            this.employeesLbl.Name = "employeesLbl";
+            this.employeesLbl.Size = new System.Drawing.Size(173, 37);
+            this.employeesLbl.TabIndex = 7;
+            this.employeesLbl.Text = "Employees";
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
             // 
             // EmployeesForm
             // 
