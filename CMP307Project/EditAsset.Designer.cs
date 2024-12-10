@@ -86,6 +86,7 @@
             this.editBtn.TabIndex = 37;
             this.editBtn.Text = "Update Asset";
             this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // employeeIDLbl
             // 
