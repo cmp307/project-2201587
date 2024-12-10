@@ -66,6 +66,7 @@
             this.autofillBtn.TabIndex = 39;
             this.autofillBtn.Text = "Autofill";
             this.autofillBtn.UseVisualStyleBackColor = true;
+            this.autofillBtn.Click += new System.EventHandler(this.autofillBtn_Click);
             // 
             // cancelBtn
             // 
