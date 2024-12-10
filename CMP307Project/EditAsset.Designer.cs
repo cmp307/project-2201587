@@ -253,6 +253,7 @@
             this.Controls.Add(this.editAssetLbl);
             this.Name = "EditAsset";
             this.Text = "EditAsset";
+            this.Load += new System.EventHandler(this.EditAsset_Load);
             ((System.ComponentModel.ISupportInitialize)(this.employeeNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

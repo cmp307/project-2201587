@@ -16,7 +16,7 @@ namespace CMP307Project
     {
         // setup database connection
         mssql2201587Entities db = new mssql2201587Entities();
-        public EditAsset()
+        public EditAsset(Asset asset)
         {
             InitializeComponent();
         }
@@ -70,6 +70,11 @@ namespace CMP307Project
         {
             // close add page
             this.Close();
+        }
+
+        private void EditAsset_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
