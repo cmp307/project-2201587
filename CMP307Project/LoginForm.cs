@@ -26,26 +26,34 @@ namespace CMP307Project
                 // get all user profiles
                 IQueryable<Employee> allEmployees = from f in db.Employees
                                                    select f;
-                // get user inputs if they are not empty, admin password can be empty
+                // get user inputs if they are not empty
                 if (emailTB.Text != null)
                 {
                     string email = emailTB.Text;
                     if (passwordTB.Text != null)
                     {
                         string password = passwordTB.Text;
-                        //string adminpass = adminPass.Text;
-                        // find user in database with matching username and password
+                        // find user in database with matching email
                         Employee employee = (from f in db.Employees
-                                            where f.Email == email && f.Password == password
+                                            where f.Email == email
                                             select f).FirstOrDefault();
-                        // if user found
+                        // if employee found
                         if (employee != null)
                         {
-                            // login and send to profile with username
-                            MenuForm newForm = new MenuForm(employee);
-                            MessageBox.Show("Successful");
-                            this.Hide();
-                            newForm.Show();
+                            // verify password
+                            if (BCrypt.Net.BCrypt.Verify(password, employee.Password))
+                            {
+                                // login and send to profile with username
+                                MenuForm newForm = new MenuForm(employee);
+                                MessageBox.Show("Successful");
+                                this.Hide();
+                                newForm.Show();
+                            } 
+                            else
+                            {
+                                // if password doesnt match display error
+                                MessageBox.Show("Wrong Credentials");
+                            }
 
                         }
                         else
@@ -77,6 +85,7 @@ namespace CMP307Project
         {
             if (showPassword.Checked == true)
             {
+                //https://stackoverflow.com/questions/17871910/how-do-i-reset-a-passwordchar 
                 passwordTB.PasswordChar = '\0';
             } 
             else
