@@ -34,6 +34,7 @@
             this.emailTB = new System.Windows.Forms.TextBox();
             this.passwordTB = new System.Windows.Forms.TextBox();
             this.loginBtn = new System.Windows.Forms.Button();
+            this.showPassword = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // loginTitleLabel
@@ -77,6 +78,7 @@
             // 
             this.passwordTB.Location = new System.Drawing.Point(155, 191);
             this.passwordTB.Name = "passwordTB";
+            this.passwordTB.PasswordChar = '*';
             this.passwordTB.Size = new System.Drawing.Size(100, 20);
             this.passwordTB.TabIndex = 4;
             // 
@@ -90,11 +92,22 @@
             this.loginBtn.UseVisualStyleBackColor = true;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
+            // showPassword
+            // 
+            this.showPassword.AutoSize = true;
+            this.showPassword.Location = new System.Drawing.Point(155, 217);
+            this.showPassword.Name = "showPassword";
+            this.showPassword.Size = new System.Drawing.Size(102, 17);
+            this.showPassword.TabIndex = 7;
+            this.showPassword.Text = "Show Password";
+            this.showPassword.UseVisualStyleBackColor = true;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(410, 450);
+            this.Controls.Add(this.showPassword);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.passwordTB);
             this.Controls.Add(this.emailTB);
@@ -116,6 +129,7 @@
         private System.Windows.Forms.TextBox emailTB;
         private System.Windows.Forms.TextBox passwordTB;
         private System.Windows.Forms.Button loginBtn;
+        private System.Windows.Forms.CheckBox showPassword;
     }
 }
 
