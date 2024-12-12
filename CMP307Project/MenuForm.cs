@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,13 @@ namespace CMP307Project
 {
     public partial class MenuForm : Form
     {
-        //string username;
-        public MenuForm(string username)
+        // setup global variables and database connection
+        mssql2201587Entities db = new mssql2201587Entities();
+        private Employee employee;
+        public MenuForm(Employee employee)
         {
-            //this.username = username;
             InitializeComponent();
+            this.employee = employee;
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -44,6 +47,28 @@ namespace CMP307Project
 
             //ProfileForm newForm = new ProfileForm(username);
             //newForm.Show();
+        }
+
+        private void MenuForm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                Department itdep = (from f in db.Departments
+                                    where f.DepartmentName == "IT Support"
+                                    select f).FirstOrDefault();
+                if (itdep != null)
+                {
+                    if (employee.DepartmentID != itdep.DepartmentID)
+                    {
+                        assetsBtn.Visible = false;
+                        employeesBtn.Visible = false;
+                    }
+                }
+            }
+            catch 
+            { 
+            
+            }
         }
     }
 }
