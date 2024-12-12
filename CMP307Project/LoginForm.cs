@@ -72,5 +72,17 @@ namespace CMP307Project
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void showPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (showPassword.Checked == true)
+            {
+                passwordTB.PasswordChar = '\0';
+            } 
+            else
+            {
+                passwordTB.PasswordChar = '*';
+            }
+        }
     }
 }
