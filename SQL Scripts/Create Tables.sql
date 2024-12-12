@@ -29,3 +29,21 @@ CREATE TABLE CMP307.Asset (
 		EmployeeID INT FOREIGN KEY REFERENCES CMP307.Employee(EmployeeID),
 );
 GO
+
+-- Software Table
+CREATE TABLE CMP307.Software (
+		SoftID int PRIMARY KEY IDENTITY(1,1),
+		OSname varchar(225) NOT NULL,
+		Version varchar(225) NOT NULL,
+		manufacturer varchar(225) NOT NULL
+);
+GO
+
+-- Links Table
+CREATE TABLE CMP307.Links (
+		AssID int NOT NULL FOREIGN KEY REFERENCES CMP307.Asset(AssID),
+		SoftID int NOT NULL FOREIGN KEY REFERENCES CMP307.Software(SoftID),
+		Date date NOT NULL,
+		Active bit NOT NULL
+);
+GO
