@@ -29,20 +29,20 @@ namespace CMP307Project
                 // get user inputs if they are not empty, admin password can be empty
                 if (emailTB.Text != null)
                 {
-                    string username = emailTB.Text;
+                    string email = emailTB.Text;
                     if (passwordTB.Text != null)
                     {
                         string password = passwordTB.Text;
                         //string adminpass = adminPass.Text;
                         // find user in database with matching username and password
-                        Employee user = (from f in db.Employees
-                                            where f.Email == username && f.Password == password
+                        Employee employee = (from f in db.Employees
+                                            where f.Email == email && f.Password == password
                                             select f).FirstOrDefault();
                         // if user found
-                        if (user != null)
+                        if (employee != null)
                         {
                             // login and send to profile with username
-                            MenuForm newForm = new MenuForm(username);
+                            MenuForm newForm = new MenuForm(employee);
                             MessageBox.Show("Successful");
                             this.Hide();
                             newForm.Show();
