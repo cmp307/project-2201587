@@ -46,7 +46,7 @@
             // 
             // employeesBtn
             // 
-            this.employeesBtn.Location = new System.Drawing.Point(219, 136);
+            this.employeesBtn.Location = new System.Drawing.Point(300, 136);
             this.employeesBtn.Name = "employeesBtn";
             this.employeesBtn.Size = new System.Drawing.Size(75, 23);
             this.employeesBtn.TabIndex = 1;
@@ -66,7 +66,7 @@
             // 
             // profileBtn
             // 
-            this.profileBtn.Location = new System.Drawing.Point(300, 136);
+            this.profileBtn.Location = new System.Drawing.Point(219, 136);
             this.profileBtn.Name = "profileBtn";
             this.profileBtn.Size = new System.Drawing.Size(75, 23);
             this.profileBtn.TabIndex = 4;
