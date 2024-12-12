@@ -32,6 +32,7 @@
             this.employeesBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.profileBtn = new System.Windows.Forms.Button();
+            this.softwareBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // assetsBtn
@@ -46,7 +47,7 @@
             // 
             // employeesBtn
             // 
-            this.employeesBtn.Location = new System.Drawing.Point(300, 136);
+            this.employeesBtn.Location = new System.Drawing.Point(219, 165);
             this.employeesBtn.Name = "employeesBtn";
             this.employeesBtn.Size = new System.Drawing.Size(75, 23);
             this.employeesBtn.TabIndex = 1;
@@ -74,11 +75,21 @@
             this.profileBtn.UseVisualStyleBackColor = true;
             this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
             // 
+            // softwareBtn
+            // 
+            this.softwareBtn.Location = new System.Drawing.Point(300, 136);
+            this.softwareBtn.Name = "softwareBtn";
+            this.softwareBtn.Size = new System.Drawing.Size(75, 23);
+            this.softwareBtn.TabIndex = 5;
+            this.softwareBtn.Text = "Software";
+            this.softwareBtn.UseVisualStyleBackColor = true;
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(545, 346);
+            this.Controls.Add(this.softwareBtn);
             this.Controls.Add(this.profileBtn);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.employeesBtn);
@@ -96,5 +107,6 @@
         private System.Windows.Forms.Button employeesBtn;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Button profileBtn;
+        private System.Windows.Forms.Button softwareBtn;
     }
 }
