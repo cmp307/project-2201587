@@ -65,9 +65,10 @@ namespace CMP307Project
                     }
                 }
             }
-            catch 
-            { 
-            
+            catch (Exception ex)
+            {
+                // exception handler
+                MessageBox.Show(ex.Message);
             }
         }
     }
