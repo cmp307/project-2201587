@@ -27,9 +27,9 @@ namespace CMP307Project
                 IQueryable<Employee> allEmployees = from f in db.Employees
                                                    select f;
                 // get user inputs if they are not empty, admin password can be empty
-                if (usernameTB.Text != null)
+                if (emailTB.Text != null)
                 {
-                    string username = usernameTB.Text;
+                    string username = emailTB.Text;
                     if (passwordTB.Text != null)
                     {
                         string password = passwordTB.Text;
