@@ -37,8 +37,8 @@
             this.versionLbl = new System.Windows.Forms.Label();
             this.osNameLbl = new System.Windows.Forms.Label();
             this.manuTB = new System.Windows.Forms.TextBox();
-            this.modelTB = new System.Windows.Forms.TextBox();
-            this.sysNameTB = new System.Windows.Forms.TextBox();
+            this.versionTB = new System.Windows.Forms.TextBox();
+            this.osNameTB = new System.Windows.Forms.TextBox();
             this.addSoftwareLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.assetNum)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +58,7 @@
             this.autofillBtn.TabIndex = 39;
             this.autofillBtn.Text = "Autofill";
             this.autofillBtn.UseVisualStyleBackColor = true;
+            this.autofillBtn.Click += new System.EventHandler(this.autofillBtn_Click);
             // 
             // cancelBtn
             // 
@@ -122,21 +123,21 @@
             this.manuTB.Size = new System.Drawing.Size(132, 20);
             this.manuTB.TabIndex = 24;
             // 
-            // modelTB
+            // versionTB
             // 
-            this.modelTB.Location = new System.Drawing.Point(218, 137);
-            this.modelTB.MaxLength = 255;
-            this.modelTB.Name = "modelTB";
-            this.modelTB.Size = new System.Drawing.Size(132, 20);
-            this.modelTB.TabIndex = 23;
+            this.versionTB.Location = new System.Drawing.Point(218, 137);
+            this.versionTB.MaxLength = 255;
+            this.versionTB.Name = "versionTB";
+            this.versionTB.Size = new System.Drawing.Size(132, 20);
+            this.versionTB.TabIndex = 23;
             // 
-            // sysNameTB
+            // osNameTB
             // 
-            this.sysNameTB.Location = new System.Drawing.Point(218, 100);
-            this.sysNameTB.MaxLength = 255;
-            this.sysNameTB.Name = "sysNameTB";
-            this.sysNameTB.Size = new System.Drawing.Size(132, 20);
-            this.sysNameTB.TabIndex = 22;
+            this.osNameTB.Location = new System.Drawing.Point(218, 100);
+            this.osNameTB.MaxLength = 255;
+            this.osNameTB.Name = "osNameTB";
+            this.osNameTB.Size = new System.Drawing.Size(132, 20);
+            this.osNameTB.TabIndex = 22;
             // 
             // addSoftwareLbl
             // 
@@ -162,8 +163,8 @@
             this.Controls.Add(this.versionLbl);
             this.Controls.Add(this.osNameLbl);
             this.Controls.Add(this.manuTB);
-            this.Controls.Add(this.modelTB);
-            this.Controls.Add(this.sysNameTB);
+            this.Controls.Add(this.versionTB);
+            this.Controls.Add(this.osNameTB);
             this.Controls.Add(this.addSoftwareLbl);
             this.Name = "AddSoftware";
             this.Text = "AddSoftware";
@@ -184,8 +185,8 @@
         private System.Windows.Forms.Label versionLbl;
         private System.Windows.Forms.Label osNameLbl;
         private System.Windows.Forms.TextBox manuTB;
-        private System.Windows.Forms.TextBox modelTB;
-        private System.Windows.Forms.TextBox sysNameTB;
+        private System.Windows.Forms.TextBox versionTB;
+        private System.Windows.Forms.TextBox osNameTB;
         private System.Windows.Forms.Label addSoftwareLbl;
     }
 }
