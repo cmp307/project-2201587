@@ -83,6 +83,7 @@
             this.softwareBtn.TabIndex = 5;
             this.softwareBtn.Text = "Software";
             this.softwareBtn.UseVisualStyleBackColor = true;
+            this.softwareBtn.Click += new System.EventHandler(this.softwareBtn_Click);
             // 
             // MenuForm
             // 

@@ -71,5 +71,12 @@ namespace CMP307Project
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void softwareBtn_Click(object sender, EventArgs e)
+        {
+            // open software page
+            SoftwareForm newForm = new SoftwareForm();
+            newForm.Show();
+        }
     }
 }
