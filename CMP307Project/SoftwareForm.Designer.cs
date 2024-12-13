@@ -47,17 +47,28 @@
             this.softwareBindingSource = new CMP307Project.softwareBindingSource();
             this.softwareLbl = new System.Windows.Forms.Label();
             this.softwareTableAdapter = new CMP307Project.softwareBindingSourceTableAdapters.SoftwareTableAdapter();
+            this.linksTable = new System.Windows.Forms.DataGridView();
+            this.linksBindingSource = new CMP307Project.linksBindingSource();
+            this.linksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.linksTableAdapter = new CMP307Project.linksBindingSourceTableAdapters.LinksTableAdapter();
+            this.linkSoftID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AssID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // closeBtn
             // 
-            this.closeBtn.Location = new System.Drawing.Point(455, 338);
+            this.closeBtn.Location = new System.Drawing.Point(907, 338);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(75, 41);
             this.closeBtn.TabIndex = 13;
@@ -114,7 +125,7 @@
             // 
             // refreshBtn
             // 
-            this.refreshBtn.Location = new System.Drawing.Point(374, 338);
+            this.refreshBtn.Location = new System.Drawing.Point(826, 338);
             this.refreshBtn.Name = "refreshBtn";
             this.refreshBtn.Size = new System.Drawing.Size(75, 41);
             this.refreshBtn.TabIndex = 12;
@@ -184,7 +195,7 @@
             // 
             this.softwareLbl.AutoSize = true;
             this.softwareLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.softwareLbl.Location = new System.Drawing.Point(245, 50);
+            this.softwareLbl.Location = new System.Drawing.Point(459, 50);
             this.softwareLbl.Name = "softwareLbl";
             this.softwareLbl.Size = new System.Drawing.Size(143, 37);
             this.softwareLbl.TabIndex = 7;
@@ -194,11 +205,74 @@
             // 
             this.softwareTableAdapter.ClearBeforeFill = true;
             // 
+            // linksTable
+            // 
+            this.linksTable.AllowUserToAddRows = false;
+            this.linksTable.AllowUserToDeleteRows = false;
+            this.linksTable.AutoGenerateColumns = false;
+            this.linksTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.linksTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.linkSoftID,
+            this.AssID,
+            this.Date,
+            this.Active});
+            this.linksTable.DataSource = this.linksBindingSource1;
+            this.linksTable.Location = new System.Drawing.Point(536, 112);
+            this.linksTable.MultiSelect = false;
+            this.linksTable.Name = "linksTable";
+            this.linksTable.ReadOnly = true;
+            this.linksTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.linksTable.Size = new System.Drawing.Size(446, 189);
+            this.linksTable.TabIndex = 14;
+            // 
+            // linksBindingSource
+            // 
+            this.linksBindingSource.DataSetName = "linksBindingSource";
+            this.linksBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // linksBindingSource1
+            // 
+            this.linksBindingSource1.DataMember = "Links";
+            this.linksBindingSource1.DataSource = this.linksBindingSource;
+            // 
+            // linksTableAdapter
+            // 
+            this.linksTableAdapter.ClearBeforeFill = true;
+            // 
+            // linkSoftID
+            // 
+            this.linkSoftID.DataPropertyName = "SoftID";
+            this.linkSoftID.HeaderText = "SoftID";
+            this.linkSoftID.Name = "linkSoftID";
+            this.linkSoftID.ReadOnly = true;
+            // 
+            // AssID
+            // 
+            this.AssID.DataPropertyName = "AssID";
+            this.AssID.HeaderText = "AssID";
+            this.AssID.Name = "AssID";
+            this.AssID.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Active";
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
+            // 
             // SoftwareForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 424);
+            this.ClientSize = new System.Drawing.Size(1074, 424);
+            this.Controls.Add(this.linksTable);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.deleteBtn);
@@ -215,6 +289,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.softwareTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,5 +317,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn oSnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn versionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn manufacturerDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView linksTable;
+        private linksBindingSource linksBindingSource;
+        private System.Windows.Forms.BindingSource linksBindingSource1;
+        private linksBindingSourceTableAdapters.LinksTableAdapter linksTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn linkSoftID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AssID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
     }
 }

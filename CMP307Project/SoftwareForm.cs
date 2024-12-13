@@ -29,6 +29,8 @@ namespace CMP307Project
 
         private void SoftwareForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'linksBindingSource.Links' table. You can move, or remove it, as needed.
+            this.linksTableAdapter.Fill(this.linksBindingSource.Links);
             // load data from the database as soon as the form opens
             loadTable();
         }
