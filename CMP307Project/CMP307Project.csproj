@@ -90,6 +90,12 @@
     <Compile Include="AddEmployee.Designer.cs">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddSoftware.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSoftware.Designer.cs">
+      <DependentUpon>AddSoftware.cs</DependentUpon>
+    </Compile>
     <Compile Include="Asset.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
