@@ -44,5 +44,12 @@ namespace CMP307Project
             // close software page
             this.Close();
         }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            // open add software form
+            AddSoftware newForm = new AddSoftware();
+            newForm.Show();
+        }
     }
 }
