@@ -18,5 +18,11 @@ namespace CMP307Project
         {
             InitializeComponent();
         }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            // close add page
+            this.Close();
+        }
     }
 }
