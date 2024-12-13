@@ -12,6 +12,8 @@ namespace CMP307Project
 {
     public partial class AddSoftware : Form
     {
+        // setup database connection
+        mssql2201587Entities db = new mssql2201587Entities();
         public AddSoftware()
         {
             InitializeComponent();
