@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="mssql2201587Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="mssql2201587Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Asset">
           <Key>
             <PropertyRef Name="AssID" />
@@ -37,7 +37,30 @@
           <Property Name="DepartmentID" Type="int" />
           <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Asset__EmployeeI__681373AD">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'mssql2201587.CMP307.Links' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Links">
+          <Key>
+            <PropertyRef Name="AssID" />
+            <PropertyRef Name="SoftID" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="AssID" Type="int" Nullable="false" />
+          <Property Name="SoftID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Software">
+          <Key>
+            <PropertyRef Name="SoftID" />
+          </Key>
+          <Property Name="SoftID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OSname" Type="varchar" MaxLength="225" Nullable="false" />
+          <Property Name="Version" Type="varchar" MaxLength="225" Nullable="false" />
+          <Property Name="manufacturer" Type="varchar" MaxLength="225" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Asset__EmployeeI__73852659">
           <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
           <End Role="Asset" Type="Self.Asset" Multiplicity="*" />
           <ReferentialConstraint>
@@ -49,7 +72,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Employee__Depart__65370702">
+        <Association Name="FK__Employee__Depart__70A8B9AE">
           <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -61,21 +84,61 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Links__AssID__09746778">
+          <End Role="Asset" Type="Self.Asset" Multiplicity="1" />
+          <End Role="Links" Type="Self.Links" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asset">
+              <PropertyRef Name="AssID" />
+            </Principal>
+            <Dependent Role="Links">
+              <PropertyRef Name="AssID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Links__SoftID__0A688BB1">
+          <End Role="Software" Type="Self.Software" Multiplicity="1" />
+          <End Role="Links" Type="Self.Links" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Software">
+              <PropertyRef Name="SoftID" />
+            </Principal>
+            <Dependent Role="Links">
+              <PropertyRef Name="SoftID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="mssql2201587ModelStoreContainer">
           <EntitySet Name="Asset" EntityType="Self.Asset" Schema="CMP307" store:Type="Tables" />
           <EntitySet Name="Department" EntityType="Self.Department" Schema="CMP307" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="CMP307" store:Type="Tables" />
-          <AssociationSet Name="FK__Asset__EmployeeI__681373AD" Association="Self.FK__Asset__EmployeeI__681373AD">
+          <EntitySet Name="Software" EntityType="Self.Software" Schema="CMP307" store:Type="Tables" />
+          <EntitySet Name="Links" EntityType="Self.Links" store:Type="Tables" store:Schema="CMP307">
+            <DefiningQuery>SELECT 
+    [Links].[AssID] AS [AssID], 
+    [Links].[SoftID] AS [SoftID], 
+    [Links].[Date] AS [Date], 
+    [Links].[Active] AS [Active]
+    FROM [CMP307].[Links] AS [Links]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Asset__EmployeeI__73852659" Association="Self.FK__Asset__EmployeeI__73852659">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Asset" EntitySet="Asset" />
           </AssociationSet>
-          <AssociationSet Name="FK__Employee__Depart__65370702" Association="Self.FK__Employee__Depart__65370702">
+          <AssociationSet Name="FK__Employee__Depart__70A8B9AE" Association="Self.FK__Employee__Depart__70A8B9AE">
             <End Role="Department" EntitySet="Department" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
+          <AssociationSet Name="FK__Links__AssID__09746778" Association="Self.FK__Links__AssID__09746778">
+            <End Role="Asset" EntitySet="Asset" />
+            <End Role="Links" EntitySet="Links" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Links__SoftID__0A688BB1" Association="Self.FK__Links__SoftID__0A688BB1">
+            <End Role="Software" EntitySet="Software" />
+            <End Role="Links" EntitySet="Links" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="mssql2201587Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -93,6 +156,7 @@
           <Property Name="Notes" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
           <Property Name="EmployeeID" Type="Int32" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__Asset__EmployeeI__681373AD" FromRole="Asset" ToRole="Employee" />
+          <NavigationProperty Name="Links" Relationship="mssql2201587Model.FK__Links__AssID__09746778" FromRole="Asset" ToRole="Link" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -151,7 +215,65 @@
             <End Role="Department" EntitySet="Departments" />
             <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
+          <EntitySet Name="Softwares" EntityType="mssql2201587Model.Software" />
+          <EntitySet Name="Links" EntityType="mssql2201587Model.Link" />
+          <AssociationSet Name="FK__Links__AssID__09746778" Association="mssql2201587Model.FK__Links__AssID__09746778">
+            <End Role="Asset" EntitySet="Assets" />
+            <End Role="Link" EntitySet="Links" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Links__SoftID__0A688BB1" Association="mssql2201587Model.FK__Links__SoftID__0A688BB1">
+            <End Role="Software" EntitySet="Softwares" />
+            <End Role="Link" EntitySet="Links" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Software">
+          <Key>
+            <PropertyRef Name="SoftID" />
+          </Key>
+          <Property Name="SoftID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OSname" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="false" />
+          <Property Name="Version" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="false" />
+          <Property Name="manufacturer" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Links" Relationship="mssql2201587Model.FK__Links__SoftID__0A688BB1" FromRole="Software" ToRole="Link" />
+        </EntityType>
+        <EntityType Name="Link">
+          <Key>
+            <PropertyRef Name="AssID" />
+            <PropertyRef Name="SoftID" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Active" />
+          </Key>
+          <Property Name="AssID" Type="Int32" Nullable="false" />
+          <Property Name="SoftID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Asset" Relationship="mssql2201587Model.FK__Links__AssID__09746778" FromRole="Link" ToRole="Asset" />
+          <NavigationProperty Name="Software" Relationship="mssql2201587Model.FK__Links__SoftID__0A688BB1" FromRole="Link" ToRole="Software" />
+        </EntityType>
+        <Association Name="FK__Links__AssID__09746778">
+          <End Type="mssql2201587Model.Asset" Role="Asset" Multiplicity="1" />
+          <End Type="mssql2201587Model.Link" Role="Link" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Asset">
+              <PropertyRef Name="AssID" />
+            </Principal>
+            <Dependent Role="Link">
+              <PropertyRef Name="AssID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Links__SoftID__0A688BB1">
+          <End Type="mssql2201587Model.Software" Role="Software" Multiplicity="1" />
+          <End Type="mssql2201587Model.Link" Role="Link" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Software">
+              <PropertyRef Name="SoftID" />
+            </Principal>
+            <Dependent Role="Link">
+              <PropertyRef Name="SoftID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -190,6 +312,26 @@
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Softwares">
+            <EntityTypeMapping TypeName="mssql2201587Model.Software">
+              <MappingFragment StoreEntitySet="Software">
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="OSname" ColumnName="OSname" />
+                <ScalarProperty Name="SoftID" ColumnName="SoftID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Links">
+            <EntityTypeMapping TypeName="mssql2201587Model.Link">
+              <MappingFragment StoreEntitySet="Links">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="SoftID" ColumnName="SoftID" />
+                <ScalarProperty Name="AssID" ColumnName="AssID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

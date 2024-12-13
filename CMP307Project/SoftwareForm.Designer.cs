@@ -39,20 +39,20 @@
             this.assetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.refreshBtn = new System.Windows.Forms.Button();
             this.softwareTable = new System.Windows.Forms.DataGridView();
-            this.softwareLbl = new System.Windows.Forms.Label();
-            this.softwareBindingSource = new CMP307Project.softwareBindingSource();
-            this.softwareBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.softwareTableAdapter = new CMP307Project.softwareBindingSourceTableAdapters.SoftwareTableAdapter();
             this.SoftID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oSnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.versionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.softwareBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.softwareBindingSource = new CMP307Project.softwareBindingSource();
+            this.softwareLbl = new System.Windows.Forms.Label();
+            this.softwareTableAdapter = new CMP307Project.softwareBindingSourceTableAdapters.SoftwareTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // closeBtn
@@ -118,6 +118,7 @@
             this.refreshBtn.TabIndex = 12;
             this.refreshBtn.Text = "Refresh";
             this.refreshBtn.UseVisualStyleBackColor = true;
+            this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
             // softwareTable
             // 
@@ -138,30 +139,6 @@
             this.softwareTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.softwareTable.Size = new System.Drawing.Size(446, 189);
             this.softwareTable.TabIndex = 8;
-            // 
-            // softwareLbl
-            // 
-            this.softwareLbl.AutoSize = true;
-            this.softwareLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.softwareLbl.Location = new System.Drawing.Point(245, 50);
-            this.softwareLbl.Name = "softwareLbl";
-            this.softwareLbl.Size = new System.Drawing.Size(143, 37);
-            this.softwareLbl.TabIndex = 7;
-            this.softwareLbl.Text = "Software";
-            // 
-            // softwareBindingSource
-            // 
-            this.softwareBindingSource.DataSetName = "softwareBindingSource";
-            this.softwareBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // softwareBindingSource1
-            // 
-            this.softwareBindingSource1.DataMember = "Software";
-            this.softwareBindingSource1.DataSource = this.softwareBindingSource;
-            // 
-            // softwareTableAdapter
-            // 
-            this.softwareTableAdapter.ClearBeforeFill = true;
             // 
             // SoftID
             // 
@@ -191,6 +168,30 @@
             this.manufacturerDataGridViewTextBoxColumn.Name = "manufacturerDataGridViewTextBoxColumn";
             this.manufacturerDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // softwareBindingSource1
+            // 
+            this.softwareBindingSource1.DataMember = "Software";
+            this.softwareBindingSource1.DataSource = this.softwareBindingSource;
+            // 
+            // softwareBindingSource
+            // 
+            this.softwareBindingSource.DataSetName = "softwareBindingSource";
+            this.softwareBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // softwareLbl
+            // 
+            this.softwareLbl.AutoSize = true;
+            this.softwareLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.softwareLbl.Location = new System.Drawing.Point(245, 50);
+            this.softwareLbl.Name = "softwareLbl";
+            this.softwareLbl.Size = new System.Drawing.Size(143, 37);
+            this.softwareLbl.TabIndex = 7;
+            this.softwareLbl.Text = "Software";
+            // 
+            // softwareTableAdapter
+            // 
+            this.softwareTableAdapter.ClearBeforeFill = true;
+            // 
             // SoftwareForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,8 +211,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

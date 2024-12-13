@@ -12,25 +12,19 @@ namespace CMP307Project
     using System;
     using System.Collections.Generic;
     
-    public partial class Asset
+    public partial class Software
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Asset()
+        public Software()
         {
             this.Links = new HashSet<Link>();
         }
     
-        public int AssID { get; set; }
-        public string SystemName { get; set; }
-        public string Model { get; set; }
-        public string Manufacturer { get; set; }
-        public string Type { get; set; }
-        public string IPAddress { get; set; }
-        public Nullable<System.DateTime> PurchaseDate { get; set; }
-        public string Notes { get; set; }
-        public Nullable<int> EmployeeID { get; set; }
+        public int SoftID { get; set; }
+        public string OSname { get; set; }
+        public string Version { get; set; }
+        public string manufacturer { get; set; }
     
-        public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Link> Links { get; set; }
     }

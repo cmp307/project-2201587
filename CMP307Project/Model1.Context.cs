@@ -28,5 +28,7 @@ namespace CMP307Project
         public virtual DbSet<Asset> Assets { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Software> Softwares { get; set; }
+        public virtual DbSet<Link> Links { get; set; }
     }
 }
