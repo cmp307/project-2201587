@@ -69,6 +69,7 @@ namespace CMP307Project
                 newSoft.OSname = osNameTB.Text;
                 newSoft.Version = versionTB.Text;
                 newSoft.manufacturer = manuTB.Text;
+                
                 Link newLink = new Link();
                 // asset ID on the form is automatically set to 0. if it is 0 when the form is submitted, throw an exception as employees must be assigned to a departmnet. if there is a value other than 0, add that as the asset ID
                 if (Decimal.ToInt32(assetNum.Value) == 0)
@@ -87,6 +88,16 @@ namespace CMP307Project
                 newLink.Date = DateTime.Now;
                 newLink.Active = true;
                 db.Links.Add(newLink);
+                db.SaveChanges();
+                
+                IQueryable<Link> links = from f in db.Links select f;
+                foreach (Link link in links)
+                {
+                    if (link.AssID == newLink.AssID && link.SoftID != newLink.SoftID)
+                    {
+                        link.Active = false;
+                    }
+                }
                 db.SaveChanges();
                 // confirmation message and hide form
                 MessageBox.Show("Software added successfully!");
