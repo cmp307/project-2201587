@@ -44,6 +44,7 @@ CREATE TABLE CMP307.Links (
 		AssID int NOT NULL FOREIGN KEY REFERENCES CMP307.Asset(AssID),
 		SoftID int NOT NULL FOREIGN KEY REFERENCES CMP307.Software(SoftID),
 		Date date NOT NULL,
-		Active bit NOT NULL
+		Active bit NOT NULL,
+		PRIMARY KEY (AssID, SoftID)
 );
 GO
