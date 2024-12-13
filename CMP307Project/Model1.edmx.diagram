@@ -11,10 +11,10 @@
         <AssociationConnector Association="mssql2201587Model.FK__Asset__EmployeeI__681373AD" ManuallyRouted="false" />
         <AssociationConnector Association="mssql2201587Model.FK__Employee__Depart__65370702" ManuallyRouted="false" />
         <EntityTypeShape EntityType="mssql2201587Model.Software" Width="1.5" PointX="5.25" PointY="5.625" />
-        <EntityTypeShape EntityType="mssql2201587Model.Link" Width="1.5" PointX="7.5" PointY="1.5" />
-        <AssociationConnector Association="mssql2201587Model.FK__Links__AssID__09746778" />
-        <AssociationConnector Association="mssql2201587Model.FK__Links__SoftID__0A688BB1" />
-      </Diagram>
+        <EntityTypeShape EntityType="mssql2201587Model.Link" Width="1.5" PointX="7.5" PointY="3.25" />
+        <AssociationConnector Association="mssql2201587Model.FK__Links__AssID__0D44F85C" />
+        <AssociationConnector Association="mssql2201587Model.FK__Links__SoftID__0E391C95" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

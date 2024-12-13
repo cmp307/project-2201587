@@ -37,14 +37,10 @@
           <Property Name="DepartmentID" Type="int" />
           <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'mssql2201587.CMP307.Links' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Links">
           <Key>
             <PropertyRef Name="AssID" />
             <PropertyRef Name="SoftID" />
-            <PropertyRef Name="Date" />
-            <PropertyRef Name="Active" />
           </Key>
           <Property Name="AssID" Type="int" Nullable="false" />
           <Property Name="SoftID" Type="int" Nullable="false" />
@@ -84,7 +80,7 @@ warning 6002: The table/view 'mssql2201587.CMP307.Links' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Links__AssID__09746778">
+        <Association Name="FK__Links__AssID__0D44F85C">
           <End Role="Asset" Type="Self.Asset" Multiplicity="1" />
           <End Role="Links" Type="Self.Links" Multiplicity="*" />
           <ReferentialConstraint>
@@ -96,7 +92,7 @@ warning 6002: The table/view 'mssql2201587.CMP307.Links' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Links__SoftID__0A688BB1">
+        <Association Name="FK__Links__SoftID__0E391C95">
           <End Role="Software" Type="Self.Software" Multiplicity="1" />
           <End Role="Links" Type="Self.Links" Multiplicity="*" />
           <ReferentialConstraint>
@@ -112,15 +108,8 @@ warning 6002: The table/view 'mssql2201587.CMP307.Links' does not have a primary
           <EntitySet Name="Asset" EntityType="Self.Asset" Schema="CMP307" store:Type="Tables" />
           <EntitySet Name="Department" EntityType="Self.Department" Schema="CMP307" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="CMP307" store:Type="Tables" />
+          <EntitySet Name="Links" EntityType="Self.Links" Schema="CMP307" store:Type="Tables" />
           <EntitySet Name="Software" EntityType="Self.Software" Schema="CMP307" store:Type="Tables" />
-          <EntitySet Name="Links" EntityType="Self.Links" store:Type="Tables" store:Schema="CMP307">
-            <DefiningQuery>SELECT 
-    [Links].[AssID] AS [AssID], 
-    [Links].[SoftID] AS [SoftID], 
-    [Links].[Date] AS [Date], 
-    [Links].[Active] AS [Active]
-    FROM [CMP307].[Links] AS [Links]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK__Asset__EmployeeI__73852659" Association="Self.FK__Asset__EmployeeI__73852659">
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Asset" EntitySet="Asset" />
@@ -129,11 +118,11 @@ warning 6002: The table/view 'mssql2201587.CMP307.Links' does not have a primary
             <End Role="Department" EntitySet="Department" />
             <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
-          <AssociationSet Name="FK__Links__AssID__09746778" Association="Self.FK__Links__AssID__09746778">
+          <AssociationSet Name="FK__Links__AssID__0D44F85C" Association="Self.FK__Links__AssID__0D44F85C">
             <End Role="Asset" EntitySet="Asset" />
             <End Role="Links" EntitySet="Links" />
           </AssociationSet>
-          <AssociationSet Name="FK__Links__SoftID__0A688BB1" Association="Self.FK__Links__SoftID__0A688BB1">
+          <AssociationSet Name="FK__Links__SoftID__0E391C95" Association="Self.FK__Links__SoftID__0E391C95">
             <End Role="Software" EntitySet="Software" />
             <End Role="Links" EntitySet="Links" />
           </AssociationSet>
@@ -156,7 +145,7 @@ warning 6002: The table/view 'mssql2201587.CMP307.Links' does not have a primary
           <Property Name="Notes" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
           <Property Name="EmployeeID" Type="Int32" />
           <NavigationProperty Name="Employee" Relationship="Self.FK__Asset__EmployeeI__681373AD" FromRole="Asset" ToRole="Employee" />
-          <NavigationProperty Name="Links" Relationship="mssql2201587Model.FK__Links__AssID__09746778" FromRole="Asset" ToRole="Link" />
+          <NavigationProperty Name="Links" Relationship="mssql2201587Model.FK__Links__AssID__0D44F85C" FromRole="Asset" ToRole="Link" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -217,15 +206,15 @@ warning 6002: The table/view 'mssql2201587.CMP307.Links' does not have a primary
           </AssociationSet>
           <EntitySet Name="Softwares" EntityType="mssql2201587Model.Software" />
           <EntitySet Name="Links" EntityType="mssql2201587Model.Link" />
-          <AssociationSet Name="FK__Links__AssID__09746778" Association="mssql2201587Model.FK__Links__AssID__09746778">
+          <AssociationSet Name="FK__Links__AssID__0D44F85C" Association="mssql2201587Model.FK__Links__AssID__0D44F85C">
             <End Role="Asset" EntitySet="Assets" />
             <End Role="Link" EntitySet="Links" />
           </AssociationSet>
-          <AssociationSet Name="FK__Links__SoftID__0A688BB1" Association="mssql2201587Model.FK__Links__SoftID__0A688BB1">
+          <AssociationSet Name="FK__Links__SoftID__0E391C95" Association="mssql2201587Model.FK__Links__SoftID__0E391C95">
             <End Role="Software" EntitySet="Softwares" />
             <End Role="Link" EntitySet="Links" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Software">
           <Key>
             <PropertyRef Name="SoftID" />
@@ -234,23 +223,21 @@ warning 6002: The table/view 'mssql2201587.CMP307.Links' does not have a primary
           <Property Name="OSname" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="false" />
           <Property Name="Version" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="false" />
           <Property Name="manufacturer" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Links" Relationship="mssql2201587Model.FK__Links__SoftID__0A688BB1" FromRole="Software" ToRole="Link" />
+          <NavigationProperty Name="Links" Relationship="mssql2201587Model.FK__Links__SoftID__0E391C95" FromRole="Software" ToRole="Link" />
         </EntityType>
         <EntityType Name="Link">
           <Key>
             <PropertyRef Name="AssID" />
             <PropertyRef Name="SoftID" />
-            <PropertyRef Name="Date" />
-            <PropertyRef Name="Active" />
           </Key>
           <Property Name="AssID" Type="Int32" Nullable="false" />
           <Property Name="SoftID" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Active" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Asset" Relationship="mssql2201587Model.FK__Links__AssID__09746778" FromRole="Link" ToRole="Asset" />
-          <NavigationProperty Name="Software" Relationship="mssql2201587Model.FK__Links__SoftID__0A688BB1" FromRole="Link" ToRole="Software" />
+          <NavigationProperty Name="Asset" Relationship="mssql2201587Model.FK__Links__AssID__0D44F85C" FromRole="Link" ToRole="Asset" />
+          <NavigationProperty Name="Software" Relationship="mssql2201587Model.FK__Links__SoftID__0E391C95" FromRole="Link" ToRole="Software" />
         </EntityType>
-        <Association Name="FK__Links__AssID__09746778">
+        <Association Name="FK__Links__AssID__0D44F85C">
           <End Type="mssql2201587Model.Asset" Role="Asset" Multiplicity="1" />
           <End Type="mssql2201587Model.Link" Role="Link" Multiplicity="*" />
           <ReferentialConstraint>
@@ -262,7 +249,7 @@ warning 6002: The table/view 'mssql2201587.CMP307.Links' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Links__SoftID__0A688BB1">
+        <Association Name="FK__Links__SoftID__0E391C95">
           <End Type="mssql2201587Model.Software" Role="Software" Multiplicity="1" />
           <End Type="mssql2201587Model.Link" Role="Link" Multiplicity="*" />
           <ReferentialConstraint>
@@ -274,7 +261,7 @@ warning 6002: The table/view 'mssql2201587.CMP307.Links' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

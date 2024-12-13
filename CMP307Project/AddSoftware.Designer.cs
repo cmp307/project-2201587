@@ -78,6 +78,7 @@
             this.addBtn.TabIndex = 37;
             this.addBtn.Text = "Add Software";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // assetIDLbl
             // 
