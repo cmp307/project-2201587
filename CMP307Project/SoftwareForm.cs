@@ -38,5 +38,11 @@ namespace CMP307Project
             // refresh table data
             loadTable();
         }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            // close software page
+            this.Close();
+        }
     }
 }

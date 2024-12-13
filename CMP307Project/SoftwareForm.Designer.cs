@@ -63,6 +63,7 @@
             this.closeBtn.TabIndex = 13;
             this.closeBtn.Text = "Close";
             this.closeBtn.UseVisualStyleBackColor = true;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // editBtn
             // 
