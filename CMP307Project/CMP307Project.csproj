@@ -99,6 +99,11 @@
     <Compile Include="Asset.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="assetBindingSource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>assetBindingSource.xsd</DependentUpon>
+    </Compile>
     <Compile Include="AssetsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +237,9 @@
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProfileForm.resx">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -248,6 +256,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="assetBindingSource.xsc">
+      <DependentUpon>assetBindingSource.xsd</DependentUpon>
+    </None>
+    <None Include="assetBindingSource.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>assetBindingSource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="assetBindingSource.xss">
+      <DependentUpon>assetBindingSource.xsd</DependentUpon>
+    </None>
     <None Include="employeeBindingSource.xsc">
       <DependentUpon>employeeBindingSource.xsd</DependentUpon>
     </None>
