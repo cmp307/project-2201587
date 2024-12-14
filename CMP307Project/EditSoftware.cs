@@ -12,6 +12,8 @@ namespace CMP307Project
 {
     public partial class EditSoftware : Form
     {
+        // setup global variables and database connection
+        mssql2201587Entities db = new mssql2201587Entities();
         public EditSoftware()
         {
             InitializeComponent();
