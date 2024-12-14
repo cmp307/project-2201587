@@ -12,9 +12,13 @@ namespace CMP307Project
 {
     public partial class ProfileForm : Form
     {
-        public ProfileForm()
+        // setup global variables and database connection
+        mssql2201587Entities db = new mssql2201587Entities();
+        private Employee employee;
+        public ProfileForm(Employee employee)
         {
             InitializeComponent();
+            this.employee = employee;
         }
 
         private void ProfileForm_Load(object sender, EventArgs e)
