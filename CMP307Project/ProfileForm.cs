@@ -16,5 +16,14 @@ namespace CMP307Project
         {
             InitializeComponent();
         }
+
+        private void ProfileForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'softwareBindingSource.Software' table. You can move, or remove it, as needed.
+            this.softwareTableAdapter.Fill(this.softwareBindingSource.Software);
+            // TODO: This line of code loads data into the 'assetBindingSource.Asset' table. You can move, or remove it, as needed.
+            this.assetTableAdapter.Fill(this.assetBindingSource.Asset);
+
+        }
     }
 }
