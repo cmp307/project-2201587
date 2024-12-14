@@ -62,6 +62,7 @@ namespace CMP307Project
                     {
                         assetsBtn.Visible = false;
                         employeesBtn.Visible = false;
+                        softwareBtn.Visible = false;
                     }
                 }
             }
