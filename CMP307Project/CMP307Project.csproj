@@ -120,6 +120,12 @@
     <Compile Include="EditEmployee.Designer.cs">
       <DependentUpon>EditEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditSoftware.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditSoftware.Designer.cs">
+      <DependentUpon>EditSoftware.cs</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
