@@ -19,26 +19,26 @@ namespace CMP307Project
             InitializeComponent();
         }
 
-        private void loadTable()
+        private void loadTables()
         {
             // get data from the database and update the assets table on the form
             db = new mssql2201587Entities();
             IQueryable<Software> softwares = from f in db.Softwares select f;
             softwareTable.DataSource = softwares.ToList();
+            IQueryable<Link> links = from f in db.Links select f;
+            linksTable.DataSource = links.OrderBy(link => link.SoftID).ToList();
         }
 
         private void SoftwareForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'linksBindingSource.Links' table. You can move, or remove it, as needed.
-            this.linksTableAdapter.Fill(this.linksBindingSource.Links);
             // load data from the database as soon as the form opens
-            loadTable();
+            loadTables();
         }
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
             // refresh table data
-            loadTable();
+            loadTables();
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
