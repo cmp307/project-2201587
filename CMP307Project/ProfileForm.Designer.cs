@@ -29,12 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.profileLbl = new System.Windows.Forms.Label();
-            this.assetBindingSource = new CMP307Project.assetBindingSource();
-            this.assetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.assetTableAdapter = new CMP307Project.assetBindingSourceTableAdapters.AssetTableAdapter();
+            this.assetsTable = new System.Windows.Forms.DataGridView();
             this.assIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.systemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,34 +39,39 @@
             this.purchaseDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.softwareBindingSource = new CMP307Project.softwareBindingSource();
-            this.softwareBindingSourceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.softwareBindingSourceBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.softwareBindingSourceBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.softwareBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.softwareTableAdapter = new CMP307Project.softwareBindingSourceTableAdapters.SoftwareTableAdapter();
-            this.softwareBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.assetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.assetBindingSource = new CMP307Project.assetBindingSource();
+            this.softwareTable = new System.Windows.Forms.DataGridView();
             this.softIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.oSnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.versionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.manufacturerDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
+            this.softwareBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.softwareBindingSourceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.softwareBindingSource = new CMP307Project.softwareBindingSource();
+            this.profileLbl = new System.Windows.Forms.Label();
+            this.assetTableAdapter = new CMP307Project.assetBindingSourceTableAdapters.AssetTableAdapter();
+            this.softwareBindingSourceBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.softwareBindingSourceBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.softwareBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.softwareTableAdapter = new CMP307Project.softwareBindingSourceTableAdapters.SoftwareTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.assetsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.softwareTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSourceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSourceBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSourceBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // assetsTable
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.assetsTable.AutoGenerateColumns = false;
+            this.assetsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.assetsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.assIDDataGridViewTextBoxColumn,
             this.systemNameDataGridViewTextBoxColumn,
             this.modelDataGridViewTextBoxColumn,
@@ -81,50 +81,11 @@
             this.purchaseDateDataGridViewTextBoxColumn,
             this.notesDataGridViewTextBoxColumn,
             this.employeeIDDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.assetBindingSource1;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 118);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(946, 150);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.softIDDataGridViewTextBoxColumn,
-            this.oSnameDataGridViewTextBoxColumn,
-            this.versionDataGridViewTextBoxColumn,
-            this.manufacturerDataGridViewTextBoxColumn1});
-            this.dataGridView2.DataSource = this.softwareBindingSource2;
-            this.dataGridView2.Location = new System.Drawing.Point(296, 288);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(446, 150);
-            this.dataGridView2.TabIndex = 1;
-            // 
-            // profileLbl
-            // 
-            this.profileLbl.AutoSize = true;
-            this.profileLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.profileLbl.Location = new System.Drawing.Point(451, 35);
-            this.profileLbl.Name = "profileLbl";
-            this.profileLbl.Size = new System.Drawing.Size(107, 37);
-            this.profileLbl.TabIndex = 2;
-            this.profileLbl.Text = "Profile";
-            // 
-            // assetBindingSource
-            // 
-            this.assetBindingSource.DataSetName = "assetBindingSource";
-            this.assetBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // assetBindingSource1
-            // 
-            this.assetBindingSource1.DataMember = "Asset";
-            this.assetBindingSource1.DataSource = this.assetBindingSource;
-            // 
-            // assetTableAdapter
-            // 
-            this.assetTableAdapter.ClearBeforeFill = true;
+            this.assetsTable.DataSource = this.assetBindingSource1;
+            this.assetsTable.Location = new System.Drawing.Point(26, 118);
+            this.assetsTable.Name = "assetsTable";
+            this.assetsTable.Size = new System.Drawing.Size(946, 150);
+            this.assetsTable.TabIndex = 0;
             // 
             // assIDDataGridViewTextBoxColumn
             // 
@@ -181,39 +142,30 @@
             this.employeeIDDataGridViewTextBoxColumn.HeaderText = "EmployeeID";
             this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
             // 
-            // softwareBindingSource
+            // assetBindingSource1
             // 
-            this.softwareBindingSource.DataSetName = "softwareBindingSource";
-            this.softwareBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.assetBindingSource1.DataMember = "Asset";
+            this.assetBindingSource1.DataSource = this.assetBindingSource;
             // 
-            // softwareBindingSourceBindingSource
+            // assetBindingSource
             // 
-            this.softwareBindingSourceBindingSource.DataSource = this.softwareBindingSource;
-            this.softwareBindingSourceBindingSource.Position = 0;
+            this.assetBindingSource.DataSetName = "assetBindingSource";
+            this.assetBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // softwareBindingSourceBindingSource1
+            // softwareTable
             // 
-            this.softwareBindingSourceBindingSource1.DataSource = this.softwareBindingSource;
-            this.softwareBindingSourceBindingSource1.Position = 0;
-            // 
-            // softwareBindingSourceBindingSource2
-            // 
-            this.softwareBindingSourceBindingSource2.DataSource = this.softwareBindingSource;
-            this.softwareBindingSourceBindingSource2.Position = 0;
-            // 
-            // softwareBindingSource1
-            // 
-            this.softwareBindingSource1.DataMember = "Software";
-            this.softwareBindingSource1.DataSource = this.softwareBindingSourceBindingSource2;
-            // 
-            // softwareTableAdapter
-            // 
-            this.softwareTableAdapter.ClearBeforeFill = true;
-            // 
-            // softwareBindingSource2
-            // 
-            this.softwareBindingSource2.DataMember = "Software";
-            this.softwareBindingSource2.DataSource = this.softwareBindingSourceBindingSource;
+            this.softwareTable.AutoGenerateColumns = false;
+            this.softwareTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.softwareTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.softIDDataGridViewTextBoxColumn,
+            this.oSnameDataGridViewTextBoxColumn,
+            this.versionDataGridViewTextBoxColumn,
+            this.manufacturerDataGridViewTextBoxColumn1});
+            this.softwareTable.DataSource = this.softwareBindingSource2;
+            this.softwareTable.Location = new System.Drawing.Point(296, 288);
+            this.softwareTable.Name = "softwareTable";
+            this.softwareTable.Size = new System.Drawing.Size(446, 150);
+            this.softwareTable.TabIndex = 1;
             // 
             // softIDDataGridViewTextBoxColumn
             // 
@@ -240,27 +192,75 @@
             this.manufacturerDataGridViewTextBoxColumn1.HeaderText = "manufacturer";
             this.manufacturerDataGridViewTextBoxColumn1.Name = "manufacturerDataGridViewTextBoxColumn1";
             // 
+            // softwareBindingSource2
+            // 
+            this.softwareBindingSource2.DataMember = "Software";
+            this.softwareBindingSource2.DataSource = this.softwareBindingSourceBindingSource;
+            // 
+            // softwareBindingSourceBindingSource
+            // 
+            this.softwareBindingSourceBindingSource.DataSource = this.softwareBindingSource;
+            this.softwareBindingSourceBindingSource.Position = 0;
+            // 
+            // softwareBindingSource
+            // 
+            this.softwareBindingSource.DataSetName = "softwareBindingSource";
+            this.softwareBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // profileLbl
+            // 
+            this.profileLbl.AutoSize = true;
+            this.profileLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.profileLbl.Location = new System.Drawing.Point(451, 35);
+            this.profileLbl.Name = "profileLbl";
+            this.profileLbl.Size = new System.Drawing.Size(107, 37);
+            this.profileLbl.TabIndex = 2;
+            this.profileLbl.Text = "Profile";
+            // 
+            // assetTableAdapter
+            // 
+            this.assetTableAdapter.ClearBeforeFill = true;
+            // 
+            // softwareBindingSourceBindingSource1
+            // 
+            this.softwareBindingSourceBindingSource1.DataSource = this.softwareBindingSource;
+            this.softwareBindingSourceBindingSource1.Position = 0;
+            // 
+            // softwareBindingSourceBindingSource2
+            // 
+            this.softwareBindingSourceBindingSource2.DataSource = this.softwareBindingSource;
+            this.softwareBindingSourceBindingSource2.Position = 0;
+            // 
+            // softwareBindingSource1
+            // 
+            this.softwareBindingSource1.DataMember = "Software";
+            this.softwareBindingSource1.DataSource = this.softwareBindingSourceBindingSource2;
+            // 
+            // softwareTableAdapter
+            // 
+            this.softwareTableAdapter.ClearBeforeFill = true;
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 478);
             this.Controls.Add(this.profileLbl);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.softwareTable);
+            this.Controls.Add(this.assetsTable);
             this.Name = "ProfileForm";
             this.Text = "ProfileForm";
             this.Load += new System.EventHandler(this.ProfileForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assetsTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.softwareTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSourceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSourceBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSourceBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,8 +268,8 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView assetsTable;
+        private System.Windows.Forms.DataGridView softwareTable;
         private System.Windows.Forms.Label profileLbl;
         private assetBindingSource assetBindingSource;
         private System.Windows.Forms.BindingSource assetBindingSource1;
