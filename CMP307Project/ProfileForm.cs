@@ -23,6 +23,8 @@ namespace CMP307Project
 
         private void ProfileForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'linksBindingSource.Links' table. You can move, or remove it, as needed.
+            this.linksTableAdapter.Fill(this.linksBindingSource.Links);
             // get data from the database and update the assets table on the form
             db = new mssql2201587Entities();
             IQueryable<Asset> assets = from f in db.Assets where f.EmployeeID == employee.EmployeeID select f;
