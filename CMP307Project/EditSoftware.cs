@@ -91,10 +91,14 @@ namespace CMP307Project
                         MessageBox.Show("System updated successfully!");
                         this.Hide();
                     }
+                    else
+                    {
+                        throw new Exception("Link error");
+                    }
                 }
                 else
                 {
-                    throw new Exception("Asset not Found");
+                    throw new Exception("Software not Found");
                 }
             }
             catch (Exception ex)
