@@ -44,9 +44,8 @@ namespace CMP307Project
 
         private void profileBtn_Click(object sender, EventArgs e)
         {
-
-            //ProfileForm newForm = new ProfileForm(username);
-            //newForm.Show();
+            ProfileForm newForm = new ProfileForm(employee);
+            newForm.Show();
         }
 
         private void MenuForm_Load(object sender, EventArgs e)
