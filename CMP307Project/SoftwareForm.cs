@@ -92,5 +92,53 @@ namespace CMP307Project
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // check if only one row has been selected
+                if (softwareTable.SelectedRows.Count == 1)
+                {
+                    // get the ID of the row and confirm the user would like to delete this row
+                    int softID = (int)softwareTable.SelectedRows[0].Cells["SoftID"].Value;
+                    if (MessageBox.Show("Are you sure you want to delete selected row? (row number: " + softID + ")", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        // if user clicks confirm, find asset in the databse
+                        Software software = (from f in db.Softwares
+                                       where f.SoftID == softID
+                                       select f).FirstOrDefault();
+                        // if asset found, delete asset
+                        if (software != null)
+                        {
+                            Link link = (from f in db.Links
+                                         where f.SoftID == softID
+                                         select f).FirstOrDefault();   
+                            if (link != null)
+                            {
+                                db.Links.Remove(link);
+                                db.Softwares.Remove(software);
+                                db.SaveChanges();
+                                loadTables();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        // user clicked no
+                    }
+                }
+                else
+                {
+                    // handle exception if user selects no rows or more than one row
+                    MessageBox.Show("Can only delete one row at a time. Please select only one row and try again.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // exception handler
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

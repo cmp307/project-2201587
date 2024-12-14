@@ -94,6 +94,7 @@
             this.deleteBtn.TabIndex = 10;
             this.deleteBtn.Text = "Delete Software";
             this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // addBtn
             // 
