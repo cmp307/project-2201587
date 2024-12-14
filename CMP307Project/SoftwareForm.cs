@@ -69,9 +69,15 @@ namespace CMP307Project
                     // if asset found, open edit form
                     if (software != null)
                     {
-                        // open edit asset form
-                        EditSoftware newForm = new EditSoftware(software);
-                        newForm.Show();
+                        Link link = (from f in db.Links
+                                     where f.SoftID == softID
+                                     select f).FirstOrDefault();
+                        if (link != null)
+                        {
+                            // open edit asset form
+                            EditSoftware newForm = new EditSoftware(software, link);
+                            newForm.Show();
+                        }
                     }
                 }
                 else
