@@ -48,13 +48,13 @@
             this.softwareLbl = new System.Windows.Forms.Label();
             this.softwareTableAdapter = new CMP307Project.softwareBindingSourceTableAdapters.SoftwareTableAdapter();
             this.linksTable = new System.Windows.Forms.DataGridView();
-            this.linksBindingSource = new CMP307Project.linksBindingSource();
-            this.linksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.linksTableAdapter = new CMP307Project.linksBindingSourceTableAdapters.LinksTableAdapter();
             this.linkSoftID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AssID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.linksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.linksBindingSource = new CMP307Project.linksBindingSource();
+            this.linksTableAdapter = new CMP307Project.linksBindingSourceTableAdapters.LinksTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
@@ -62,8 +62,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linksTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // closeBtn
@@ -84,6 +84,7 @@
             this.editBtn.TabIndex = 11;
             this.editBtn.Text = "Edit Software";
             this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // deleteBtn
             // 
@@ -225,20 +226,6 @@
             this.linksTable.Size = new System.Drawing.Size(446, 189);
             this.linksTable.TabIndex = 14;
             // 
-            // linksBindingSource
-            // 
-            this.linksBindingSource.DataSetName = "linksBindingSource";
-            this.linksBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // linksBindingSource1
-            // 
-            this.linksBindingSource1.DataMember = "Links";
-            this.linksBindingSource1.DataSource = this.linksBindingSource;
-            // 
-            // linksTableAdapter
-            // 
-            this.linksTableAdapter.ClearBeforeFill = true;
-            // 
             // linkSoftID
             // 
             this.linkSoftID.DataPropertyName = "SoftID";
@@ -267,6 +254,20 @@
             this.Active.Name = "Active";
             this.Active.ReadOnly = true;
             // 
+            // linksBindingSource1
+            // 
+            this.linksBindingSource1.DataMember = "Links";
+            this.linksBindingSource1.DataSource = this.linksBindingSource;
+            // 
+            // linksBindingSource
+            // 
+            this.linksBindingSource.DataSetName = "linksBindingSource";
+            this.linksBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // linksTableAdapter
+            // 
+            this.linksTableAdapter.ClearBeforeFill = true;
+            // 
             // SoftwareForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,8 +291,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linksTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
