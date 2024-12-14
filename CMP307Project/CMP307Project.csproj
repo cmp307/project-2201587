@@ -220,6 +220,9 @@
     <EmbeddedResource Include="EditEmployee.resx">
       <DependentUpon>EditEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EditSoftware.resx">
+      <DependentUpon>EditSoftware.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeesForm.resx">
       <DependentUpon>EmployeesForm.cs</DependentUpon>
     </EmbeddedResource>
