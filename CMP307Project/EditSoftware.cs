@@ -14,9 +14,11 @@ namespace CMP307Project
     {
         // setup global variables and database connection
         mssql2201587Entities db = new mssql2201587Entities();
-        public EditSoftware()
+        private Software software;
+        public EditSoftware(Software software)
         {
             InitializeComponent();
+            this.software = software;
         }
     }
 }
