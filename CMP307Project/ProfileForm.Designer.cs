@@ -55,6 +55,14 @@
             this.softwareBindingSourceBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.softwareBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.softwareTableAdapter = new CMP307Project.softwareBindingSourceTableAdapters.SoftwareTableAdapter();
+            this.linksTable = new System.Windows.Forms.DataGridView();
+            this.linksBindingSource = new CMP307Project.linksBindingSource();
+            this.linksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.linksTableAdapter = new CMP307Project.linksBindingSourceTableAdapters.LinksTableAdapter();
+            this.AssID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.assetsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
@@ -65,6 +73,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSourceBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSourceBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // assetsTable
@@ -162,7 +173,7 @@
             this.versionDataGridViewTextBoxColumn,
             this.manufacturerDataGridViewTextBoxColumn1});
             this.softwareTable.DataSource = this.softwareBindingSource2;
-            this.softwareTable.Location = new System.Drawing.Point(296, 288);
+            this.softwareTable.Location = new System.Drawing.Point(526, 288);
             this.softwareTable.Name = "softwareTable";
             this.softwareTable.Size = new System.Drawing.Size(446, 150);
             this.softwareTable.TabIndex = 1;
@@ -240,11 +251,66 @@
             // 
             this.softwareTableAdapter.ClearBeforeFill = true;
             // 
+            // linksTable
+            // 
+            this.linksTable.AutoGenerateColumns = false;
+            this.linksTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.linksTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.AssID,
+            this.dataGridViewTextBoxColumn1,
+            this.Date,
+            this.Active});
+            this.linksTable.DataSource = this.linksBindingSource1;
+            this.linksTable.Location = new System.Drawing.Point(26, 288);
+            this.linksTable.Name = "linksTable";
+            this.linksTable.Size = new System.Drawing.Size(446, 150);
+            this.linksTable.TabIndex = 3;
+            // 
+            // linksBindingSource
+            // 
+            this.linksBindingSource.DataSetName = "linksBindingSource";
+            this.linksBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // linksBindingSource1
+            // 
+            this.linksBindingSource1.DataMember = "Links";
+            this.linksBindingSource1.DataSource = this.linksBindingSource;
+            // 
+            // linksTableAdapter
+            // 
+            this.linksTableAdapter.ClearBeforeFill = true;
+            // 
+            // AssID
+            // 
+            this.AssID.DataPropertyName = "AssID";
+            this.AssID.HeaderText = "AssID";
+            this.AssID.Name = "AssID";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "SoftID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "SoftID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Active";
+            this.Active.Name = "Active";
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 478);
+            this.Controls.Add(this.linksTable);
             this.Controls.Add(this.profileLbl);
             this.Controls.Add(this.softwareTable);
             this.Controls.Add(this.assetsTable);
@@ -261,6 +327,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSourceBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSourceBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,5 +363,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn versionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn manufacturerDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource softwareBindingSource2;
+        private System.Windows.Forms.DataGridView linksTable;
+        private linksBindingSource linksBindingSource;
+        private System.Windows.Forms.BindingSource linksBindingSource1;
+        private linksBindingSourceTableAdapters.LinksTableAdapter linksTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AssID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
     }
 }
