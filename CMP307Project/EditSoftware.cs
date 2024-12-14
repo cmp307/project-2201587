@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,23 @@ namespace CMP307Project
         {
             // close add page
             this.Close();
+        }
+
+        private void EditSoftware_Load(object sender, EventArgs e)
+        {
+            osNameTB.Text = software.OSname;
+            versionTB.Text = software.Version;
+            manuTB.Text = software.manufacturer;
+            assetNum.Value = link.AssID;
+            if (link.Active == true)
+            {
+                activeCB.Checked = true;
+            } 
+            else
+            {
+                activeCB.Checked = false;
+            }
+            
         }
     }
 }

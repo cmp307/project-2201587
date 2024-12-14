@@ -169,6 +169,7 @@
             this.Controls.Add(this.editSoftwareLbl);
             this.Name = "EditSoftware";
             this.Text = "EditSoftware";
+            this.Load += new System.EventHandler(this.EditSoftware_Load);
             ((System.ComponentModel.ISupportInitialize)(this.assetNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
