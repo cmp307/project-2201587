@@ -30,7 +30,7 @@
         {
             this.assetNum = new System.Windows.Forms.NumericUpDown();
             this.cancelBtn = new System.Windows.Forms.Button();
-            this.addBtn = new System.Windows.Forms.Button();
+            this.editBtn = new System.Windows.Forms.Button();
             this.assetIDLbl = new System.Windows.Forms.Label();
             this.manufacturerLbl = new System.Windows.Forms.Label();
             this.versionLbl = new System.Windows.Forms.Label();
@@ -60,14 +60,15 @@
             this.cancelBtn.UseVisualStyleBackColor = true;
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
-            // addBtn
+            // editBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(157, 300);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(75, 43);
-            this.addBtn.TabIndex = 49;
-            this.addBtn.Text = "Add Software";
-            this.addBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Location = new System.Drawing.Point(157, 300);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(75, 43);
+            this.editBtn.TabIndex = 49;
+            this.editBtn.Text = "Edit Software";
+            this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // assetIDLbl
             // 
@@ -158,7 +159,7 @@
             this.Controls.Add(this.activeCB);
             this.Controls.Add(this.assetNum);
             this.Controls.Add(this.cancelBtn);
-            this.Controls.Add(this.addBtn);
+            this.Controls.Add(this.editBtn);
             this.Controls.Add(this.assetIDLbl);
             this.Controls.Add(this.manufacturerLbl);
             this.Controls.Add(this.versionLbl);
@@ -180,7 +181,7 @@
 
         private System.Windows.Forms.NumericUpDown assetNum;
         private System.Windows.Forms.Button cancelBtn;
-        private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Label assetIDLbl;
         private System.Windows.Forms.Label manufacturerLbl;
         private System.Windows.Forms.Label versionLbl;
