@@ -410,6 +410,7 @@
             this.addLinkBtn.TabIndex = 10;
             this.addLinkBtn.Text = "Add Link";
             this.addLinkBtn.UseVisualStyleBackColor = true;
+            this.addLinkBtn.Click += new System.EventHandler(this.addLinkBtn_Click);
             // 
             // editLinkBtn
             // 
