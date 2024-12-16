@@ -55,5 +55,17 @@ namespace CMP307Project
             AddAsset newForm = new AddAsset(employee.EmployeeID);
             newForm.Show();
         }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            // get data from the database and update the assets table on the form
+            db = new mssql2201587Entities();
+            IQueryable<Software> softwares = from f in db.Softwares select f;
+            softwareTable.DataSource = softwares.ToList();
+            IQueryable<Link> links = from f in db.Links select f;
+            linksTable.DataSource = links.OrderBy(link => link.SoftID).ToList();
+            IQueryable<Asset> assets = from f in db.Assets select f;
+            assetsTable.DataSource = assets.ToList();
+        }
     }
 }
