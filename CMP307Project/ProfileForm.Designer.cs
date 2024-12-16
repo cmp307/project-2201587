@@ -68,6 +68,7 @@
             this.editAssetBtn = new System.Windows.Forms.Button();
             this.editSoftBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
+            this.refreshBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.assetsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
@@ -357,11 +358,21 @@
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
+            // refreshBtn
+            // 
+            this.refreshBtn.Location = new System.Drawing.Point(816, 462);
+            this.refreshBtn.Name = "refreshBtn";
+            this.refreshBtn.Size = new System.Drawing.Size(75, 37);
+            this.refreshBtn.TabIndex = 9;
+            this.refreshBtn.Text = "Refresh";
+            this.refreshBtn.UseVisualStyleBackColor = true;
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 532);
+            this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.editSoftBtn);
             this.Controls.Add(this.editAssetBtn);
@@ -433,5 +444,6 @@
         private System.Windows.Forms.Button editAssetBtn;
         private System.Windows.Forms.Button editSoftBtn;
         private System.Windows.Forms.Button closeBtn;
+        private System.Windows.Forms.Button refreshBtn;
     }
 }
