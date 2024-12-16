@@ -1,9 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
+using System.Resources;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -143,8 +147,30 @@ namespace CMP307Project
 
         private void vulnCheckBtn_Click(object sender, EventArgs e)
         {
-            VulnerabilityCheck newForm = new VulnerabilityCheck();
-            newForm.Show();
+            if (softwareTable.SelectedRows.Count == 1)
+            {
+                int softID = (int)softwareTable.SelectedRows[0].Cells["SoftID"].Value;
+                Software software = (from f in db.Softwares where f.SoftID == softID select f).FirstOrDefault();
+                string api = @"https://services.nvd.nist.gov/rest/json/cves/2.0?";
+                string url = api;
+                if (software.OSname.Contains("Windows 10"))
+                {
+                    url += "cpeName=cpe:2.3:o:microsoft:windows_10";
+                }
+                else
+                {
+                    url += "cpeName=cpe:2.3:o:microsoft:windows_11";
+                }
+                string version = software.Version.Substring(2);
+                url += ":" + software.Version;
+                VulnerabilityCheck newForm = new VulnerabilityCheck(url);
+                newForm.Show();
+            }
+            else
+            {
+                // handle exception if user selects no rows or more than one row
+                MessageBox.Show("Can only use one row at a time. Please select only one row and try again.");
+            }
         }
 
         private void addLinkBtn_Click(object sender, EventArgs e)
