@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.assetNum = new System.Windows.Forms.NumericUpDown();
             this.autofillBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
-            this.assetIDLbl = new System.Windows.Forms.Label();
             this.manufacturerLbl = new System.Windows.Forms.Label();
             this.versionLbl = new System.Windows.Forms.Label();
             this.osNameLbl = new System.Windows.Forms.Label();
@@ -40,15 +38,7 @@
             this.versionTB = new System.Windows.Forms.TextBox();
             this.osNameTB = new System.Windows.Forms.TextBox();
             this.addSoftwareLbl = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.assetNum)).BeginInit();
             this.SuspendLayout();
-            // 
-            // assetNum
-            // 
-            this.assetNum.Location = new System.Drawing.Point(218, 211);
-            this.assetNum.Name = "assetNum";
-            this.assetNum.Size = new System.Drawing.Size(120, 20);
-            this.assetNum.TabIndex = 40;
             // 
             // autofillBtn
             // 
@@ -79,15 +69,6 @@
             this.addBtn.Text = "Add Software";
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
-            // 
-            // assetIDLbl
-            // 
-            this.assetIDLbl.AutoSize = true;
-            this.assetIDLbl.Location = new System.Drawing.Point(64, 213);
-            this.assetIDLbl.Name = "assetIDLbl";
-            this.assetIDLbl.Size = new System.Drawing.Size(47, 13);
-            this.assetIDLbl.TabIndex = 36;
-            this.assetIDLbl.Text = "Asset ID";
             // 
             // manufacturerLbl
             // 
@@ -155,11 +136,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 337);
-            this.Controls.Add(this.assetNum);
             this.Controls.Add(this.autofillBtn);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.addBtn);
-            this.Controls.Add(this.assetIDLbl);
             this.Controls.Add(this.manufacturerLbl);
             this.Controls.Add(this.versionLbl);
             this.Controls.Add(this.osNameLbl);
@@ -169,19 +148,15 @@
             this.Controls.Add(this.addSoftwareLbl);
             this.Name = "AddSoftware";
             this.Text = "AddSoftware";
-            ((System.ComponentModel.ISupportInitialize)(this.assetNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.NumericUpDown assetNum;
         private System.Windows.Forms.Button autofillBtn;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.Label assetIDLbl;
         private System.Windows.Forms.Label manufacturerLbl;
         private System.Windows.Forms.Label versionLbl;
         private System.Windows.Forms.Label osNameLbl;
