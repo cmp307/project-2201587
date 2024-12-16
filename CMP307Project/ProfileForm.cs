@@ -68,5 +68,11 @@ namespace CMP307Project
         {
             loadTable();
         }
+
+        private void addSoftBtn_Click(object sender, EventArgs e)
+        {
+            AddSoftware newForm = new AddSoftware();
+            newForm.Show();
+        }
     }
 }

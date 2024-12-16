@@ -329,6 +329,7 @@
             this.addSoftBtn.TabIndex = 5;
             this.addSoftBtn.Text = "Add Software";
             this.addSoftBtn.UseVisualStyleBackColor = true;
+            this.addSoftBtn.Click += new System.EventHandler(this.addSoftBtn_Click);
             // 
             // editAssetBtn
             // 
