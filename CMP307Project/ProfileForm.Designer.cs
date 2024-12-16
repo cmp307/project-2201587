@@ -318,6 +318,7 @@
             this.addAssetBtn.TabIndex = 4;
             this.addAssetBtn.Text = "Add Asset";
             this.addAssetBtn.UseVisualStyleBackColor = true;
+            this.addAssetBtn.Click += new System.EventHandler(this.addAssetBtn_Click);
             // 
             // addSoftBtn
             // 

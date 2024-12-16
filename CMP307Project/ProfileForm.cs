@@ -48,5 +48,12 @@ namespace CMP307Project
             // close profile page
             this.Close();
         }
+
+        private void addAssetBtn_Click(object sender, EventArgs e)
+        {
+            // open add asset form
+            AddAsset newForm = new AddAsset();
+            newForm.Show();
+        }
     }
 }
