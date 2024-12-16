@@ -16,9 +16,11 @@ namespace CMP307Project
     {
         // setup database connection
         mssql2201587Entities db = new mssql2201587Entities();
-        public AddSoftware()
+        private int employeeID; 
+        public AddSoftware(int employeeID = 0)
         {
             InitializeComponent();
+            this.employeeID = employeeID;
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)

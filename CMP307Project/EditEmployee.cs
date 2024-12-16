@@ -76,7 +76,7 @@ namespace CMP307Project
             lastNameTB.Text = employee.LastName;
             emailTB.Text = employee.Email;
             passwordTB.Text = employee.Password;
-            departmentNum.Value = employee.DepartmentID.Value;
+            departmentNum.Value = employee.DepartmentID;
         }
     }
 }

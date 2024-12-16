@@ -19,7 +19,7 @@ namespace CMP307Project
         public System.DateTime Date { get; set; }
         public bool Active { get; set; }
     
-        public virtual Asset Asset { get; set; }
         public virtual Software Software { get; set; }
+        public virtual Asset Asset { get; set; }
     }
 }

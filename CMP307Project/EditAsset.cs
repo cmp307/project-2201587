@@ -17,10 +17,12 @@ namespace CMP307Project
         // setup global variables and database connection
         mssql2201587Entities db = new mssql2201587Entities();
         private Asset asset;
-        public EditAsset(Asset asset)
+        private int employeeID;
+        public EditAsset(Asset asset, int employeeID = 0)
         {
             InitializeComponent();
             this.asset = asset;
+            this.employeeID = employeeID;
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
@@ -47,9 +49,11 @@ namespace CMP307Project
             {
                 notesTB.Text = asset.Notes;
             }
-            if (asset.EmployeeID != null)
+            employeeNum.Value = asset.EmployeeID;
+            if (employeeID != 0)
             {
-                employeeNum.Value = asset.EmployeeID.Value;
+                employeeIDLbl.Visible = false;
+                employeeNum.Visible = false;
             }
 
         }
@@ -74,7 +78,7 @@ namespace CMP307Project
                     // employee ID on the form is automatically set to 0. if it is 0 when the form is submitted, set employee ID to null (belongs to no employee). if there is a value other than null, add that as the employee ID
                     if (Decimal.ToInt32(employeeNum.Value) == 0)
                     {
-                        updateAsset.EmployeeID = null;
+                        throw new Exception("Asset must be assigned to employee");
                     }
                     else
                     {

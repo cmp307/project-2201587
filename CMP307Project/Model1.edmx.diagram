@@ -5,15 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a6ae7359fe4c43aba478c53d2d21bb3b" Name="Diagram1">
-        <EntityTypeShape EntityType="mssql2201587Model.Asset" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="mssql2201587Model.Department" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="mssql2201587Model.Employee" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <AssociationConnector Association="mssql2201587Model.FK__Asset__EmployeeI__681373AD" ManuallyRouted="false" />
-        <AssociationConnector Association="mssql2201587Model.FK__Employee__Depart__65370702" ManuallyRouted="false" />
         <EntityTypeShape EntityType="mssql2201587Model.Software" Width="1.5" PointX="5.25" PointY="5.625" />
         <EntityTypeShape EntityType="mssql2201587Model.Link" Width="1.5" PointX="7.5" PointY="3.25" />
-        <AssociationConnector Association="mssql2201587Model.FK__Links__AssID__0D44F85C" />
         <AssociationConnector Association="mssql2201587Model.FK__Links__SoftID__0E391C95" />
+        <EntityTypeShape EntityType="mssql2201587Model.Asset" Width="1.5" PointX="5.25" PointY="0.875" />
+        <AssociationConnector Association="mssql2201587Model.FK__Links__AssID__19AACF41" />
+        <EntityTypeShape EntityType="mssql2201587Model.Employee" Width="1.5" PointX="3" PointY="1.125" />
+        <AssociationConnector Association="mssql2201587Model.FK__Asset__EmployeeI__14E61A24" />
+        <AssociationConnector Association="mssql2201587Model.FK__Employee__Depart__1209AD79" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

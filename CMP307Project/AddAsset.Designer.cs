@@ -254,6 +254,7 @@
             this.Controls.Add(this.addAssetLbl);
             this.Name = "AddAsset";
             this.Text = "AddAsset";
+            this.Load += new System.EventHandler(this.AddAsset_Load);
             ((System.ComponentModel.ISupportInitialize)(this.employeeNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

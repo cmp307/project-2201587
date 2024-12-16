@@ -28,10 +28,10 @@ namespace CMP307Project
         public string IPAddress { get; set; }
         public Nullable<System.DateTime> PurchaseDate { get; set; }
         public string Notes { get; set; }
-        public Nullable<int> EmployeeID { get; set; }
+        public int EmployeeID { get; set; }
     
-        public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Link> Links { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }
