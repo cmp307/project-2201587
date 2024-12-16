@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Management;
 using System.Net;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -85,6 +86,21 @@ namespace CMP307Project
 
                     // confirmation message and hide form
                     MessageBox.Show("Software added successfully!");
+                    
+                    if (employeeID != 0)
+                    {
+                        if (MessageBox.Show("Would you like to link this software to an asset assigned to you? If you dont do this now, only an IT employee will be able to link them for you.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            // user said yes
+                            AddLink newForm = new AddLink(newSoft, employeeID);
+                            newForm.Show();
+                        }
+                        else
+                        {
+                            // user said no
+                        }
+                    }
+
                     this.Hide();
                 }
             }
