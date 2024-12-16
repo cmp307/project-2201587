@@ -86,6 +86,7 @@ namespace CMP307Project
                 db.SaveChanges();
                 link = updateLink;
                 MessageBox.Show("link updated successfully!");
+                this.Hide();
             }
             catch (Exception ex)
             {

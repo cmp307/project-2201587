@@ -68,6 +68,7 @@ namespace CMP307Project
                                     db.SaveChanges();
                                 }
                                 MessageBox.Show("Link added Successfully!");
+                                this.Hide();
                             }
                             else
                             {

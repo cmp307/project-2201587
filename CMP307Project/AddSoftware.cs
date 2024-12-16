@@ -66,20 +66,27 @@ namespace CMP307Project
         {
             try
             {
-                // get new asset details and send to database
-                Software newSoft = new Software();
-                newSoft.OSname = osNameTB.Text;
-                newSoft.Version = versionTB.Text;
-                newSoft.manufacturer = manuTB.Text;
-                
-                
-                // send new spftware to database and save changes
-                db.Softwares.Add(newSoft);
-                db.SaveChanges();
-                
-                // confirmation message and hide form
-                MessageBox.Show("Software added successfully!");
-                this.Hide();
+                if (osNameTB.Text == null || versionTB.Text == null || manuTB.Text == null)
+                {
+                    throw new Exception("All fields are required");
+                }
+                else
+                {
+                    // get new asset details and send to database
+                    Software newSoft = new Software();
+                    newSoft.OSname = osNameTB.Text;
+                    newSoft.Version = versionTB.Text;
+                    newSoft.manufacturer = manuTB.Text;
+
+
+                    // send new spftware to database and save changes
+                    db.Softwares.Add(newSoft);
+                    db.SaveChanges();
+
+                    // confirmation message and hide form
+                    MessageBox.Show("Software added successfully!");
+                    this.Hide();
+                }
             }
             catch (Exception ex)
             {
