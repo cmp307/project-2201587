@@ -47,10 +47,7 @@ namespace CMP307Project
             {
                 notesTB.Text = asset.Notes;
             }
-            if (asset.EmployeeID != null)
-            {
-                employeeNum.Value = asset.EmployeeID.Value;
-            }
+            employeeNum.Value = asset.EmployeeID;
 
         }
 
@@ -74,7 +71,7 @@ namespace CMP307Project
                     // employee ID on the form is automatically set to 0. if it is 0 when the form is submitted, set employee ID to null (belongs to no employee). if there is a value other than null, add that as the employee ID
                     if (Decimal.ToInt32(employeeNum.Value) == 0)
                     {
-                        updateAsset.EmployeeID = null;
+                        throw new Exception("Asset must be assigned to employee");
                     }
                     else
                     {
