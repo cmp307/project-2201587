@@ -16,9 +16,11 @@ namespace CMP307Project
     {
         // setup database connection
         mssql2201587Entities db = new mssql2201587Entities();
-        public AddSoftware()
+        private int employeeID; 
+        public AddSoftware(int employeeID = 0)
         {
             InitializeComponent();
+            this.employeeID = employeeID;
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
@@ -71,10 +73,26 @@ namespace CMP307Project
                 newSoft.manufacturer = manuTB.Text;
                 
                 Link newLink = new Link();
-                // asset ID on the form is automatically set to 0. if it is 0 when the form is submitted, throw an exception as employees must be assigned to a departmnet. if there is a value other than 0, add that as the asset ID
                 if (Decimal.ToInt32(assetNum.Value) == 0)
                 {
-                    throw new Exception("Link must have asset");
+                    throw new Exception("Software must have asset");
+                }
+                else if (employeeID != 0)
+                {
+                    IQueryable<Asset> assets = from f in db.Assets where f.EmployeeID == employeeID select f;
+                    bool found = false;
+                    foreach (Asset asset in assets)
+                    {
+                        if (Decimal.ToInt32(assetNum.Value) == asset.AssID)
+                        {
+                            found = true;
+                            newLink.AssID = Decimal.ToInt32(assetNum.Value);
+                        }
+                    }
+                    if (!found)
+                    {
+                        throw new Exception("Cannot assign software to asset asigned to other users");
+                    }
                 }
                 else
                 {
