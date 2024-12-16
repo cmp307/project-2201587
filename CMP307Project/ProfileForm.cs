@@ -31,12 +31,15 @@ namespace CMP307Project
             List<Software> softwareList = new List<Software>();
             foreach (Asset asset in assets)
             {
-                Link link = (from f in db.Links where f.AssID == asset.AssID select f).FirstOrDefault();
-                if (link != null)
+                IQueryable<Link> getlinks = from f in db.Links where f.AssID == asset.AssID select f;
+                if (getlinks != null)
                 {
-                    links.Add(link);
-                    Software software = (from f in db.Softwares where f.SoftID == link.SoftID select f).FirstOrDefault();
-                    softwareList.Add(software);
+                    foreach (Link link in getlinks)
+                    {
+                        links.Add(link);
+                        Software software = (from f in db.Softwares where f.SoftID == link.SoftID select f).FirstOrDefault();
+                        softwareList.Add(software);
+                    }
                 }
             }
             softwareTable.DataSource = softwareList;
