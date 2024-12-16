@@ -75,7 +75,7 @@ namespace CMP307Project
                         if (link != null)
                         {
                             // open edit asset form
-                            EditSoftware newForm = new EditSoftware(software, link);
+                            EditSoftware newForm = new EditSoftware(software);
                             newForm.Show();
                         }
                     }
