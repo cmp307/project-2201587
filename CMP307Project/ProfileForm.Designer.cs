@@ -56,13 +56,18 @@
             this.softwareBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.softwareTableAdapter = new CMP307Project.softwareBindingSourceTableAdapters.SoftwareTableAdapter();
             this.linksTable = new System.Windows.Forms.DataGridView();
-            this.linksBindingSource = new CMP307Project.linksBindingSource();
-            this.linksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.linksTableAdapter = new CMP307Project.linksBindingSourceTableAdapters.LinksTableAdapter();
             this.AssID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.linksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.linksBindingSource = new CMP307Project.linksBindingSource();
+            this.linksTableAdapter = new CMP307Project.linksBindingSourceTableAdapters.LinksTableAdapter();
+            this.addAssetBtn = new System.Windows.Forms.Button();
+            this.addSoftBtn = new System.Windows.Forms.Button();
+            this.editAssetBtn = new System.Windows.Forms.Button();
+            this.editSoftBtn = new System.Windows.Forms.Button();
+            this.closeBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.assetsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
@@ -74,8 +79,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSourceBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linksTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // assetsTable
@@ -266,20 +271,6 @@
             this.linksTable.Size = new System.Drawing.Size(446, 150);
             this.linksTable.TabIndex = 3;
             // 
-            // linksBindingSource
-            // 
-            this.linksBindingSource.DataSetName = "linksBindingSource";
-            this.linksBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // linksBindingSource1
-            // 
-            this.linksBindingSource1.DataMember = "Links";
-            this.linksBindingSource1.DataSource = this.linksBindingSource;
-            // 
-            // linksTableAdapter
-            // 
-            this.linksTableAdapter.ClearBeforeFill = true;
-            // 
             // AssID
             // 
             this.AssID.DataPropertyName = "AssID";
@@ -305,11 +296,75 @@
             this.Active.HeaderText = "Active";
             this.Active.Name = "Active";
             // 
+            // linksBindingSource1
+            // 
+            this.linksBindingSource1.DataMember = "Links";
+            this.linksBindingSource1.DataSource = this.linksBindingSource;
+            // 
+            // linksBindingSource
+            // 
+            this.linksBindingSource.DataSetName = "linksBindingSource";
+            this.linksBindingSource.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // linksTableAdapter
+            // 
+            this.linksTableAdapter.ClearBeforeFill = true;
+            // 
+            // addAssetBtn
+            // 
+            this.addAssetBtn.Location = new System.Drawing.Point(26, 462);
+            this.addAssetBtn.Name = "addAssetBtn";
+            this.addAssetBtn.Size = new System.Drawing.Size(75, 37);
+            this.addAssetBtn.TabIndex = 4;
+            this.addAssetBtn.Text = "Add Asset";
+            this.addAssetBtn.UseVisualStyleBackColor = true;
+            // 
+            // addSoftBtn
+            // 
+            this.addSoftBtn.Location = new System.Drawing.Point(107, 462);
+            this.addSoftBtn.Name = "addSoftBtn";
+            this.addSoftBtn.Size = new System.Drawing.Size(75, 37);
+            this.addSoftBtn.TabIndex = 5;
+            this.addSoftBtn.Text = "Add Software";
+            this.addSoftBtn.UseVisualStyleBackColor = true;
+            // 
+            // editAssetBtn
+            // 
+            this.editAssetBtn.Location = new System.Drawing.Point(188, 462);
+            this.editAssetBtn.Name = "editAssetBtn";
+            this.editAssetBtn.Size = new System.Drawing.Size(75, 37);
+            this.editAssetBtn.TabIndex = 6;
+            this.editAssetBtn.Text = "Edit Asset";
+            this.editAssetBtn.UseVisualStyleBackColor = true;
+            // 
+            // editSoftBtn
+            // 
+            this.editSoftBtn.Location = new System.Drawing.Point(269, 462);
+            this.editSoftBtn.Name = "editSoftBtn";
+            this.editSoftBtn.Size = new System.Drawing.Size(75, 37);
+            this.editSoftBtn.TabIndex = 7;
+            this.editSoftBtn.Text = "Edit Software";
+            this.editSoftBtn.UseVisualStyleBackColor = true;
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.Location = new System.Drawing.Point(897, 462);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(75, 37);
+            this.closeBtn.TabIndex = 8;
+            this.closeBtn.Text = "Close";
+            this.closeBtn.UseVisualStyleBackColor = true;
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1005, 478);
+            this.ClientSize = new System.Drawing.Size(1005, 532);
+            this.Controls.Add(this.closeBtn);
+            this.Controls.Add(this.editSoftBtn);
+            this.Controls.Add(this.editAssetBtn);
+            this.Controls.Add(this.addSoftBtn);
+            this.Controls.Add(this.addAssetBtn);
             this.Controls.Add(this.linksTable);
             this.Controls.Add(this.profileLbl);
             this.Controls.Add(this.softwareTable);
@@ -328,8 +383,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSourceBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwareBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linksTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.linksBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,5 +426,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
+        private System.Windows.Forms.Button addAssetBtn;
+        private System.Windows.Forms.Button addSoftBtn;
+        private System.Windows.Forms.Button editAssetBtn;
+        private System.Windows.Forms.Button editSoftBtn;
+        private System.Windows.Forms.Button closeBtn;
     }
 }
