@@ -86,5 +86,10 @@ namespace CMP307Project
         {
             this.Close();
         }
+
+        private void AddLink_Load(object sender, EventArgs e)
+        {
+            softwareLbl.Text = "Link for Software: " + software.SoftID;
+        }
     }
 }

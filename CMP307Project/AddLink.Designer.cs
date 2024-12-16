@@ -118,6 +118,7 @@
             this.Controls.Add(this.assetIdLbl);
             this.Name = "AddLink";
             this.Text = "AddLink";
+            this.Load += new System.EventHandler(this.AddLink_Load);
             ((System.ComponentModel.ISupportInitialize)(this.assetNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
