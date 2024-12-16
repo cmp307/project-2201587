@@ -52,7 +52,7 @@ namespace CMP307Project
         private void addAssetBtn_Click(object sender, EventArgs e)
         {
             // open add asset form
-            AddAsset newForm = new AddAsset();
+            AddAsset newForm = new AddAsset(employee.EmployeeID);
             newForm.Show();
         }
     }
