@@ -17,7 +17,7 @@ namespace CMP307Project
         mssql2201587Entities db = new mssql2201587Entities();
         private Link link;
         private int employeeID;
-        public EditLink(Link link, int employeeID)
+        public EditLink(Link link, int employeeID = 0)
         {
             InitializeComponent();
             this.link = link;
