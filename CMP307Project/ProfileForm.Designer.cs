@@ -56,10 +56,6 @@
             this.softwareBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.softwareTableAdapter = new CMP307Project.softwareBindingSourceTableAdapters.SoftwareTableAdapter();
             this.linksTable = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AssID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.linksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.linksBindingSource = new CMP307Project.linksBindingSource();
             this.linksTableAdapter = new CMP307Project.linksBindingSourceTableAdapters.LinksTableAdapter();
@@ -71,6 +67,10 @@
             this.refreshBtn = new System.Windows.Forms.Button();
             this.addLinkBtn = new System.Windows.Forms.Button();
             this.editLinkBtn = new System.Windows.Forms.Button();
+            this.linkSoftID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AssID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.assetsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
@@ -287,7 +287,7 @@
             this.linksTable.AutoGenerateColumns = false;
             this.linksTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.linksTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
+            this.linkSoftID,
             this.AssID,
             this.Date,
             this.Active});
@@ -299,34 +299,6 @@
             this.linksTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.linksTable.Size = new System.Drawing.Size(446, 150);
             this.linksTable.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "SoftID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "SoftID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // AssID
-            // 
-            this.AssID.DataPropertyName = "AssID";
-            this.AssID.HeaderText = "AssID";
-            this.AssID.Name = "AssID";
-            this.AssID.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "Date";
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // Active
-            // 
-            this.Active.DataPropertyName = "Active";
-            this.Active.HeaderText = "Active";
-            this.Active.Name = "Active";
-            this.Active.ReadOnly = true;
             // 
             // linksBindingSource1
             // 
@@ -420,6 +392,35 @@
             this.editLinkBtn.TabIndex = 11;
             this.editLinkBtn.Text = "Edit Link";
             this.editLinkBtn.UseVisualStyleBackColor = true;
+            this.editLinkBtn.Click += new System.EventHandler(this.editLinkBtn_Click);
+            // 
+            // linkSoftID
+            // 
+            this.linkSoftID.DataPropertyName = "SoftID";
+            this.linkSoftID.HeaderText = "SoftID";
+            this.linkSoftID.Name = "linkSoftID";
+            this.linkSoftID.ReadOnly = true;
+            // 
+            // AssID
+            // 
+            this.AssID.DataPropertyName = "AssID";
+            this.AssID.HeaderText = "AssID";
+            this.AssID.Name = "AssID";
+            this.AssID.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Active";
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
             // 
             // ProfileForm
             // 
@@ -484,10 +485,6 @@
         private System.Windows.Forms.Button editSoftBtn;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button refreshBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AssID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
         private System.Windows.Forms.DataGridViewTextBoxColumn assetsAssID;
         private System.Windows.Forms.DataGridViewTextBoxColumn systemNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelDataGridViewTextBoxColumn;
@@ -503,5 +500,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn manufacturerDataGridViewTextBoxColumn1;
         private System.Windows.Forms.Button addLinkBtn;
         private System.Windows.Forms.Button editLinkBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn linkSoftID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AssID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
     }
 }
