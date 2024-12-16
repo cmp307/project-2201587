@@ -185,5 +185,39 @@ namespace CMP307Project
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void editLinkBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // check if only one row has been selected
+                if (linksTable.SelectedRows.Count == 1)
+                {
+                    // get the ID of the row
+                    int softID = (int)linksTable.SelectedRows[0].Cells["linkSoftID"].Value;
+                    int assID = (int)linksTable.SelectedRows[0].Cells["AssID"].Value;
+                    Link link = (from f in db.Links
+                                         where f.SoftID == softID && f.AssID == assID
+                                         select f).FirstOrDefault();
+                    // if asset found, open edit form
+                    if (link != null)
+                    {
+                        
+                        EditLink newForm = new EditLink(link);
+                        newForm.Show();
+                    }
+                }
+                else
+                {
+                    // handle exception if user selects no rows or more than one row
+                    MessageBox.Show("Can only edit one row at a time. Please select only one row and try again.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // exception handler
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

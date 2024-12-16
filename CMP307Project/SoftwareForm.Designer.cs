@@ -300,6 +300,7 @@
             this.editLinkBtn.TabIndex = 17;
             this.editLinkBtn.Text = "Edit Link";
             this.editLinkBtn.UseVisualStyleBackColor = true;
+            this.editLinkBtn.Click += new System.EventHandler(this.editLinkBtn_Click);
             // 
             // SoftwareForm
             // 
