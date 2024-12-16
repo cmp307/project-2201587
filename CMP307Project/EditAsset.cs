@@ -17,10 +17,12 @@ namespace CMP307Project
         // setup global variables and database connection
         mssql2201587Entities db = new mssql2201587Entities();
         private Asset asset;
-        public EditAsset(Asset asset)
+        private int employeeID;
+        public EditAsset(Asset asset, int employeeID = 0)
         {
             InitializeComponent();
             this.asset = asset;
+            this.employeeID = employeeID;
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
@@ -48,6 +50,11 @@ namespace CMP307Project
                 notesTB.Text = asset.Notes;
             }
             employeeNum.Value = asset.EmployeeID;
+            if (employeeID != 0)
+            {
+                employeeIDLbl.Visible = false;
+                employeeNum.Visible = false;
+            }
 
         }
 
