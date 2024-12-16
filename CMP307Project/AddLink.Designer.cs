@@ -32,7 +32,7 @@
             this.assetIdLbl = new System.Windows.Forms.Label();
             this.addLinkLbl = new System.Windows.Forms.Label();
             this.softwareLbl = new System.Windows.Forms.Label();
-            this.assetCB = new System.Windows.Forms.CheckBox();
+            this.activeCB = new System.Windows.Forms.CheckBox();
             this.addBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.assetNum)).BeginInit();
@@ -73,16 +73,16 @@
             this.softwareLbl.TabIndex = 44;
             this.softwareLbl.Text = "Link for Software: ";
             // 
-            // assetCB
+            // activeCB
             // 
-            this.assetCB.AutoSize = true;
-            this.assetCB.Location = new System.Drawing.Point(126, 170);
-            this.assetCB.Name = "assetCB";
-            this.assetCB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.assetCB.Size = new System.Drawing.Size(62, 17);
-            this.assetCB.TabIndex = 45;
-            this.assetCB.Text = "?Active";
-            this.assetCB.UseVisualStyleBackColor = true;
+            this.activeCB.AutoSize = true;
+            this.activeCB.Location = new System.Drawing.Point(126, 170);
+            this.activeCB.Name = "activeCB";
+            this.activeCB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.activeCB.Size = new System.Drawing.Size(62, 17);
+            this.activeCB.TabIndex = 45;
+            this.activeCB.Text = "?Active";
+            this.activeCB.UseVisualStyleBackColor = true;
             // 
             // addBtn
             // 
@@ -92,6 +92,7 @@
             this.addBtn.TabIndex = 46;
             this.addBtn.Text = "Add Link";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // cancelBtn
             // 
@@ -109,7 +110,7 @@
             this.ClientSize = new System.Drawing.Size(359, 300);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.addBtn);
-            this.Controls.Add(this.assetCB);
+            this.Controls.Add(this.activeCB);
             this.Controls.Add(this.softwareLbl);
             this.Controls.Add(this.addLinkLbl);
             this.Controls.Add(this.assetNum);
@@ -128,7 +129,7 @@
         private System.Windows.Forms.Label assetIdLbl;
         private System.Windows.Forms.Label addLinkLbl;
         private System.Windows.Forms.Label softwareLbl;
-        private System.Windows.Forms.CheckBox assetCB;
+        private System.Windows.Forms.CheckBox activeCB;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button cancelBtn;
     }
