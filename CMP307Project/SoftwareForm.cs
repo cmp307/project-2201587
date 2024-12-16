@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
@@ -106,7 +107,7 @@ namespace CMP307Project
                 {
                     // get the ID of the row and confirm the user would like to delete this row
                     int softID = (int)softwareTable.SelectedRows[0].Cells["SoftID"].Value;
-                    if (MessageBox.Show("Are you sure you want to delete selected row? (row number: " + softID + ")", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Are you sure you want to delete selected row? All dependant links will be deleted. (row number: " + softID + ")", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         // if user clicks confirm, find asset in the databse
                         Software software = (from f in db.Softwares
@@ -115,16 +116,23 @@ namespace CMP307Project
                         // if asset found, delete asset
                         if (software != null)
                         {
-                            Link link = (from f in db.Links
+                            IQueryable<Link> links = from f in db.Links
                                          where f.SoftID == softID
-                                         select f).FirstOrDefault();   
-                            if (link != null)
+                                         select f;   
+                            if (links != null)
                             {
-                                db.Links.Remove(link);
-                                db.Softwares.Remove(software);
-                                db.SaveChanges();
-                                loadTables();
+                                foreach (Link link in links)
+                                {
+                                    db.Links.Remove(link);
+                                }
                             }
+                            db.Softwares.Remove(software);
+                            db.SaveChanges();
+                            loadTables();
+                        }
+                        else
+                        {
+                            throw new Exception("SOftware not found");
                         }
                     }
                     else
