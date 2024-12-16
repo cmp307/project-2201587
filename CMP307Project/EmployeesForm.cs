@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -61,7 +62,7 @@ namespace CMP307Project
                 {
                     // get the ID of the row and confirm the user would like to delete this row
                     int empID = (int)employeesTable.SelectedRows[0].Cells["EmployeeID"].Value;
-                    if (MessageBox.Show("Are you sure you want to delete selected row? (row number: " + empID + ")", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Are you sure you want to delete selected row? All dependent Assets and Links will be deleted. (row number: " + empID + ")", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         // if user clicks confirm, find employee in the databse
                         Employee emp = (from f in db.Employees
@@ -70,6 +71,28 @@ namespace CMP307Project
                         // if asset found, delete asset
                         if (emp != null)
                         {
+                            IQueryable<Asset> assets = from f in db.Assets
+                                                       where f.EmployeeID == emp.EmployeeID
+                                                       select f;
+                            
+                            if (assets != null)
+                            {
+                                foreach (Asset asset in assets)
+                                {
+                                    IQueryable<Link> links = from f in db.Links
+                                                             where f.AssID == asset.AssID
+                                                             select f;
+                                    if (links != null)
+                                    {
+                                        foreach (Link link in links)
+                                        {
+                                            db.Links.Remove(link);
+                                        }
+                                    }
+                                    db.Assets.Remove(asset);
+                                }
+                            }
+
                             db.Employees.Remove(emp);
                             db.SaveChanges();
                             loadTable();
