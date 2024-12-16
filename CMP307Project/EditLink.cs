@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Security.AccessControl;
@@ -15,10 +16,12 @@ namespace CMP307Project
     {
         mssql2201587Entities db = new mssql2201587Entities();
         private Link link;
-        public EditLink(Link link)
+        private int employeeID;
+        public EditLink(Link link, int employeeID)
         {
             InitializeComponent();
             this.link = link;
+            this.employeeID = employeeID;
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
@@ -52,13 +55,28 @@ namespace CMP307Project
                 Link updateLink = (from f in db.Links where f.AssID == link.AssID && f.SoftID == link.SoftID select f).FirstOrDefault();
                 if (updateLink != null)
                 {
-                    if (activeCB.Checked == true)
+                    Asset asset = (from f in db.Assets where f.AssID == updateLink.AssID select f).FirstOrDefault();
+                    if (asset != null)
                     {
-                        updateLink.Active = true;
+                        if (employeeID != 0)
+                        {
+                            if (asset.EmployeeID != employeeID)
+                            {
+                                throw new Exception("Cannot Assign link to asset assigned to other employee");
+                            }
+                        }
+                        if (activeCB.Checked == true)
+                        {
+                            updateLink.Active = true;
+                        }
+                        else
+                        {
+                            updateLink.Active = false;
+                        }
                     }
                     else
                     {
-                        updateLink.Active = false;
+                        throw new Exception("Asset not found");
                     }
                 }
                 else

@@ -214,7 +214,7 @@ namespace CMP307Project
                     if (link != null)
                     {
 
-                        EditLink newForm = new EditLink(link);
+                        EditLink newForm = new EditLink(link, employee.EmployeeID);
                         newForm.Show();
                     }
                 }
