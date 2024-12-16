@@ -30,9 +30,22 @@
         {
             this.components = new System.ComponentModel.Container();
             this.assetsTable = new System.Windows.Forms.DataGridView();
+            this.assetsAssID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.systemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iPAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.purchaseDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.assetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.assetBindingSource = new CMP307Project.assetBindingSource();
             this.softwareTable = new System.Windows.Forms.DataGridView();
+            this.softwareSoftID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oSnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.versionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.manufacturerDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.softwareBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.softwareBindingSourceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.softwareBindingSource = new CMP307Project.softwareBindingSource();
@@ -43,6 +56,10 @@
             this.softwareBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.softwareTableAdapter = new CMP307Project.softwareBindingSourceTableAdapters.SoftwareTableAdapter();
             this.linksTable = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AssID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.linksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.linksBindingSource = new CMP307Project.linksBindingSource();
             this.linksTableAdapter = new CMP307Project.linksBindingSourceTableAdapters.LinksTableAdapter();
@@ -52,23 +69,8 @@
             this.editSoftBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.refreshBtn = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AssID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.assetsAssID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.systemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.modelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.manufacturerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iPAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.purchaseDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.softwareSoftID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oSnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.versionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.manufacturerDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addLinkBtn = new System.Windows.Forms.Button();
+            this.editLinkBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.assetsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
@@ -109,6 +111,69 @@
             this.assetsTable.Size = new System.Drawing.Size(946, 150);
             this.assetsTable.TabIndex = 0;
             // 
+            // assetsAssID
+            // 
+            this.assetsAssID.DataPropertyName = "AssID";
+            this.assetsAssID.HeaderText = "AssID";
+            this.assetsAssID.Name = "assetsAssID";
+            this.assetsAssID.ReadOnly = true;
+            // 
+            // systemNameDataGridViewTextBoxColumn
+            // 
+            this.systemNameDataGridViewTextBoxColumn.DataPropertyName = "SystemName";
+            this.systemNameDataGridViewTextBoxColumn.HeaderText = "SystemName";
+            this.systemNameDataGridViewTextBoxColumn.Name = "systemNameDataGridViewTextBoxColumn";
+            this.systemNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // modelDataGridViewTextBoxColumn
+            // 
+            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
+            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
+            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
+            this.modelDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // manufacturerDataGridViewTextBoxColumn
+            // 
+            this.manufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer";
+            this.manufacturerDataGridViewTextBoxColumn.HeaderText = "Manufacturer";
+            this.manufacturerDataGridViewTextBoxColumn.Name = "manufacturerDataGridViewTextBoxColumn";
+            this.manufacturerDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iPAddressDataGridViewTextBoxColumn
+            // 
+            this.iPAddressDataGridViewTextBoxColumn.DataPropertyName = "IPAddress";
+            this.iPAddressDataGridViewTextBoxColumn.HeaderText = "IPAddress";
+            this.iPAddressDataGridViewTextBoxColumn.Name = "iPAddressDataGridViewTextBoxColumn";
+            this.iPAddressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // purchaseDateDataGridViewTextBoxColumn
+            // 
+            this.purchaseDateDataGridViewTextBoxColumn.DataPropertyName = "PurchaseDate";
+            this.purchaseDateDataGridViewTextBoxColumn.HeaderText = "PurchaseDate";
+            this.purchaseDateDataGridViewTextBoxColumn.Name = "purchaseDateDataGridViewTextBoxColumn";
+            this.purchaseDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // notesDataGridViewTextBoxColumn
+            // 
+            this.notesDataGridViewTextBoxColumn.DataPropertyName = "Notes";
+            this.notesDataGridViewTextBoxColumn.HeaderText = "Notes";
+            this.notesDataGridViewTextBoxColumn.Name = "notesDataGridViewTextBoxColumn";
+            this.notesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // employeeIDDataGridViewTextBoxColumn
+            // 
+            this.employeeIDDataGridViewTextBoxColumn.DataPropertyName = "EmployeeID";
+            this.employeeIDDataGridViewTextBoxColumn.HeaderText = "EmployeeID";
+            this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
+            this.employeeIDDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // assetBindingSource1
             // 
             this.assetBindingSource1.DataMember = "Asset";
@@ -138,6 +203,34 @@
             this.softwareTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.softwareTable.Size = new System.Drawing.Size(446, 150);
             this.softwareTable.TabIndex = 1;
+            // 
+            // softwareSoftID
+            // 
+            this.softwareSoftID.DataPropertyName = "SoftID";
+            this.softwareSoftID.HeaderText = "SoftID";
+            this.softwareSoftID.Name = "softwareSoftID";
+            this.softwareSoftID.ReadOnly = true;
+            // 
+            // oSnameDataGridViewTextBoxColumn
+            // 
+            this.oSnameDataGridViewTextBoxColumn.DataPropertyName = "OSname";
+            this.oSnameDataGridViewTextBoxColumn.HeaderText = "OSname";
+            this.oSnameDataGridViewTextBoxColumn.Name = "oSnameDataGridViewTextBoxColumn";
+            this.oSnameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // versionDataGridViewTextBoxColumn
+            // 
+            this.versionDataGridViewTextBoxColumn.DataPropertyName = "Version";
+            this.versionDataGridViewTextBoxColumn.HeaderText = "Version";
+            this.versionDataGridViewTextBoxColumn.Name = "versionDataGridViewTextBoxColumn";
+            this.versionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // manufacturerDataGridViewTextBoxColumn1
+            // 
+            this.manufacturerDataGridViewTextBoxColumn1.DataPropertyName = "manufacturer";
+            this.manufacturerDataGridViewTextBoxColumn1.HeaderText = "manufacturer";
+            this.manufacturerDataGridViewTextBoxColumn1.Name = "manufacturerDataGridViewTextBoxColumn1";
+            this.manufacturerDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // softwareBindingSource2
             // 
@@ -207,6 +300,34 @@
             this.linksTable.Size = new System.Drawing.Size(446, 150);
             this.linksTable.TabIndex = 3;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "SoftID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "SoftID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // AssID
+            // 
+            this.AssID.DataPropertyName = "AssID";
+            this.AssID.HeaderText = "AssID";
+            this.AssID.Name = "AssID";
+            this.AssID.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Active";
+            this.Active.Name = "Active";
+            this.Active.ReadOnly = true;
+            // 
             // linksBindingSource1
             // 
             this.linksBindingSource1.DataMember = "Links";
@@ -233,7 +354,7 @@
             // 
             // addSoftBtn
             // 
-            this.addSoftBtn.Location = new System.Drawing.Point(107, 462);
+            this.addSoftBtn.Location = new System.Drawing.Point(188, 462);
             this.addSoftBtn.Name = "addSoftBtn";
             this.addSoftBtn.Size = new System.Drawing.Size(75, 37);
             this.addSoftBtn.TabIndex = 5;
@@ -243,7 +364,7 @@
             // 
             // editAssetBtn
             // 
-            this.editAssetBtn.Location = new System.Drawing.Point(188, 462);
+            this.editAssetBtn.Location = new System.Drawing.Point(107, 462);
             this.editAssetBtn.Name = "editAssetBtn";
             this.editAssetBtn.Size = new System.Drawing.Size(75, 37);
             this.editAssetBtn.TabIndex = 6;
@@ -281,119 +402,31 @@
             this.refreshBtn.UseVisualStyleBackColor = true;
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
-            // dataGridViewTextBoxColumn1
+            // addLinkBtn
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "SoftID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "SoftID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.addLinkBtn.Location = new System.Drawing.Point(350, 462);
+            this.addLinkBtn.Name = "addLinkBtn";
+            this.addLinkBtn.Size = new System.Drawing.Size(75, 37);
+            this.addLinkBtn.TabIndex = 10;
+            this.addLinkBtn.Text = "Add Link";
+            this.addLinkBtn.UseVisualStyleBackColor = true;
             // 
-            // AssID
+            // editLinkBtn
             // 
-            this.AssID.DataPropertyName = "AssID";
-            this.AssID.HeaderText = "AssID";
-            this.AssID.Name = "AssID";
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "Date";
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            // 
-            // Active
-            // 
-            this.Active.DataPropertyName = "Active";
-            this.Active.HeaderText = "Active";
-            this.Active.Name = "Active";
-            // 
-            // assetsAssID
-            // 
-            this.assetsAssID.DataPropertyName = "AssID";
-            this.assetsAssID.HeaderText = "AssID";
-            this.assetsAssID.Name = "assetsAssID";
-            this.assetsAssID.ReadOnly = true;
-            // 
-            // systemNameDataGridViewTextBoxColumn
-            // 
-            this.systemNameDataGridViewTextBoxColumn.DataPropertyName = "SystemName";
-            this.systemNameDataGridViewTextBoxColumn.HeaderText = "SystemName";
-            this.systemNameDataGridViewTextBoxColumn.Name = "systemNameDataGridViewTextBoxColumn";
-            // 
-            // modelDataGridViewTextBoxColumn
-            // 
-            this.modelDataGridViewTextBoxColumn.DataPropertyName = "Model";
-            this.modelDataGridViewTextBoxColumn.HeaderText = "Model";
-            this.modelDataGridViewTextBoxColumn.Name = "modelDataGridViewTextBoxColumn";
-            // 
-            // manufacturerDataGridViewTextBoxColumn
-            // 
-            this.manufacturerDataGridViewTextBoxColumn.DataPropertyName = "Manufacturer";
-            this.manufacturerDataGridViewTextBoxColumn.HeaderText = "Manufacturer";
-            this.manufacturerDataGridViewTextBoxColumn.Name = "manufacturerDataGridViewTextBoxColumn";
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            // 
-            // iPAddressDataGridViewTextBoxColumn
-            // 
-            this.iPAddressDataGridViewTextBoxColumn.DataPropertyName = "IPAddress";
-            this.iPAddressDataGridViewTextBoxColumn.HeaderText = "IPAddress";
-            this.iPAddressDataGridViewTextBoxColumn.Name = "iPAddressDataGridViewTextBoxColumn";
-            // 
-            // purchaseDateDataGridViewTextBoxColumn
-            // 
-            this.purchaseDateDataGridViewTextBoxColumn.DataPropertyName = "PurchaseDate";
-            this.purchaseDateDataGridViewTextBoxColumn.HeaderText = "PurchaseDate";
-            this.purchaseDateDataGridViewTextBoxColumn.Name = "purchaseDateDataGridViewTextBoxColumn";
-            // 
-            // notesDataGridViewTextBoxColumn
-            // 
-            this.notesDataGridViewTextBoxColumn.DataPropertyName = "Notes";
-            this.notesDataGridViewTextBoxColumn.HeaderText = "Notes";
-            this.notesDataGridViewTextBoxColumn.Name = "notesDataGridViewTextBoxColumn";
-            // 
-            // employeeIDDataGridViewTextBoxColumn
-            // 
-            this.employeeIDDataGridViewTextBoxColumn.DataPropertyName = "EmployeeID";
-            this.employeeIDDataGridViewTextBoxColumn.HeaderText = "EmployeeID";
-            this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
-            // 
-            // softwareSoftID
-            // 
-            this.softwareSoftID.DataPropertyName = "SoftID";
-            this.softwareSoftID.HeaderText = "SoftID";
-            this.softwareSoftID.Name = "softwareSoftID";
-            this.softwareSoftID.ReadOnly = true;
-            // 
-            // oSnameDataGridViewTextBoxColumn
-            // 
-            this.oSnameDataGridViewTextBoxColumn.DataPropertyName = "OSname";
-            this.oSnameDataGridViewTextBoxColumn.HeaderText = "OSname";
-            this.oSnameDataGridViewTextBoxColumn.Name = "oSnameDataGridViewTextBoxColumn";
-            this.oSnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // versionDataGridViewTextBoxColumn
-            // 
-            this.versionDataGridViewTextBoxColumn.DataPropertyName = "Version";
-            this.versionDataGridViewTextBoxColumn.HeaderText = "Version";
-            this.versionDataGridViewTextBoxColumn.Name = "versionDataGridViewTextBoxColumn";
-            this.versionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // manufacturerDataGridViewTextBoxColumn1
-            // 
-            this.manufacturerDataGridViewTextBoxColumn1.DataPropertyName = "manufacturer";
-            this.manufacturerDataGridViewTextBoxColumn1.HeaderText = "manufacturer";
-            this.manufacturerDataGridViewTextBoxColumn1.Name = "manufacturerDataGridViewTextBoxColumn1";
-            this.manufacturerDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.editLinkBtn.Location = new System.Drawing.Point(431, 462);
+            this.editLinkBtn.Name = "editLinkBtn";
+            this.editLinkBtn.Size = new System.Drawing.Size(75, 37);
+            this.editLinkBtn.TabIndex = 11;
+            this.editLinkBtn.Text = "Edit Link";
+            this.editLinkBtn.UseVisualStyleBackColor = true;
             // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 532);
+            this.Controls.Add(this.editLinkBtn);
+            this.Controls.Add(this.addLinkBtn);
             this.Controls.Add(this.refreshBtn);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.editSoftBtn);
@@ -467,5 +500,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn oSnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn versionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn manufacturerDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Button addLinkBtn;
+        private System.Windows.Forms.Button editLinkBtn;
     }
 }
