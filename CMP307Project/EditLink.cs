@@ -25,5 +25,24 @@ namespace CMP307Project
         {
             this.Close();
         }
+
+        private void EditLink_Load(object sender, EventArgs e)
+        {
+            string softText = "Link for Software: ";
+            softText += link.SoftID;
+            softwareLbl.Text = softText;
+            string assetText = "On Asset: ";
+            assetText += link.AssID;
+            assetLbl.Text = assetText;
+            if (link.Active == true)
+            {
+                activeCB.Checked = true;
+            }
+            else
+            {
+                activeCB.Checked = false;
+            }
+
+        }
     }
 }

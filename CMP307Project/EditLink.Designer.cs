@@ -107,6 +107,7 @@
             this.Controls.Add(this.editLinkLbl);
             this.Name = "EditLink";
             this.Text = "EditLink";
+            this.Load += new System.EventHandler(this.EditLink_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
