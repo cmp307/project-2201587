@@ -205,6 +205,12 @@
     <Compile Include="SoftwareForm.Designer.cs">
       <DependentUpon>SoftwareForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="VulnerabilityCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VulnerabilityCheck.Designer.cs">
+      <DependentUpon>VulnerabilityCheck.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddAsset.resx">
       <DependentUpon>AddAsset.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,6 +252,9 @@
     </Compile>
     <EmbeddedResource Include="SoftwareForm.resx">
       <DependentUpon>SoftwareForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VulnerabilityCheck.resx">
+      <DependentUpon>VulnerabilityCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
