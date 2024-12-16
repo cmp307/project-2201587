@@ -56,10 +56,6 @@
             this.softwareBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.softwareTableAdapter = new CMP307Project.softwareBindingSourceTableAdapters.SoftwareTableAdapter();
             this.linksTable = new System.Windows.Forms.DataGridView();
-            this.AssID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.linksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.linksBindingSource = new CMP307Project.linksBindingSource();
             this.linksTableAdapter = new CMP307Project.linksBindingSourceTableAdapters.LinksTableAdapter();
@@ -69,6 +65,10 @@
             this.editSoftBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.refreshBtn = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AssID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Active = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.assetsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
@@ -262,8 +262,8 @@
             this.linksTable.AutoGenerateColumns = false;
             this.linksTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.linksTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.AssID,
             this.dataGridViewTextBoxColumn1,
+            this.AssID,
             this.Date,
             this.Active});
             this.linksTable.DataSource = this.linksBindingSource1;
@@ -271,31 +271,6 @@
             this.linksTable.Name = "linksTable";
             this.linksTable.Size = new System.Drawing.Size(446, 150);
             this.linksTable.TabIndex = 3;
-            // 
-            // AssID
-            // 
-            this.AssID.DataPropertyName = "AssID";
-            this.AssID.HeaderText = "AssID";
-            this.AssID.Name = "AssID";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "SoftID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "SoftID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "Date";
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            // 
-            // Active
-            // 
-            this.Active.DataPropertyName = "Active";
-            this.Active.HeaderText = "Active";
-            this.Active.Name = "Active";
             // 
             // linksBindingSource1
             // 
@@ -369,6 +344,31 @@
             this.refreshBtn.UseVisualStyleBackColor = true;
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "SoftID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "SoftID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // AssID
+            // 
+            this.AssID.DataPropertyName = "AssID";
+            this.AssID.HeaderText = "AssID";
+            this.AssID.Name = "AssID";
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            // 
+            // Active
+            // 
+            this.Active.DataPropertyName = "Active";
+            this.Active.HeaderText = "Active";
+            this.Active.Name = "Active";
+            // 
             // ProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,15 +437,15 @@
         private linksBindingSource linksBindingSource;
         private System.Windows.Forms.BindingSource linksBindingSource1;
         private linksBindingSourceTableAdapters.LinksTableAdapter linksTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AssID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
         private System.Windows.Forms.Button addAssetBtn;
         private System.Windows.Forms.Button addSoftBtn;
         private System.Windows.Forms.Button editAssetBtn;
         private System.Windows.Forms.Button editSoftBtn;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button refreshBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AssID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
     }
 }
