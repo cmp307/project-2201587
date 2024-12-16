@@ -140,5 +140,11 @@ namespace CMP307Project
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void vulnCheckBtn_Click(object sender, EventArgs e)
+        {
+            VulnerabilityCheck newForm = new VulnerabilityCheck();
+            newForm.Show();
+        }
     }
 }

@@ -278,6 +278,7 @@
             this.vulnCheckBtn.TabIndex = 15;
             this.vulnCheckBtn.Text = "Check Vulnerabilities ";
             this.vulnCheckBtn.UseVisualStyleBackColor = true;
+            this.vulnCheckBtn.Click += new System.EventHandler(this.vulnCheckBtn_Click);
             // 
             // SoftwareForm
             // 

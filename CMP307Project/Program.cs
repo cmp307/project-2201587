@@ -21,7 +21,6 @@ namespace CMP307Project
         }
     }
 
-    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
     public class Configuration
     {
         public List<Node> nodes { get; set; }
