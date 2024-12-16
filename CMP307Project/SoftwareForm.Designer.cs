@@ -56,6 +56,8 @@
             this.linksBindingSource = new CMP307Project.linksBindingSource();
             this.linksTableAdapter = new CMP307Project.linksBindingSourceTableAdapters.LinksTableAdapter();
             this.vulnCheckBtn = new System.Windows.Forms.Button();
+            this.addLinkBtn = new System.Windows.Forms.Button();
+            this.editLinkBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
@@ -272,7 +274,7 @@
             // 
             // vulnCheckBtn
             // 
-            this.vulnCheckBtn.Location = new System.Drawing.Point(327, 338);
+            this.vulnCheckBtn.Location = new System.Drawing.Point(489, 338);
             this.vulnCheckBtn.Name = "vulnCheckBtn";
             this.vulnCheckBtn.Size = new System.Drawing.Size(80, 41);
             this.vulnCheckBtn.TabIndex = 15;
@@ -280,11 +282,31 @@
             this.vulnCheckBtn.UseVisualStyleBackColor = true;
             this.vulnCheckBtn.Click += new System.EventHandler(this.vulnCheckBtn_Click);
             // 
+            // addLinkBtn
+            // 
+            this.addLinkBtn.Location = new System.Drawing.Point(327, 338);
+            this.addLinkBtn.Name = "addLinkBtn";
+            this.addLinkBtn.Size = new System.Drawing.Size(75, 41);
+            this.addLinkBtn.TabIndex = 16;
+            this.addLinkBtn.Text = "Add Link";
+            this.addLinkBtn.UseVisualStyleBackColor = true;
+            // 
+            // editLinkBtn
+            // 
+            this.editLinkBtn.Location = new System.Drawing.Point(408, 338);
+            this.editLinkBtn.Name = "editLinkBtn";
+            this.editLinkBtn.Size = new System.Drawing.Size(75, 41);
+            this.editLinkBtn.TabIndex = 17;
+            this.editLinkBtn.Text = "Edit Link";
+            this.editLinkBtn.UseVisualStyleBackColor = true;
+            // 
             // SoftwareForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1074, 424);
+            this.Controls.Add(this.editLinkBtn);
+            this.Controls.Add(this.addLinkBtn);
             this.Controls.Add(this.vulnCheckBtn);
             this.Controls.Add(this.linksTable);
             this.Controls.Add(this.closeBtn);
@@ -340,5 +362,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
         private System.Windows.Forms.Button vulnCheckBtn;
+        private System.Windows.Forms.Button addLinkBtn;
+        private System.Windows.Forms.Button editLinkBtn;
     }
 }
