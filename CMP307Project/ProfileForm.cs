@@ -83,7 +83,7 @@ namespace CMP307Project
                 if (assetsTable.SelectedRows.Count == 1)
                 {
                     // get the ID of the row
-                    int assID = (int)assetsTable.SelectedRows[0].Cells["AssID"].Value;
+                    int assID = (int)assetsTable.SelectedRows[0].Cells["assetsAssID"].Value;
                     Asset asset = (from f in db.Assets
                                    where f.AssID == assID
                                    select f).FirstOrDefault();
@@ -91,7 +91,7 @@ namespace CMP307Project
                     if (asset != null)
                     {
                         // open edit asset form
-                        EditAsset newForm = new EditAsset(asset);
+                        EditAsset newForm = new EditAsset(asset, employee.EmployeeID);
                         newForm.Show();
                     }
                 }
