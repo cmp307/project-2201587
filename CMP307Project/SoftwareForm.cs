@@ -107,7 +107,7 @@ namespace CMP307Project
                 {
                     // get the ID of the row and confirm the user would like to delete this row
                     int softID = (int)softwareTable.SelectedRows[0].Cells["SoftID"].Value;
-                    if (MessageBox.Show("Are you sure you want to delete selected row? All dependant links will be deleted. (row number: " + softID + ")", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Are you sure you want to delete selected row? All dependent links will be deleted. (row number: " + softID + ")", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         // if user clicks confirm, find asset in the databse
                         Software software = (from f in db.Softwares

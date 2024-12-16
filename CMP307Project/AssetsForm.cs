@@ -6,6 +6,7 @@ using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -99,7 +100,7 @@ namespace CMP307Project
                 {
                     // get the ID of the row and confirm the user would like to delete this row
                     int assID = (int)assetsTable.SelectedRows[0].Cells["AssID"].Value;
-                    if (MessageBox.Show("Are you sure you want to delete selected row? (row number: " + assID + ")", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (MessageBox.Show("Are you sure you want to delete selected row? All dependent links will be deleted. (row number: " + assID + ")", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         // if user clicks confirm, find asset in the databse
                         Asset asset = (from f in db.Assets
@@ -108,9 +109,23 @@ namespace CMP307Project
                         // if asset found, delete asset
                         if (asset != null)
                         {
+                            IQueryable<Link> links = from f in db.Links
+                                                     where f.AssID == assID
+                                                     select f;
+                            if (links != null)
+                            {
+                                foreach (Link link in links)
+                                {
+                                    db.Links.Remove(link);
+                                }
+                            }
                             db.Assets.Remove(asset);
                             db.SaveChanges();
                             loadTable();
+                        }
+                        else
+                        {
+                            throw new Exception("Asset not found");
                         }
                     }
                     else
