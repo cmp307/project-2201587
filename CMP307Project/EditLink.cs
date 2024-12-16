@@ -54,11 +54,11 @@ namespace CMP307Project
                 {
                     if (activeCB.Checked == true)
                     {
-                        link.Active = true;
+                        updateLink.Active = true;
                     }
                     else
                     {
-                        link.Active = false;
+                        updateLink.Active = false;
                     }
                 }
                 else
@@ -67,6 +67,7 @@ namespace CMP307Project
                 }
                 db.SaveChanges();
                 link = updateLink;
+                MessageBox.Show("link updated successfully!");
             }
             catch (Exception ex)
             {
