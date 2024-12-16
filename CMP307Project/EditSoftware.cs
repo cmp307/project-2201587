@@ -16,12 +16,10 @@ namespace CMP307Project
         // setup global variables and database connection
         mssql2201587Entities db = new mssql2201587Entities();
         private Software software;
-        private Link link;
-        public EditSoftware(Software software, Link link)
+        public EditSoftware(Software software)
         {
             InitializeComponent();
             this.software = software;
-            this.link = link;
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
@@ -35,15 +33,7 @@ namespace CMP307Project
             osNameTB.Text = software.OSname;
             versionTB.Text = software.Version;
             manuTB.Text = software.manufacturer;
-            assetNum.Value = link.AssID;
-            if (link.Active == true)
-            {
-                activeCB.Checked = true;
-            } 
-            else
-            {
-                activeCB.Checked = false;
-            }
+            
             
         }
 
@@ -61,40 +51,12 @@ namespace CMP307Project
                     updateSoftware.Version = versionTB.Text;
                     updateSoftware.manufacturer = manuTB.Text;
 
-                    Link updateLink = (from f in db.Links
-                                 where f.SoftID == software.SoftID
-                                 select f).FirstOrDefault();
-                    if (updateLink != null)
-                    {
-                        if (activeCB.Checked == true)
-                        {
-                            updateLink.Active = true;
-                        }
-                        else
-                        {
-                            updateLink.Active = false;
-                        }
-                        // comment
-                        //if (Decimal.ToInt32(assetNum.Value) == 0)
-                        //{
-                        //    throw new Exception("Software must belong to asset");
-                        //}
-                        //else
-                        //{
-                        //    updateLink.AssID = Decimal.ToInt32(assetNum.Value);
-                        //}
-                        // send updated asset to database and save changes
-                        db.SaveChanges();
-                        software = updateSoftware;
-                        link = updateLink;
-                        // confirmation message and hide form
-                        MessageBox.Show("System updated successfully!");
-                        this.Hide();
-                    }
-                    else
-                    {
-                        throw new Exception("Link error");
-                    }
+                    db.SaveChanges();
+                    software = updateSoftware;
+                        
+                    // confirmation message and hide form
+                    MessageBox.Show("System updated successfully!");
+                    this.Hide();
                 }
                 else
                 {
