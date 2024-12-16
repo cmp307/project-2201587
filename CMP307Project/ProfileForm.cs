@@ -37,8 +37,19 @@ namespace CMP307Project
                     foreach (Link link in getlinks)
                     {
                         links.Add(link);
-                        Software software = (from f in db.Softwares where f.SoftID == link.SoftID select f).FirstOrDefault();
-                        softwareList.Add(software);
+                        Software findSoftware = (from f in db.Softwares where f.SoftID == link.SoftID select f).FirstOrDefault();
+                        bool found = false;
+                        foreach (Software software in softwareList)
+                        {
+                            if (software.SoftID == findSoftware.SoftID)
+                            {
+                                found = true;
+                            }
+                        }
+                        if (!found)
+                        {
+                            softwareList.Add(findSoftware);
+                        }
                     }
                 }
             }
