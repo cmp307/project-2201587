@@ -42,5 +42,11 @@ namespace CMP307Project
             softwareTable.DataSource = softwareList;
             linksTable.DataSource = links;
         }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            // close profile page
+            this.Close();
+        }
     }
 }

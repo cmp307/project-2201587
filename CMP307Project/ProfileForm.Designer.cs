@@ -354,6 +354,7 @@
             this.closeBtn.TabIndex = 8;
             this.closeBtn.Text = "Close";
             this.closeBtn.UseVisualStyleBackColor = true;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // ProfileForm
             // 
