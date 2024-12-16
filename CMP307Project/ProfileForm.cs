@@ -21,7 +21,7 @@ namespace CMP307Project
             this.employee = employee;
         }
 
-        private void ProfileForm_Load(object sender, EventArgs e)
+        private void loadTable()
         {
             // get data from the database and update the assets table on the form
             db = new mssql2201587Entities();
@@ -31,7 +31,7 @@ namespace CMP307Project
             List<Software> softwareList = new List<Software>();
             foreach (Asset asset in assets)
             {
-                Link link = (from f in db.Links where f.AssID == asset.AssID && f.Active == true select f).FirstOrDefault();
+                Link link = (from f in db.Links where f.AssID == asset.AssID select f).FirstOrDefault();
                 if (link != null)
                 {
                     links.Add(link);
@@ -41,6 +41,11 @@ namespace CMP307Project
             }
             softwareTable.DataSource = softwareList;
             linksTable.DataSource = links;
+        }
+
+        private void ProfileForm_Load(object sender, EventArgs e)
+        {
+            loadTable();
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
@@ -58,14 +63,7 @@ namespace CMP307Project
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
-            // get data from the database and update the assets table on the form
-            db = new mssql2201587Entities();
-            IQueryable<Software> softwares = from f in db.Softwares select f;
-            softwareTable.DataSource = softwares.ToList();
-            IQueryable<Link> links = from f in db.Links select f;
-            linksTable.DataSource = links.OrderBy(link => link.SoftID).ToList();
-            IQueryable<Asset> assets = from f in db.Assets select f;
-            assetsTable.DataSource = assets.ToList();
+            loadTable();
         }
     }
 }
