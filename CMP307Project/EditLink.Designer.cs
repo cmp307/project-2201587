@@ -54,6 +54,7 @@
             this.editBtn.TabIndex = 53;
             this.editBtn.Text = "Edit Link";
             this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // activeCB
             // 

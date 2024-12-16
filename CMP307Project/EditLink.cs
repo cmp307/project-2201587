@@ -44,5 +44,34 @@ namespace CMP307Project
             }
 
         }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Link updateLink = (from f in db.Links where f.AssID == link.AssID && f.SoftID == link.SoftID select f).FirstOrDefault();
+                if (updateLink != null)
+                {
+                    if (activeCB.Checked == true)
+                    {
+                        link.Active = true;
+                    }
+                    else
+                    {
+                        link.Active = false;
+                    }
+                }
+                else
+                {
+                    throw new Exception("Link not found");
+                }
+                db.SaveChanges();
+                link = updateLink;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
