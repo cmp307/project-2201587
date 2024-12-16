@@ -55,6 +55,7 @@
             this.linksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.linksBindingSource = new CMP307Project.linksBindingSource();
             this.linksTableAdapter = new CMP307Project.linksBindingSourceTableAdapters.LinksTableAdapter();
+            this.vulnCheckBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
@@ -269,11 +270,21 @@
             // 
             this.linksTableAdapter.ClearBeforeFill = true;
             // 
+            // vulnCheckBtn
+            // 
+            this.vulnCheckBtn.Location = new System.Drawing.Point(327, 338);
+            this.vulnCheckBtn.Name = "vulnCheckBtn";
+            this.vulnCheckBtn.Size = new System.Drawing.Size(80, 41);
+            this.vulnCheckBtn.TabIndex = 15;
+            this.vulnCheckBtn.Text = "Check Vulnerabilities ";
+            this.vulnCheckBtn.UseVisualStyleBackColor = true;
+            // 
             // SoftwareForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1074, 424);
+            this.Controls.Add(this.vulnCheckBtn);
             this.Controls.Add(this.linksTable);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.editBtn);
@@ -327,5 +338,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AssID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Active;
+        private System.Windows.Forms.Button vulnCheckBtn;
     }
 }
