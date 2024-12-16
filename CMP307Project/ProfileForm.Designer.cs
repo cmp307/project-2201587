@@ -314,6 +314,7 @@
             this.editAssetBtn.TabIndex = 6;
             this.editAssetBtn.Text = "Edit Asset";
             this.editAssetBtn.UseVisualStyleBackColor = true;
+            this.editAssetBtn.Click += new System.EventHandler(this.editAssetBtn_Click);
             // 
             // editSoftBtn
             // 

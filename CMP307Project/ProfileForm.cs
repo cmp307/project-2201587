@@ -74,5 +74,38 @@ namespace CMP307Project
             AddSoftware newForm = new AddSoftware(employee.EmployeeID);
             newForm.Show();
         }
+
+        private void editAssetBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // check if only one row has been selected
+                if (assetsTable.SelectedRows.Count == 1)
+                {
+                    // get the ID of the row
+                    int assID = (int)assetsTable.SelectedRows[0].Cells["AssID"].Value;
+                    Asset asset = (from f in db.Assets
+                                   where f.AssID == assID
+                                   select f).FirstOrDefault();
+                    // if asset found, open edit form
+                    if (asset != null)
+                    {
+                        // open edit asset form
+                        EditAsset newForm = new EditAsset(asset);
+                        newForm.Show();
+                    }
+                }
+                else
+                {
+                    // handle exception if user selects no rows or more than one row
+                    MessageBox.Show("Can only edit one row at a time. Please select only one row and try again.");
+                }
+            }
+            catch (Exception ex)
+            {
+                // exception handler
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
