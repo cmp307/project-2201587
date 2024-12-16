@@ -17,9 +17,11 @@ namespace CMP307Project
     {
         // setup database connection
         mssql2201587Entities db = new mssql2201587Entities();
-        public AddAsset()
+        private int employeeID;
+        public AddAsset(int employeeID = 0)
         {
             InitializeComponent();
+            this.employeeID = employeeID;
         }
 
         // get data value according to attribute name given
@@ -81,14 +83,20 @@ namespace CMP307Project
                 newAsset.IPAddress = ipTB.Text;
                 newAsset.PurchaseDate = datePick.Value;
                 newAsset.Notes = notesTB.Text;
-                // employee ID on the form is automatically set to 0. if it is 0 when the form is submitted, set employee ID to null (belongs to no employee). if there is a value other than null, add that as the employee ID
-                if (Decimal.ToInt32(employeeNum.Value) == 0 ) 
+                if (employeeID != 0)
                 {
-                    newAsset.EmployeeID = null;
+                    newAsset.EmployeeID = employeeID;
                 }
                 else
                 {
-                    newAsset.EmployeeID = Decimal.ToInt32(employeeNum.Value);
+                    if (Decimal.ToInt32(employeeNum.Value) == 0)
+                    {
+                        throw new Exception("Asset must be assigned to employee");
+                    }
+                    else
+                    {
+                        newAsset.EmployeeID = Decimal.ToInt32(employeeNum.Value);
+                    }
                 }
                 // send new asset to database and save changes
                 db.Assets.Add(newAsset);
@@ -108,6 +116,15 @@ namespace CMP307Project
         {
             // close add page
             this.Close();
+        }
+
+        private void AddAsset_Load(object sender, EventArgs e)
+        {
+            if (employeeID != 0)
+            {
+                employeeIDLbl.Visible = false;
+                employeeNum.Visible = false;
+            }
         }
     }
 }
