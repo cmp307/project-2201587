@@ -11,7 +11,7 @@ CREATE TABLE CMP307.Employee (
 		FirstName VARCHAR(100) NOT NULL,
 		LastName VARCHAR(100) NOT NULL,
 		Email VARCHAR(255) NOT NULL UNIQUE,
-		DepartmentID INT FOREIGN KEY REFERENCES CMP307.Department(DepartmentID),
+		DepartmentID INT NOT NULL FOREIGN KEY REFERENCES CMP307.Department(DepartmentID),
 		Password VARCHAR(255) NOT NULL,
 );
 GO
@@ -26,7 +26,7 @@ CREATE TABLE CMP307.Asset (
 		IPAddress VARCHAR(15),
 		PurchaseDate DATE,
 		Notes VARCHAR(512),
-		EmployeeID INT FOREIGN KEY REFERENCES CMP307.Employee(EmployeeID),
+		EmployeeID INT NOT NULL FOREIGN KEY REFERENCES CMP307.Employee(EmployeeID),
 );
 GO
 

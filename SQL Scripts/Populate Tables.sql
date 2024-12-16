@@ -4,7 +4,7 @@ VALUES
     ('Human Resources'),
     ('Finance'),
     ('IT Support'),
-    ('Research and Development'),
+    ('Operations'),
     ('Marketing');
 GO
 
@@ -28,22 +28,3 @@ VALUES
     ('iPad Air', 'iPad Air 4', 'Apple', 'Tablet', NULL, '2020-09-05', 'Assigned to Marketing team', 5);
 GO
 
--- Insert sample data into Software Table
-INSERT INTO CMP307.Software (OSname, Version, manufacturer)
-VALUES
-    ('Windows 10', '20H2', 'Microsoft'),
-    ('Ubuntu', '20.04 LTS', 'Canonical'),
-    ('macOS', 'Monterey', 'Apple'),
-    ('Fedora', '35', 'Red Hat'),
-    ('Chrome OS', '96', 'Google');
-GO
-
--- Insert sample data into Links Table
-INSERT INTO CMP307.Links (AssID, SoftID, Date, Active)
-VALUES
-    (1, 1, '2022-01-01', 1),
-    (2, 2, '2022-02-01', 1),
-    (3, 3, '2022-03-01', 1),
-    (1, 4, '2022-04-01', 1),
-    (2, 5, '2022-05-01', 1);
-GO
