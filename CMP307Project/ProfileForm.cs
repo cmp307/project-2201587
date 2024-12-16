@@ -42,8 +42,8 @@ namespace CMP307Project
                     }
                 }
             }
-            softwareTable.DataSource = softwareList;
-            linksTable.DataSource = links;
+            softwareTable.DataSource = softwareList.OrderBy(software => software.SoftID).ToList();
+            linksTable.DataSource = links.OrderBy(link => link.SoftID).ToList();
         }
 
         private void ProfileForm_Load(object sender, EventArgs e)
@@ -71,7 +71,7 @@ namespace CMP307Project
 
         private void addSoftBtn_Click(object sender, EventArgs e)
         {
-            AddSoftware newForm = new AddSoftware();
+            AddSoftware newForm = new AddSoftware(employee.EmployeeID);
             newForm.Show();
         }
     }
