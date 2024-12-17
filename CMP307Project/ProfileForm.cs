@@ -23,29 +23,40 @@ namespace CMP307Project
 
         private void loadTable()
         {
-            // get data from the database and update the assets table on the form
+            // get data from the database and update the tables on the form
             db = new mssql2201587Entities();
+            // get all assets assigned to employee and add to table
             IQueryable<Asset> assets = from f in db.Assets where f.EmployeeID == employee.EmployeeID select f;
             assetsTable.DataSource = assets.ToList();
+            // create links and software lists
             List<Link> links = new List<Link>();
             List<Software> softwareList = new List<Software>();
+            // go through each asset
             foreach (Asset asset in assets)
             {
+                // get all links associated with the asset
                 IQueryable<Link> getlinks = from f in db.Links where f.AssID == asset.AssID select f;
+                // if links are found
                 if (getlinks != null)
                 {
+                    // go through each link
                     foreach (Link link in getlinks)
                     {
+                        // add link to list
                         links.Add(link);
+                        // get software associated with link
                         Software findSoftware = (from f in db.Softwares where f.SoftID == link.SoftID select f).FirstOrDefault();
+                        // search for software in software list to see if it is already added
                         bool found = false;
                         foreach (Software software in softwareList)
                         {
+                            // if found, set found to true
                             if (software.SoftID == findSoftware.SoftID)
                             {
                                 found = true;
                             }
                         }
+                        // if found is not true, add software to list
                         if (!found)
                         {
                             softwareList.Add(findSoftware);
@@ -53,12 +64,14 @@ namespace CMP307Project
                     }
                 }
             }
+            // add software and links to tables
             softwareTable.DataSource = softwareList.OrderBy(software => software.SoftID).ToList();
             linksTable.DataSource = links.OrderBy(link => link.SoftID).ToList();
         }
 
         private void ProfileForm_Load(object sender, EventArgs e)
         {
+            // load data from the database as soon as the form opens
             loadTable();
         }
 
@@ -77,11 +90,13 @@ namespace CMP307Project
 
         private void refreshBtn_Click(object sender, EventArgs e)
         {
+            // refresh tables
             loadTable();
         }
 
         private void addSoftBtn_Click(object sender, EventArgs e)
         {
+            // open add software form
             AddSoftware newForm = new AddSoftware(employee.EmployeeID);
             newForm.Show();
         }
@@ -95,6 +110,7 @@ namespace CMP307Project
                 {
                     // get the ID of the row
                     int assID = (int)assetsTable.SelectedRows[0].Cells["assetsAssID"].Value;
+                    // find asset
                     Asset asset = (from f in db.Assets
                                    where f.AssID == assID
                                    select f).FirstOrDefault();
@@ -128,21 +144,16 @@ namespace CMP307Project
                 {
                     // get the ID of the row
                     int softID = (int)softwareTable.SelectedRows[0].Cells["softwareSoftID"].Value;
+                    // find software
                     Software software = (from f in db.Softwares
                                          where f.SoftID == softID
                                          select f).FirstOrDefault();
-                    // if asset found, open edit form
+                    // if software found, open edit form
                     if (software != null)
                     {
-                        Link link = (from f in db.Links
-                                     where f.SoftID == softID
-                                     select f).FirstOrDefault();
-                        if (link != null)
-                        {
-                            // open edit asset form
-                            EditSoftware newForm = new EditSoftware(software);
-                            newForm.Show();
-                        }
+                        // open edit software form
+                        EditSoftware newForm = new EditSoftware(software);
+                        newForm.Show();
                     }
                 }
                 else
@@ -167,21 +178,16 @@ namespace CMP307Project
                 {
                     // get the ID of the row
                     int softID = (int)softwareTable.SelectedRows[0].Cells["softwareSoftID"].Value;
+                    // find software
                     Software software = (from f in db.Softwares
                                          where f.SoftID == softID
                                          select f).FirstOrDefault();
-                    // if asset found, open edit form
+                    // if software found
                     if (software != null)
                     {
-                        Link link = (from f in db.Links
-                                     where f.SoftID == softID
-                                     select f).FirstOrDefault();
-                        if (link != null)
-                        {
-                            // open edit asset form
-                            AddLink newForm = new AddLink(software, employee.EmployeeID);
-                            newForm.Show();
-                        }
+                        // open add link form
+                        AddLink newForm = new AddLink(software, employee.EmployeeID);
+                        newForm.Show();
                     }
                 }
                 else
@@ -204,16 +210,17 @@ namespace CMP307Project
                 // check if only one row has been selected
                 if (linksTable.SelectedRows.Count == 1)
                 {
-                    // get the ID of the row
+                    // get the IDs from the selected row
                     int softID = (int)linksTable.SelectedRows[0].Cells["linkSoftID"].Value;
                     int assID = (int)linksTable.SelectedRows[0].Cells["AssID"].Value;
+                    // find link
                     Link link = (from f in db.Links
                                  where f.SoftID == softID && f.AssID == assID
                                  select f).FirstOrDefault();
-                    // if asset found, open edit form
+                    // if link found, open edit link form
                     if (link != null)
                     {
-
+                        // open edit link form
                         EditLink newForm = new EditLink(link, employee.EmployeeID);
                         newForm.Show();
                     }

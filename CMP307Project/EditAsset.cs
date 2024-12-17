@@ -33,10 +33,12 @@ namespace CMP307Project
 
         private void EditAsset_Load(object sender, EventArgs e)
         {
+            // autofill fields on form load
             sysNameTB.Text = asset.SystemName;
             modelTB.Text = asset.Model;
             manuTB.Text = asset.Manufacturer;
             typeTB.Text = asset.Type;
+            // fill in values of fields if they arent null
             if (asset.IPAddress != null)
             {
                 ipTB.Text = asset.IPAddress;
@@ -49,7 +51,9 @@ namespace CMP307Project
             {
                 notesTB.Text = asset.Notes;
             }
+            // fill in assigned employee ID
             employeeNum.Value = asset.EmployeeID;
+            // if editing employee not IT, hide employee ID and input to prevent changes
             if (employeeID != 0)
             {
                 employeeIDLbl.Visible = false;
@@ -62,12 +66,14 @@ namespace CMP307Project
         {
             try
             {
-                // get updated asset details and send to database
+                // get asset to update
                 Asset updateAsset = (from f in db.Assets
                                      where f.AssID == asset.AssID
                                      select f).FirstOrDefault();
+                // if asset found
                 if (updateAsset != null)
                 {
+                    // update attributes
                     updateAsset.SystemName = sysNameTB.Text;
                     updateAsset.Model = modelTB.Text;
                     updateAsset.Manufacturer = manuTB.Text;
@@ -75,13 +81,15 @@ namespace CMP307Project
                     updateAsset.IPAddress = ipTB.Text;
                     updateAsset.PurchaseDate = datePick.Value;
                     updateAsset.Notes = notesTB.Text;
-                    // employee ID on the form is automatically set to 0. if it is 0 when the form is submitted, set employee ID to null (belongs to no employee). if there is a value other than null, add that as the employee ID
+                    // employee ID on the form is could be set to 0
                     if (Decimal.ToInt32(employeeNum.Value) == 0)
                     {
+                        // if it is 0 when the form is submitted, throw exception as asset must be assigned to employee
                         throw new Exception("Asset must be assigned to employee");
                     }
                     else
                     {
+                        // if there is a value other than 0, add that as the employee ID
                         updateAsset.EmployeeID = Decimal.ToInt32(employeeNum.Value);
                     }
                     // send updated asset to database and save changes
@@ -90,8 +98,10 @@ namespace CMP307Project
                     // confirmation message and hide form
                     MessageBox.Show("System updated successfully!");
                     this.Hide();
-                } else
+                } 
+                else
                 {
+                    // throw exception is asset not found
                     throw new Exception("Asset not Found");
                 }
             }

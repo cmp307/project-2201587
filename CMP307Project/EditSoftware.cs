@@ -30,27 +30,28 @@ namespace CMP307Project
 
         private void EditSoftware_Load(object sender, EventArgs e)
         {
+            // autofill fields
             osNameTB.Text = software.OSname;
             versionTB.Text = software.Version;
             manuTB.Text = software.manufacturer;
-            
-            
         }
 
         private void editBtn_Click(object sender, EventArgs e)
         {
             try
             {
-                // get updated asset details and send to database
+                // get software asset to update
                 Software updateSoftware = (from f in db.Softwares
                                      where f.SoftID == software.SoftID
                                      select f).FirstOrDefault();
+                // if software found
                 if (updateSoftware != null)
                 {
+                    // update attributes
                     updateSoftware.OSname = osNameTB.Text;
                     updateSoftware.Version = versionTB.Text;
                     updateSoftware.manufacturer = manuTB.Text;
-
+                    // send updated asset to database and save changes
                     db.SaveChanges();
                     software = updateSoftware;
                         
@@ -60,6 +61,7 @@ namespace CMP307Project
                 }
                 else
                 {
+                    // throw exception if software not found
                     throw new Exception("Software not Found");
                 }
             }

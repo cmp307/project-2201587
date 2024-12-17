@@ -62,26 +62,30 @@ namespace CMP307Project
                 {
                     // get the ID of the row and confirm the user would like to delete this row
                     int empID = (int)employeesTable.SelectedRows[0].Cells["EmployeeID"].Value;
+                    // warn that dependent links and assets will be deleted
                     if (MessageBox.Show("Are you sure you want to delete selected row? All dependent Assets and Links will be deleted. (row number: " + empID + ")", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         // if user clicks confirm, find employee in the databse
                         Employee emp = (from f in db.Employees
                                        where f.EmployeeID == empID
                                        select f).FirstOrDefault();
-                        // if asset found, delete asset
+                        // if employee found
                         if (emp != null)
                         {
+                            // find all assets assigned to employee
                             IQueryable<Asset> assets = from f in db.Assets
                                                        where f.EmployeeID == emp.EmployeeID
                                                        select f;
-                            
+                            // if any assets are found
                             if (assets != null)
                             {
                                 foreach (Asset asset in assets)
                                 {
+                                    // find all links of each asset
                                     IQueryable<Link> links = from f in db.Links
                                                              where f.AssID == asset.AssID
                                                              select f;
+                                    // if any links are found, remove all
                                     if (links != null)
                                     {
                                         foreach (Link link in links)
@@ -89,18 +93,20 @@ namespace CMP307Project
                                             db.Links.Remove(link);
                                         }
                                     }
+                                    // remove asset
                                     db.Assets.Remove(asset);
                                 }
                             }
-
+                            // remove employee and save database changes
                             db.Employees.Remove(emp);
                             db.SaveChanges();
+                            // refresh table
                             loadTable();
                         }
                     }
                     else
                     {
-                        // user clicked no
+                        // user clicked no, do nothing
                     }
                 }
                 else
@@ -125,13 +131,14 @@ namespace CMP307Project
                 {
                     // get the ID of the row
                     int empID = (int)employeesTable.SelectedRows[0].Cells["EmployeeID"].Value;
+                    // find employee
                     Employee emp = (from f in db.Employees
                                    where f.EmployeeID == empID
                                    select f).FirstOrDefault();
-                    // if asset found, open edit form
+                    // if employee found, open edit form
                     if (emp != null)
                     {
-                        // open edit asset form
+                        // open edit employee form
                         EditEmployee newForm = new EditEmployee(emp);
                         newForm.Show();
                     }

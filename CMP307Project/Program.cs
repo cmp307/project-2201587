@@ -21,6 +21,10 @@ namespace CMP307Project
         }
     }
 
+    // class definitions for handling API response
+    // made using:
+    // https://json2csharp.com/
+    // https://fullduck.dev/how-to-turn-an-api-response-into-a-csharp-class/#get-raw-response
     public class Configuration
     {
         public List<Node> nodes { get; set; }

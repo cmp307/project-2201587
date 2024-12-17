@@ -44,21 +44,27 @@ namespace CMP307Project
 
         private void profileBtn_Click(object sender, EventArgs e)
         {
+            // open profile page
             ProfileForm newForm = new ProfileForm(employee);
             newForm.Show();
         }
 
         private void MenuForm_Load(object sender, EventArgs e)
         {
+            // on form load
             try
             {
+                // find IT department
                 Department itdep = (from f in db.Departments
                                     where f.DepartmentName == "IT Support"
                                     select f).FirstOrDefault();
+                // if found
                 if (itdep != null)
                 {
+                    // and employee is not assigned to IT department
                     if (employee.DepartmentID != itdep.DepartmentID)
                     {
+                        // hide IT employee only pages
                         assetsBtn.Visible = false;
                         employeesBtn.Visible = false;
                         softwareBtn.Visible = false;

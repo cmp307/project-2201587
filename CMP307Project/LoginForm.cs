@@ -23,9 +23,6 @@ namespace CMP307Project
         {
             try
             {
-                // get all user profiles
-                IQueryable<Employee> allEmployees = from f in db.Employees
-                                                   select f;
                 // get user inputs if they are not empty
                 if (emailTB.Text != null)
                 {
@@ -43,8 +40,9 @@ namespace CMP307Project
                             // verify password
                             if (BCrypt.Net.BCrypt.Verify(password, employee.Password))
                             {
-                                // login and send to profile with username
+                                // login and send to menu form
                                 MenuForm newForm = new MenuForm(employee);
+                                // confirmation message and hide form
                                 MessageBox.Show("Successful");
                                 this.Hide();
                                 newForm.Show();
@@ -83,6 +81,7 @@ namespace CMP307Project
 
         private void showPassword_CheckedChanged(object sender, EventArgs e)
         {
+            // if show password checkbox is checked, show password
             if (showPassword.Checked == true)
             {
                 //https://stackoverflow.com/questions/17871910/how-do-i-reset-a-passwordchar 
@@ -90,6 +89,7 @@ namespace CMP307Project
             } 
             else
             {
+                // else, use * as password character
                 passwordTB.PasswordChar = '*';
             }
         }

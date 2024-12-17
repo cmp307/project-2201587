@@ -15,7 +15,7 @@ namespace CMP307Project
 {
     public partial class AddAsset : Form
     {
-        // setup database connection
+        // setup global variables and database connection
         mssql2201587Entities db = new mssql2201587Entities();
         private int employeeID;
         public AddAsset(int employeeID = 0)
@@ -81,27 +81,34 @@ namespace CMP307Project
                 newAsset.Manufacturer = manuTB.Text;
                 newAsset.Type = typeTB.Text;
                 newAsset.IPAddress = ipTB.Text;
+                // check if asset has date label
                 if (dateCB.Checked == true)
                 {
+                    // if yes, add selected date
                     newAsset.PurchaseDate = datePick.Value;
                 }
                 else
                 {
+                    // if no, set date to null
                     newAsset.PurchaseDate = null;
                 }
                 newAsset.Notes = notesTB.Text;
+                // if called by non IT employe
                 if (employeeID != 0)
                 {
                     newAsset.EmployeeID = employeeID;
                 }
                 else
                 {
+                    // if called by IT employee
                     if (Decimal.ToInt32(employeeNum.Value) == 0)
                     {
+                        // throw exception as an employee ID must be selected for the asset
                         throw new Exception("Asset must be assigned to employee");
                     }
                     else
                     {
+                        // assign employee ID
                         newAsset.EmployeeID = Decimal.ToInt32(employeeNum.Value);
                     }
                 }
@@ -127,8 +134,10 @@ namespace CMP307Project
 
         private void AddAsset_Load(object sender, EventArgs e)
         {
+            // set date label and picker to not visible on load
             dateLbl.Visible = false;
             datePick.Visible = false;
+            // if called by non IT employee, hide employee ID label and input
             if (employeeID != 0)
             {
                 employeeIDLbl.Visible = false;
@@ -138,13 +147,16 @@ namespace CMP307Project
 
         private void dateCB_CheckedChanged(object sender, EventArgs e)
         {
+            // if date check box isnt checked
             if (!dateCB.Checked)
             {
+                // hide date label and picker
                 dateLbl.Visible = false;
                 datePick.Visible = false;
             } 
             else
             {
+                // if checked, show 
                 dateLbl.Visible = true;
                 datePick.Visible = true;
             }

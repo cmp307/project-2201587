@@ -60,6 +60,7 @@ namespace CMP307Project
                 {
                     // get the ID of the row
                     int assID = (int)assetsTable.SelectedRows[0].Cells["AssID"].Value;
+                    // find corrosponding asset 
                     Asset asset = (from f in db.Assets
                                     where f.AssID == assID
                                     select f).FirstOrDefault();
@@ -70,7 +71,6 @@ namespace CMP307Project
                         EditAsset newForm = new EditAsset(asset);
                         newForm.Show();
                     }
-                    
                 }
                 else
                 {
@@ -100,18 +100,21 @@ namespace CMP307Project
                 {
                     // get the ID of the row and confirm the user would like to delete this row
                     int assID = (int)assetsTable.SelectedRows[0].Cells["AssID"].Value;
+                    // warn that all dependent links will be deleted
                     if (MessageBox.Show("Are you sure you want to delete selected row? All dependent links will be deleted. (row number: " + assID + ")", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         // if user clicks confirm, find asset in the databse
                         Asset asset = (from f in db.Assets
                                         where f.AssID == assID
                                         select f).FirstOrDefault();
-                        // if asset found, delete asset
+                        // if asset found
                         if (asset != null)
                         {
+                            // find asset links
                             IQueryable<Link> links = from f in db.Links
                                                      where f.AssID == assID
                                                      select f;
+                            // if any links are found, remove them
                             if (links != null)
                             {
                                 foreach (Link link in links)
@@ -119,12 +122,15 @@ namespace CMP307Project
                                     db.Links.Remove(link);
                                 }
                             }
+                            // remove asset and save database changes
                             db.Assets.Remove(asset);
                             db.SaveChanges();
+                            // refresh table
                             loadTable();
                         }
                         else
                         {
+                            // throw exception is asset isnt found
                             throw new Exception("Asset not found");
                         }
                     }

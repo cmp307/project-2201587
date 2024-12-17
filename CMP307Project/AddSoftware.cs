@@ -15,7 +15,7 @@ namespace CMP307Project
 {
     public partial class AddSoftware : Form
     {
-        // setup database connection
+        // setup global variables and database connection
         mssql2201587Entities db = new mssql2201587Entities();
         private int employeeID; 
         public AddSoftware(int employeeID = 0)
@@ -67,40 +67,43 @@ namespace CMP307Project
         {
             try
             {
+                // check if any fields are null
                 if (osNameTB.Text == null || versionTB.Text == null || manuTB.Text == null)
                 {
+                    // throw exception 
                     throw new Exception("All fields are required");
                 }
                 else
                 {
-                    // get new asset details and send to database
+                    // get new software details and send to database
                     Software newSoft = new Software();
                     newSoft.OSname = osNameTB.Text;
                     newSoft.Version = versionTB.Text;
                     newSoft.manufacturer = manuTB.Text;
 
 
-                    // send new spftware to database and save changes
+                    // send new software to database and save changes
                     db.Softwares.Add(newSoft);
                     db.SaveChanges();
 
-                    // confirmation message and hide form
+                    // confirmation message
                     MessageBox.Show("Software added successfully!");
-                    
+                    // if employee not IT
                     if (employeeID != 0)
                     {
+                        // offer chance to link to own asset
                         if (MessageBox.Show("Would you like to link this software to an asset assigned to you? If you dont do this now, only an IT employee will be able to link them for you.", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            // user said yes
+                            // user said yes, open add link form
                             AddLink newForm = new AddLink(newSoft, employeeID);
                             newForm.Show();
                         }
                         else
                         {
-                            // user said no
+                            // user said no, do nothing
                         }
                     }
-
+                    // hide form
                     this.Hide();
                 }
             }
