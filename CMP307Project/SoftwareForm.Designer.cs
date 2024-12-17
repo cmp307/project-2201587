@@ -311,6 +311,7 @@
             this.deleteLinkBtn.TabIndex = 18;
             this.deleteLinkBtn.Text = "Delete Link";
             this.deleteLinkBtn.UseVisualStyleBackColor = true;
+            this.deleteLinkBtn.Click += new System.EventHandler(this.deleteLinkBtn_Click);
             // 
             // SoftwareForm
             // 
