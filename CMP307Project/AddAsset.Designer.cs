@@ -48,6 +48,7 @@
             this.cancelBtn = new System.Windows.Forms.Button();
             this.autofillBtn = new System.Windows.Forms.Button();
             this.employeeNum = new System.Windows.Forms.NumericUpDown();
+            this.dateCB = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.employeeNum)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,7 +150,7 @@
             // dateLbl
             // 
             this.dateLbl.AutoSize = true;
-            this.dateLbl.Location = new System.Drawing.Point(79, 286);
+            this.dateLbl.Location = new System.Drawing.Point(79, 321);
             this.dateLbl.Name = "dateLbl";
             this.dateLbl.Size = new System.Drawing.Size(78, 13);
             this.dateLbl.TabIndex = 12;
@@ -158,7 +159,7 @@
             // notesLbl
             // 
             this.notesLbl.AutoSize = true;
-            this.notesLbl.Location = new System.Drawing.Point(79, 324);
+            this.notesLbl.Location = new System.Drawing.Point(79, 359);
             this.notesLbl.Name = "notesLbl";
             this.notesLbl.Size = new System.Drawing.Size(35, 13);
             this.notesLbl.TabIndex = 13;
@@ -167,14 +168,14 @@
             // datePick
             // 
             this.datePick.Checked = false;
-            this.datePick.Location = new System.Drawing.Point(233, 286);
+            this.datePick.Location = new System.Drawing.Point(233, 321);
             this.datePick.Name = "datePick";
             this.datePick.Size = new System.Drawing.Size(132, 20);
             this.datePick.TabIndex = 14;
             // 
             // notesTB
             // 
-            this.notesTB.Location = new System.Drawing.Point(233, 321);
+            this.notesTB.Location = new System.Drawing.Point(233, 356);
             this.notesTB.MaxLength = 512;
             this.notesTB.Name = "notesTB";
             this.notesTB.Size = new System.Drawing.Size(132, 96);
@@ -184,7 +185,7 @@
             // employeeIDLbl
             // 
             this.employeeIDLbl.AutoSize = true;
-            this.employeeIDLbl.Location = new System.Drawing.Point(79, 438);
+            this.employeeIDLbl.Location = new System.Drawing.Point(79, 473);
             this.employeeIDLbl.Name = "employeeIDLbl";
             this.employeeIDLbl.Size = new System.Drawing.Size(67, 13);
             this.employeeIDLbl.TabIndex = 16;
@@ -192,7 +193,7 @@
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(177, 487);
+            this.addBtn.Location = new System.Drawing.Point(177, 522);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(75, 23);
             this.addBtn.TabIndex = 17;
@@ -202,7 +203,7 @@
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(270, 487);
+            this.cancelBtn.Location = new System.Drawing.Point(270, 522);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(75, 23);
             this.cancelBtn.TabIndex = 18;
@@ -212,7 +213,7 @@
             // 
             // autofillBtn
             // 
-            this.autofillBtn.Location = new System.Drawing.Point(82, 487);
+            this.autofillBtn.Location = new System.Drawing.Point(82, 522);
             this.autofillBtn.Name = "autofillBtn";
             this.autofillBtn.Size = new System.Drawing.Size(75, 23);
             this.autofillBtn.TabIndex = 19;
@@ -222,16 +223,28 @@
             // 
             // employeeNum
             // 
-            this.employeeNum.Location = new System.Drawing.Point(233, 436);
+            this.employeeNum.Location = new System.Drawing.Point(233, 471);
             this.employeeNum.Name = "employeeNum";
             this.employeeNum.Size = new System.Drawing.Size(120, 20);
             this.employeeNum.TabIndex = 20;
+            // 
+            // dateCB
+            // 
+            this.dateCB.AutoSize = true;
+            this.dateCB.Location = new System.Drawing.Point(138, 287);
+            this.dateCB.Name = "dateCB";
+            this.dateCB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dateCB.Size = new System.Drawing.Size(125, 17);
+            this.dateCB.TabIndex = 21;
+            this.dateCB.Text = "?Is there a date lable";
+            this.dateCB.UseVisualStyleBackColor = true;
             // 
             // AddAsset
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 537);
+            this.ClientSize = new System.Drawing.Size(415, 563);
+            this.Controls.Add(this.dateCB);
             this.Controls.Add(this.employeeNum);
             this.Controls.Add(this.autofillBtn);
             this.Controls.Add(this.cancelBtn);
@@ -283,5 +296,6 @@
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button autofillBtn;
         private System.Windows.Forms.NumericUpDown employeeNum;
+        private System.Windows.Forms.CheckBox dateCB;
     }
 }
