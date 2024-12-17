@@ -120,10 +120,26 @@ namespace CMP307Project
 
         private void AddAsset_Load(object sender, EventArgs e)
         {
+            dateLbl.Visible = false;
+            datePick.Visible = false;
             if (employeeID != 0)
             {
                 employeeIDLbl.Visible = false;
                 employeeNum.Visible = false;
+            }
+        }
+
+        private void dateCB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!dateCB.Checked)
+            {
+                dateLbl.Visible = false;
+                datePick.Visible = false;
+            } 
+            else
+            {
+                dateLbl.Visible = true;
+                datePick.Visible = true;
             }
         }
     }

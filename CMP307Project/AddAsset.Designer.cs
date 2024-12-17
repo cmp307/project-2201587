@@ -238,6 +238,7 @@
             this.dateCB.TabIndex = 21;
             this.dateCB.Text = "?Is there a date lable";
             this.dateCB.UseVisualStyleBackColor = true;
+            this.dateCB.CheckedChanged += new System.EventHandler(this.dateCB_CheckedChanged);
             // 
             // AddAsset
             // 
