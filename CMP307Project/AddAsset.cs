@@ -81,7 +81,14 @@ namespace CMP307Project
                 newAsset.Manufacturer = manuTB.Text;
                 newAsset.Type = typeTB.Text;
                 newAsset.IPAddress = ipTB.Text;
-                newAsset.PurchaseDate = datePick.Value;
+                if (dateCB.Checked == true)
+                {
+                    newAsset.PurchaseDate = datePick.Value;
+                }
+                else
+                {
+                    newAsset.PurchaseDate = null;
+                }
                 newAsset.Notes = notesTB.Text;
                 if (employeeID != 0)
                 {
