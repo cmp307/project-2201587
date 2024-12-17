@@ -58,6 +58,7 @@
             this.vulnCheckBtn = new System.Windows.Forms.Button();
             this.addLinkBtn = new System.Windows.Forms.Button();
             this.editLinkBtn = new System.Windows.Forms.Button();
+            this.deleteLinkBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mssql2201587DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assetBindingSource)).BeginInit();
@@ -274,7 +275,7 @@
             // 
             // vulnCheckBtn
             // 
-            this.vulnCheckBtn.Location = new System.Drawing.Point(489, 338);
+            this.vulnCheckBtn.Location = new System.Drawing.Point(570, 338);
             this.vulnCheckBtn.Name = "vulnCheckBtn";
             this.vulnCheckBtn.Size = new System.Drawing.Size(80, 41);
             this.vulnCheckBtn.TabIndex = 15;
@@ -302,11 +303,21 @@
             this.editLinkBtn.UseVisualStyleBackColor = true;
             this.editLinkBtn.Click += new System.EventHandler(this.editLinkBtn_Click);
             // 
+            // deleteLinkBtn
+            // 
+            this.deleteLinkBtn.Location = new System.Drawing.Point(489, 338);
+            this.deleteLinkBtn.Name = "deleteLinkBtn";
+            this.deleteLinkBtn.Size = new System.Drawing.Size(75, 41);
+            this.deleteLinkBtn.TabIndex = 18;
+            this.deleteLinkBtn.Text = "Delete Link";
+            this.deleteLinkBtn.UseVisualStyleBackColor = true;
+            // 
             // SoftwareForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1074, 424);
+            this.Controls.Add(this.deleteLinkBtn);
             this.Controls.Add(this.editLinkBtn);
             this.Controls.Add(this.addLinkBtn);
             this.Controls.Add(this.vulnCheckBtn);
@@ -366,5 +377,6 @@
         private System.Windows.Forms.Button vulnCheckBtn;
         private System.Windows.Forms.Button addLinkBtn;
         private System.Windows.Forms.Button editLinkBtn;
+        private System.Windows.Forms.Button deleteLinkBtn;
     }
 }
