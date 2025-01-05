@@ -25,13 +25,21 @@ namespace CMP307Project
             this.employeeID = employeeID;
         }
 
+        public EditAsset(mssql2201587Entities dbContext, Asset asset, int employeeID = 0)
+        {
+            InitializeComponent();
+            this.asset = asset;
+            this.employeeID = employeeID;
+            this.db = dbContext;
+        }
+
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             // close add page
             this.Close();
         }
 
-        private void EditAsset_Load(object sender, EventArgs e)
+        public void EditAsset_Load(object sender, EventArgs e)
         {
             // autofill fields on form load
             sysNameTB.Text = asset.SystemName;
@@ -46,6 +54,12 @@ namespace CMP307Project
             if (asset.PurchaseDate != null)
             {
                 datePick.Value = asset.PurchaseDate.Value;
+            }
+            else
+            {
+                // set date label and picker to not visible on load
+                dateLbl.Visible = false;
+                datePick.Visible = false;
             }
             if (asset.Notes != null)
             {
@@ -62,7 +76,7 @@ namespace CMP307Project
 
         }
 
-        private void editBtn_Click(object sender, EventArgs e)
+        public void editBtn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -79,7 +93,17 @@ namespace CMP307Project
                     updateAsset.Manufacturer = manuTB.Text;
                     updateAsset.Type = typeTB.Text;
                     updateAsset.IPAddress = ipTB.Text;
-                    updateAsset.PurchaseDate = datePick.Value;
+                    // check if asset has date label
+                    if (dateCB.Checked == true)
+                    {
+                        // if yes, add selected date
+                        updateAsset.PurchaseDate = datePick.Value;
+                    }
+                    else
+                    {
+                        // if no, set date to null
+                        updateAsset.PurchaseDate = null;
+                    }
                     updateAsset.Notes = notesTB.Text;
                     // employee ID on the form is could be set to 0
                     if (Decimal.ToInt32(employeeNum.Value) == 0)
@@ -109,6 +133,23 @@ namespace CMP307Project
             {
                 // exception handler
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dateCB_CheckedChanged(object sender, EventArgs e)
+        {
+            // if date check box isnt checked
+            if (!dateCB.Checked)
+            {
+                // hide date label and picker
+                dateLbl.Visible = false;
+                datePick.Visible = false;
+            }
+            else
+            {
+                // if checked, show 
+                dateLbl.Visible = true;
+                datePick.Visible = true;
             }
         }
     }
