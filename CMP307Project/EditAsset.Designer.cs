@@ -47,19 +47,20 @@
             this.modelTB = new System.Windows.Forms.TextBox();
             this.sysNameTB = new System.Windows.Forms.TextBox();
             this.editAssetLbl = new System.Windows.Forms.Label();
+            this.dateCB = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.employeeNum)).BeginInit();
             this.SuspendLayout();
             // 
             // employeeNum
             // 
-            this.employeeNum.Location = new System.Drawing.Point(218, 435);
+            this.employeeNum.Location = new System.Drawing.Point(218, 450);
             this.employeeNum.Name = "employeeNum";
             this.employeeNum.Size = new System.Drawing.Size(120, 20);
             this.employeeNum.TabIndex = 40;
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(255, 486);
+            this.cancelBtn.Location = new System.Drawing.Point(255, 491);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(75, 23);
             this.cancelBtn.TabIndex = 38;
@@ -69,7 +70,7 @@
             // 
             // editBtn
             // 
-            this.editBtn.Location = new System.Drawing.Point(162, 486);
+            this.editBtn.Location = new System.Drawing.Point(67, 491);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(75, 23);
             this.editBtn.TabIndex = 37;
@@ -80,7 +81,7 @@
             // employeeIDLbl
             // 
             this.employeeIDLbl.AutoSize = true;
-            this.employeeIDLbl.Location = new System.Drawing.Point(64, 437);
+            this.employeeIDLbl.Location = new System.Drawing.Point(64, 452);
             this.employeeIDLbl.Name = "employeeIDLbl";
             this.employeeIDLbl.Size = new System.Drawing.Size(67, 13);
             this.employeeIDLbl.TabIndex = 36;
@@ -88,7 +89,7 @@
             // 
             // notesTB
             // 
-            this.notesTB.Location = new System.Drawing.Point(218, 320);
+            this.notesTB.Location = new System.Drawing.Point(218, 335);
             this.notesTB.MaxLength = 512;
             this.notesTB.Name = "notesTB";
             this.notesTB.Size = new System.Drawing.Size(132, 96);
@@ -98,7 +99,7 @@
             // datePick
             // 
             this.datePick.Checked = false;
-            this.datePick.Location = new System.Drawing.Point(218, 285);
+            this.datePick.Location = new System.Drawing.Point(218, 300);
             this.datePick.Name = "datePick";
             this.datePick.Size = new System.Drawing.Size(132, 20);
             this.datePick.TabIndex = 34;
@@ -106,7 +107,7 @@
             // notesLbl
             // 
             this.notesLbl.AutoSize = true;
-            this.notesLbl.Location = new System.Drawing.Point(64, 323);
+            this.notesLbl.Location = new System.Drawing.Point(64, 338);
             this.notesLbl.Name = "notesLbl";
             this.notesLbl.Size = new System.Drawing.Size(35, 13);
             this.notesLbl.TabIndex = 33;
@@ -115,7 +116,7 @@
             // dateLbl
             // 
             this.dateLbl.AutoSize = true;
-            this.dateLbl.Location = new System.Drawing.Point(64, 285);
+            this.dateLbl.Location = new System.Drawing.Point(64, 300);
             this.dateLbl.Name = "dateLbl";
             this.dateLbl.Size = new System.Drawing.Size(78, 13);
             this.dateLbl.TabIndex = 32;
@@ -124,7 +125,7 @@
             // ipaddressLbl
             // 
             this.ipaddressLbl.AutoSize = true;
-            this.ipaddressLbl.Location = new System.Drawing.Point(64, 249);
+            this.ipaddressLbl.Location = new System.Drawing.Point(64, 239);
             this.ipaddressLbl.Name = "ipaddressLbl";
             this.ipaddressLbl.Size = new System.Drawing.Size(58, 13);
             this.ipaddressLbl.TabIndex = 31;
@@ -133,7 +134,7 @@
             // typeLbl
             // 
             this.typeLbl.AutoSize = true;
-            this.typeLbl.Location = new System.Drawing.Point(64, 213);
+            this.typeLbl.Location = new System.Drawing.Point(64, 203);
             this.typeLbl.Name = "typeLbl";
             this.typeLbl.Size = new System.Drawing.Size(35, 13);
             this.typeLbl.TabIndex = 30;
@@ -142,7 +143,7 @@
             // manufacturerLbl
             // 
             this.manufacturerLbl.AutoSize = true;
-            this.manufacturerLbl.Location = new System.Drawing.Point(64, 177);
+            this.manufacturerLbl.Location = new System.Drawing.Point(64, 167);
             this.manufacturerLbl.Name = "manufacturerLbl";
             this.manufacturerLbl.Size = new System.Drawing.Size(74, 13);
             this.manufacturerLbl.TabIndex = 29;
@@ -151,7 +152,7 @@
             // modelLbl
             // 
             this.modelLbl.AutoSize = true;
-            this.modelLbl.Location = new System.Drawing.Point(64, 140);
+            this.modelLbl.Location = new System.Drawing.Point(64, 130);
             this.modelLbl.Name = "modelLbl";
             this.modelLbl.Size = new System.Drawing.Size(40, 13);
             this.modelLbl.TabIndex = 28;
@@ -160,7 +161,7 @@
             // systemNameLbl
             // 
             this.systemNameLbl.AutoSize = true;
-            this.systemNameLbl.Location = new System.Drawing.Point(64, 103);
+            this.systemNameLbl.Location = new System.Drawing.Point(64, 93);
             this.systemNameLbl.Name = "systemNameLbl";
             this.systemNameLbl.Size = new System.Drawing.Size(76, 13);
             this.systemNameLbl.TabIndex = 27;
@@ -168,7 +169,7 @@
             // 
             // ipTB
             // 
-            this.ipTB.Location = new System.Drawing.Point(218, 246);
+            this.ipTB.Location = new System.Drawing.Point(218, 236);
             this.ipTB.MaxLength = 15;
             this.ipTB.Name = "ipTB";
             this.ipTB.Size = new System.Drawing.Size(132, 20);
@@ -176,7 +177,7 @@
             // 
             // typeTB
             // 
-            this.typeTB.Location = new System.Drawing.Point(218, 210);
+            this.typeTB.Location = new System.Drawing.Point(218, 200);
             this.typeTB.MaxLength = 100;
             this.typeTB.Name = "typeTB";
             this.typeTB.Size = new System.Drawing.Size(132, 20);
@@ -184,7 +185,7 @@
             // 
             // manuTB
             // 
-            this.manuTB.Location = new System.Drawing.Point(218, 174);
+            this.manuTB.Location = new System.Drawing.Point(218, 164);
             this.manuTB.MaxLength = 255;
             this.manuTB.Name = "manuTB";
             this.manuTB.Size = new System.Drawing.Size(132, 20);
@@ -192,7 +193,7 @@
             // 
             // modelTB
             // 
-            this.modelTB.Location = new System.Drawing.Point(218, 137);
+            this.modelTB.Location = new System.Drawing.Point(218, 127);
             this.modelTB.MaxLength = 255;
             this.modelTB.Name = "modelTB";
             this.modelTB.Size = new System.Drawing.Size(132, 20);
@@ -200,7 +201,7 @@
             // 
             // sysNameTB
             // 
-            this.sysNameTB.Location = new System.Drawing.Point(218, 100);
+            this.sysNameTB.Location = new System.Drawing.Point(218, 90);
             this.sysNameTB.MaxLength = 255;
             this.sysNameTB.Name = "sysNameTB";
             this.sysNameTB.Size = new System.Drawing.Size(132, 20);
@@ -216,11 +217,24 @@
             this.editAssetLbl.TabIndex = 21;
             this.editAssetLbl.Text = "Edit Asset";
             // 
+            // dateCB
+            // 
+            this.dateCB.AutoSize = true;
+            this.dateCB.Location = new System.Drawing.Point(130, 270);
+            this.dateCB.Name = "dateCB";
+            this.dateCB.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dateCB.Size = new System.Drawing.Size(125, 17);
+            this.dateCB.TabIndex = 41;
+            this.dateCB.Text = "?Is there a date lable";
+            this.dateCB.UseVisualStyleBackColor = true;
+            this.dateCB.CheckedChanged += new System.EventHandler(this.dateCB_CheckedChanged);
+            // 
             // EditAsset
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(415, 537);
+            this.Controls.Add(this.dateCB);
             this.Controls.Add(this.employeeNum);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.editBtn);
@@ -250,25 +264,25 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.NumericUpDown employeeNum;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button editBtn;
-        private System.Windows.Forms.Label employeeIDLbl;
-        private System.Windows.Forms.RichTextBox notesTB;
-        private System.Windows.Forms.DateTimePicker datePick;
         private System.Windows.Forms.Label notesLbl;
-        private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Label ipaddressLbl;
         private System.Windows.Forms.Label typeLbl;
         private System.Windows.Forms.Label manufacturerLbl;
         private System.Windows.Forms.Label modelLbl;
         private System.Windows.Forms.Label systemNameLbl;
-        private System.Windows.Forms.TextBox ipTB;
-        private System.Windows.Forms.TextBox typeTB;
-        private System.Windows.Forms.TextBox manuTB;
-        private System.Windows.Forms.TextBox modelTB;
-        private System.Windows.Forms.TextBox sysNameTB;
         private System.Windows.Forms.Label editAssetLbl;
+        public System.Windows.Forms.DateTimePicker datePick;
+        public System.Windows.Forms.TextBox ipTB;
+        public System.Windows.Forms.TextBox typeTB;
+        public System.Windows.Forms.TextBox manuTB;
+        public System.Windows.Forms.TextBox modelTB;
+        public System.Windows.Forms.TextBox sysNameTB;
+        public System.Windows.Forms.NumericUpDown employeeNum;
+        public System.Windows.Forms.RichTextBox notesTB;
+        public System.Windows.Forms.CheckBox dateCB;
+        public System.Windows.Forms.Label dateLbl;
+        public System.Windows.Forms.Label employeeIDLbl;
     }
 }
