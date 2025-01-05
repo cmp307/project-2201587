@@ -17,15 +17,23 @@ namespace CMP307Project
     {
         // setup global variables and database connection
         mssql2201587Entities db = new mssql2201587Entities();
-        private int employeeID;
+        public int employeeID;
         public AddAsset(int employeeID = 0)
         {
             InitializeComponent();
             this.employeeID = employeeID;
         }
 
+        // constructor for testing
+        public AddAsset(mssql2201587Entities dbContext, int employeeID = 0)
+        {
+            InitializeComponent();
+            this.employeeID = employeeID;
+            this.db = dbContext;
+        }
+
         // get data value according to attribute name given
-        private string getData(string name)
+        public string getData(string name)
         {
             // run query to find attribute with the name given
             ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT " + name + " FROM Win32_ComputerSystem");
@@ -49,7 +57,7 @@ namespace CMP307Project
             return "unknown";
         }
 
-        private void autofillBtn_Click(object sender, EventArgs e)
+        public void autofillBtn_Click(object sender, EventArgs e)
         {
             // autofill field values
             sysNameTB.Text = Environment.MachineName;
@@ -70,7 +78,7 @@ namespace CMP307Project
 
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
+        public void addBtn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -145,7 +153,7 @@ namespace CMP307Project
             }
         }
 
-        private void dateCB_CheckedChanged(object sender, EventArgs e)
+        public void dateCB_CheckedChanged(object sender, EventArgs e)
         {
             // if date check box isnt checked
             if (!dateCB.Checked)
