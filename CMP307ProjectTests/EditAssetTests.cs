@@ -65,13 +65,15 @@ namespace CMP307ProjectTests
 
             // Assert
             mockDB.Verify(m => m.SaveChanges(), Times.Once);
-            Assert.AreEqual("UpdatedPC", testAsset.SystemName);
-            Assert.AreEqual("UpdatedModel", testAsset.Model);
-            Assert.AreEqual("UpdatedManufacturer", testAsset.Manufacturer);
-            Assert.AreEqual("Laptop", testAsset.Type);
-            Assert.AreEqual("192.168.1.2", testAsset.IPAddress);
-            Assert.AreEqual(2, testAsset.EmployeeID);
-            Assert.AreEqual("Updated Notes", testAsset.Notes);
+            var updatedAsset = mockDB.Object.Assets.FirstOrDefault(a => a.AssID == testAsset.AssID);
+            Assert.IsNotNull(updatedAsset);
+            Assert.AreEqual("UpdatedPC", updatedAsset.SystemName);
+            Assert.AreEqual("UpdatedModel", updatedAsset.Model);
+            Assert.AreEqual("UpdatedManufacturer", updatedAsset.Manufacturer);
+            Assert.AreEqual("Laptop", updatedAsset.Type);
+            Assert.AreEqual("192.168.1.2", updatedAsset.IPAddress);
+            Assert.AreEqual(2, updatedAsset.EmployeeID);
+            Assert.AreEqual("Updated Notes", updatedAsset.Notes);
         }
 
         [TestMethod]
