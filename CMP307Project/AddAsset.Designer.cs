@@ -278,25 +278,25 @@
         #endregion
 
         private System.Windows.Forms.Label addAssetLbl;
-        private System.Windows.Forms.TextBox sysNameTB;
-        private System.Windows.Forms.TextBox modelTB;
-        private System.Windows.Forms.TextBox manuTB;
-        private System.Windows.Forms.TextBox typeTB;
-        private System.Windows.Forms.TextBox ipTB;
         private System.Windows.Forms.Label systemNameLbl;
         private System.Windows.Forms.Label modelLbl;
         private System.Windows.Forms.Label manufacturerLbl;
         private System.Windows.Forms.Label typeLbl;
         private System.Windows.Forms.Label ipaddressLbl;
-        private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Label notesLbl;
-        private System.Windows.Forms.DateTimePicker datePick;
-        private System.Windows.Forms.RichTextBox notesTB;
-        private System.Windows.Forms.Label employeeIDLbl;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button autofillBtn;
-        private System.Windows.Forms.NumericUpDown employeeNum;
-        private System.Windows.Forms.CheckBox dateCB;
+        public System.Windows.Forms.Label employeeIDLbl;
+        public System.Windows.Forms.NumericUpDown employeeNum;
+        public System.Windows.Forms.TextBox sysNameTB;
+        public System.Windows.Forms.TextBox modelTB;
+        public System.Windows.Forms.TextBox manuTB;
+        public System.Windows.Forms.TextBox typeTB;
+        public System.Windows.Forms.TextBox ipTB;
+        public System.Windows.Forms.Label dateLbl;
+        public System.Windows.Forms.DateTimePicker datePick;
+        public System.Windows.Forms.CheckBox dateCB;
+        public System.Windows.Forms.RichTextBox notesTB;
     }
 }
