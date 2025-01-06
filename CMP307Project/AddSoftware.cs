@@ -24,6 +24,13 @@ namespace CMP307Project
             this.employeeID = employeeID;
         }
 
+        public AddSoftware(mssql2201587Entities dbContext, int employeeID = 0)
+        {
+            InitializeComponent();
+            this.db = dbContext;
+            this.employeeID= employeeID;
+        }
+
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             // close add page
@@ -63,7 +70,7 @@ namespace CMP307Project
             manuTB.Text = getData("Manufacturer");
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
+        public void addBtn_Click(object sender, EventArgs e)
         {
             try
             {
