@@ -116,9 +116,10 @@ namespace CMP307Project
                     }
                     else
                     {
+                        int empID = Decimal.ToInt32(employeeNum.Value);
                         // check that employee exists
                         Employee employee = (from f in db.Employees
-                                            where f.EmployeeID == Decimal.ToInt32(employeeNum.Value)
+                                            where f.EmployeeID == empID
                                              select f).FirstOrDefault();
                         if (employee != null)
                         {
