@@ -95,6 +95,7 @@
     <Compile Include="EditSoftwareTests.cs" />
     <Compile Include="DeleteAssetTests.cs" />
     <Compile Include="DeleteSoftwareTests.cs" />
+    <Compile Include="DeleteEmployeeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
