@@ -251,7 +251,6 @@
         private System.Windows.Forms.BindingSource mssql2201587DataSetBindingSource;
         private System.Windows.Forms.BindingSource assetBindingSource;
         private System.Windows.Forms.Button refreshBtn;
-        private System.Windows.Forms.DataGridView employeesTable;
         private System.Windows.Forms.Label employeesLbl;
         private employeeBindingSource employeeBindingSource;
         private System.Windows.Forms.BindingSource employeeBindingSource1;
@@ -262,5 +261,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn DepartmentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Password;
+        public System.Windows.Forms.DataGridView employeesTable;
     }
 }

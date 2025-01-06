@@ -20,10 +20,24 @@ namespace CMP307Project
             InitializeComponent();
         }
 
+        public EmployeesForm(mssql2201587Entities dbContext)
+        {
+            InitializeComponent();
+            this.db = dbContext;
+            loadTable(db);
+        }
+
         private void loadTable()
         {
             // get data from the database and update the employees table on the form
             db = new mssql2201587Entities();
+            IQueryable<Employee> employees = from f in db.Employees select f;
+            employeesTable.DataSource = employees.ToList();
+        }
+
+        public void loadTable(mssql2201587Entities db)
+        {
+            // get data from the database and update the employees table on the form
             IQueryable<Employee> employees = from f in db.Employees select f;
             employeesTable.DataSource = employees.ToList();
         }
@@ -53,7 +67,7 @@ namespace CMP307Project
             newForm.Show();
         }
 
-        private void deleteBtn_Click(object sender, EventArgs e)
+        public void deleteBtn_Click(object sender, EventArgs e)
         {
             try
             {
