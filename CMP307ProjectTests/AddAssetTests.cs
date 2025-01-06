@@ -133,7 +133,7 @@ namespace CMP307ProjectTests
             mockAsset.Verify(m => m.Add(It.IsAny<Asset>()), Times.Once(),
                 $"Add should be called even when a required field is empty");
             mockDB.Verify(m => m.SaveChanges(), Times.Once(),
-                $"SaveChanges should be called when a required field is empty, but should throw an exception");
+                $"SaveChanges should be called even when a required field is empty, but should throw an exception");
             
         }
     }
