@@ -366,7 +366,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn oSnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn versionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn manufacturerDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView linksTable;
         private linksBindingSource linksBindingSource;
         private System.Windows.Forms.BindingSource linksBindingSource1;
         private linksBindingSourceTableAdapters.LinksTableAdapter linksTableAdapter;
@@ -379,5 +378,6 @@
         private System.Windows.Forms.Button editLinkBtn;
         private System.Windows.Forms.Button deleteLinkBtn;
         public System.Windows.Forms.DataGridView softwareTable;
+        public System.Windows.Forms.DataGridView linksTable;
     }
 }

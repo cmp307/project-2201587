@@ -285,7 +285,7 @@ namespace CMP307Project
             }
         }
 
-        private void deleteLinkBtn_Click(object sender, EventArgs e)
+        public void deleteLinkBtn_Click(object sender, EventArgs e)
         {
             try
             {
