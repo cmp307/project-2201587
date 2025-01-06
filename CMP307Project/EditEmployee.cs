@@ -22,13 +22,20 @@ namespace CMP307Project
             this.employee = employee;
         }
 
+        public EditEmployee(mssql2201587Entities dbContext, Employee employee)
+        {
+            InitializeComponent();
+            this.employee = employee;
+            this.db = dbContext;
+        }
+
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             // close add page
             this.Close();
         }
 
-        private void updateBtn_Click(object sender, EventArgs e)
+        public void updateBtn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -75,7 +82,7 @@ namespace CMP307Project
             }
         }
 
-        private void EditEmployee_Load(object sender, EventArgs e)
+        public void EditEmployee_Load(object sender, EventArgs e)
         {
             // autofill fields on load
             firstNameTB.Text = employee.FirstName;
