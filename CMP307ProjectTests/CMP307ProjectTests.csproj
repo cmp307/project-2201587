@@ -90,6 +90,7 @@
     <Compile Include="AddAssetTests.cs" />
     <Compile Include="EditAssetTests.cs" />
     <Compile Include="AddEmployeeTests.cs" />
+    <Compile Include="AddSoftwareTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
