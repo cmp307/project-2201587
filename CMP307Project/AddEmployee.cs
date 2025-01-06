@@ -19,13 +19,19 @@ namespace CMP307Project
             InitializeComponent();
         }
 
+        public AddEmployee(mssql2201587Entities dbContext)
+        {
+            InitializeComponent();
+            this.db = dbContext;
+        }
+
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             // close add page
             this.Close();
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
+        public void addBtn_Click(object sender, EventArgs e)
         {
             try
             {

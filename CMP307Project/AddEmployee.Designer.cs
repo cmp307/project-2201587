@@ -185,8 +185,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.NumericUpDown departmentNum;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Label departmentIDLbl;
@@ -194,10 +192,11 @@
         private System.Windows.Forms.Label emailLbl;
         private System.Windows.Forms.Label lastNameLbl;
         private System.Windows.Forms.Label firstNameLbl;
-        private System.Windows.Forms.TextBox passwordTB;
-        private System.Windows.Forms.TextBox emailTB;
-        private System.Windows.Forms.TextBox lastNameTB;
-        private System.Windows.Forms.TextBox firstNameTB;
         private System.Windows.Forms.Label addEmployeeLbl;
+        public System.Windows.Forms.NumericUpDown departmentNum;
+        public System.Windows.Forms.TextBox passwordTB;
+        public System.Windows.Forms.TextBox emailTB;
+        public System.Windows.Forms.TextBox lastNameTB;
+        public System.Windows.Forms.TextBox firstNameTB;
     }
 }
