@@ -249,13 +249,11 @@
         #endregion
 
         private System.Windows.Forms.Label assetsLbl;
-        private System.Windows.Forms.DataGridView assetsTable;
         private System.Windows.Forms.BindingSource mssql2201587DataSetBindingSource;
         private mssql2201587DataSet mssql2201587DataSet;
         private System.Windows.Forms.BindingSource assetBindingSource;
         private mssql2201587DataSetTableAdapters.AssetTableAdapter assetTableAdapter;
         private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button refreshBtn;
         private System.Windows.Forms.Button closeBtn;
@@ -268,5 +266,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn purchaseDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn employeeIDDataGridViewTextBoxColumn;
+        public System.Windows.Forms.DataGridView assetsTable;
+        public System.Windows.Forms.Button deleteBtn;
     }
 }
