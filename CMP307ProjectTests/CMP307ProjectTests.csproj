@@ -98,6 +98,7 @@
     <Compile Include="DeleteEmployeeTests.cs" />
     <Compile Include="AddLinkTests.cs" />
     <Compile Include="EditLinkTests.cs" />
+    <Compile Include="DeleteLinkTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
