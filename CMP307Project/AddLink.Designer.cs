@@ -126,13 +126,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.NumericUpDown assetNum;
         private System.Windows.Forms.Label assetIdLbl;
         private System.Windows.Forms.Label addLinkLbl;
         private System.Windows.Forms.Label softwareLbl;
-        private System.Windows.Forms.CheckBox activeCB;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button cancelBtn;
+        public System.Windows.Forms.NumericUpDown assetNum;
+        public System.Windows.Forms.CheckBox activeCB;
     }
 }

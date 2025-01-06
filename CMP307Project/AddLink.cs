@@ -24,7 +24,15 @@ namespace CMP307Project
             this.employeeID = employeeID;
         }
 
-        private void addBtn_Click(object sender, EventArgs e)
+        public AddLink(mssql2201587Entities dbContext, Software software, int employeeID = 0)
+        {
+            InitializeComponent();
+            this.software = software;
+            this.employeeID = employeeID;
+            this.db = dbContext;
+        }
+
+        public void addBtn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -117,7 +125,7 @@ namespace CMP307Project
             this.Close();
         }
 
-        private void AddLink_Load(object sender, EventArgs e)
+        public void AddLink_Load(object sender, EventArgs e)
         {
             softwareLbl.Text = "Link for Software: " + software.SoftID;
         }
