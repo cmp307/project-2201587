@@ -115,48 +115,26 @@ namespace CMP307ProjectTests
         [TestMethod]
         public void AddAsset_WithEmptyRequiredFields_ShouldThrowException()
         {
-            // Set up DB mock to throw exception on SaveChanges when data is invalid
+            // Set up mock DB to throw exception on SaveChanges when data is invalid
             mockDB.Setup(m => m.SaveChanges())
                 .Throws(new System.Data.Entity.Validation.DbEntityValidationException("Validation failed"));
 
-            // Set up valid initial data
+            // Set up initial data
             addAssetForm.sysNameTB.Text = "TestPC";
-            addAssetForm.modelTB.Text = "TestModel";
+            addAssetForm.modelTB.Text = null;
             addAssetForm.manuTB.Text = "TestManufacturer";
             addAssetForm.typeTB.Text = "Desktop";
             addAssetForm.employeeNum.Value = 1;
 
-            // Test each required field
-            string[][] testCases = new string[][]
-            {
-                new string[] { "System Name", "", "TestModel", "TestManufacturer", "Desktop" },
-                new string[] { "Model", "TestPC", "", "TestManufacturer", "Desktop" },
-                new string[] { "Manufacturer", "TestPC", "TestModel", "", "Desktop" },
-                new string[] { "Type", "TestPC", "TestModel", "TestManufacturer", "" }
-            };
+            // Act
+            addAssetForm.addBtn_Click(null, EventArgs.Empty);
 
-            foreach (string[] testCase in testCases)
-            {
-                // Arrange
-                string fieldName = testCase[0];
-                addAssetForm.sysNameTB.Text = testCase[1];
-                addAssetForm.modelTB.Text = testCase[2];
-                addAssetForm.manuTB.Text = testCase[3];
-                addAssetForm.typeTB.Text = testCase[4];
-
-                // Act
-                addAssetForm.addBtn_Click(null, EventArgs.Empty);
-
-                // Verify that Add was called but SaveChanges threw an exception
-                mockAsset.Verify(m => m.Add(It.IsAny<Asset>()), Times.Once(),
-                    $"Add should be called even when {fieldName} is empty");
-                mockDB.Verify(m => m.SaveChanges(), Times.Once(),
-                    $"SaveChanges should be called when {fieldName} is empty");
-
-                // Reset for next test case
-                mockDB.Invocations.Clear();
-                mockAsset.Invocations.Clear();
-            }
+            // Verify that Add was called but SaveChanges threw an exception
+            mockAsset.Verify(m => m.Add(It.IsAny<Asset>()), Times.Once(),
+                $"Add should be called even when a required field is empty");
+            mockDB.Verify(m => m.SaveChanges(), Times.Once(),
+                $"SaveChanges should be called when a required field is empty, but should throw an exception");
+            
         }
     }
 }

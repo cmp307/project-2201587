@@ -118,10 +118,10 @@ namespace CMP307ProjectTests
             editAssetForm.editBtn_Click(null, EventArgs.Empty);
 
             // Assert
+            mockDB.Verify(m => m.SaveChanges(), Times.Once);
             var updatedAsset = mockDB.Object.Assets.FirstOrDefault(a => a.AssID == testAsset.AssID);
             Assert.IsNotNull(updatedAsset);
             Assert.AreEqual(testDate, updatedAsset.PurchaseDate);
-            mockDB.Verify(m => m.SaveChanges(), Times.Once);
         }
 
         [TestMethod]
@@ -131,13 +131,13 @@ namespace CMP307ProjectTests
             editAssetForm.EditAsset_Load(null, EventArgs.Empty);
 
             // Assert
-            Assert.AreEqual("OriginalPC", editAssetForm.sysNameTB.Text);
-            Assert.AreEqual("OriginalModel", editAssetForm.modelTB.Text);
-            Assert.AreEqual("OriginalManufacturer", editAssetForm.manuTB.Text);
-            Assert.AreEqual("Desktop", editAssetForm.typeTB.Text);
-            Assert.AreEqual("192.168.1.1", editAssetForm.ipTB.Text);
-            Assert.AreEqual(1, editAssetForm.employeeNum.Value);
-            Assert.AreEqual("Original Notes", editAssetForm.notesTB.Text);
+            Assert.AreEqual(testAsset.SystemName, editAssetForm.sysNameTB.Text);
+            Assert.AreEqual(testAsset.Model, editAssetForm.modelTB.Text);
+            Assert.AreEqual(testAsset.Manufacturer, editAssetForm.manuTB.Text);
+            Assert.AreEqual(testAsset.Type, editAssetForm.typeTB.Text);
+            Assert.AreEqual(testAsset.IPAddress, editAssetForm.ipTB.Text);
+            Assert.AreEqual(testAsset.EmployeeID, editAssetForm.employeeNum.Value);
+            Assert.AreEqual(testAsset.Notes, editAssetForm.notesTB.Text);
         }
     }
 }
