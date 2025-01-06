@@ -116,8 +116,19 @@ namespace CMP307Project
                     }
                     else
                     {
-                        // assign employee ID
-                        newAsset.EmployeeID = Decimal.ToInt32(employeeNum.Value);
+                        // check that employee exists
+                        Employee employee = (from f in db.Employees
+                                            where f.EmployeeID == employeeID
+                                            select f).FirstOrDefault();
+                        if (employee != null)
+                        {
+                            // assign employee ID
+                            newAsset.EmployeeID = Decimal.ToInt32(employeeNum.Value);
+                        } 
+                        else
+                        {
+                            throw new Exception("Employee does not exist");
+                        }
                     }
                 }
                 // send new asset to database and save changes

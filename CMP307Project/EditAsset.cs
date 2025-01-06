@@ -113,8 +113,19 @@ namespace CMP307Project
                     }
                     else
                     {
-                        // if there is a value other than 0, add that as the employee ID
-                        updateAsset.EmployeeID = Decimal.ToInt32(employeeNum.Value);
+                        // check that employee exists
+                        Employee employee = (from f in db.Employees
+                                             where f.EmployeeID == employeeID
+                                             select f).FirstOrDefault();
+                        if (employee != null)
+                        {
+                            // assign employee ID
+                            updateAsset.EmployeeID = Decimal.ToInt32(employeeNum.Value);
+                        }
+                        else
+                        {
+                            throw new Exception("Employee does not exist");
+                        }        
                     }
                     // send updated asset to database and save changes
                     db.SaveChanges();
