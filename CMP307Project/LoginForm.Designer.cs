@@ -127,10 +127,10 @@
         private System.Windows.Forms.Label loginTitleLabel;
         private System.Windows.Forms.Label emailLbl;
         private System.Windows.Forms.Label passwordLabel;
-        private System.Windows.Forms.TextBox emailTB;
-        private System.Windows.Forms.TextBox passwordTB;
         private System.Windows.Forms.Button loginBtn;
-        private System.Windows.Forms.CheckBox showPassword;
+        public System.Windows.Forms.TextBox emailTB;
+        public System.Windows.Forms.TextBox passwordTB;
+        public System.Windows.Forms.CheckBox showPassword;
     }
 }
 

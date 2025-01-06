@@ -19,7 +19,13 @@ namespace CMP307Project
             InitializeComponent();
         }
 
-        private void loginBtn_Click(object sender, EventArgs e)
+        public LoginForm(mssql2201587Entities dbContext)
+        {
+            InitializeComponent();
+            this.db = dbContext;
+        }
+
+        public void loginBtn_Click(object sender, EventArgs e)
         {
             try
             {
@@ -79,7 +85,7 @@ namespace CMP307Project
             }
         }
 
-        private void showPassword_CheckedChanged(object sender, EventArgs e)
+        public void showPassword_CheckedChanged(object sender, EventArgs e)
         {
             // if show password checkbox is checked, show password
             if (showPassword.Checked == true)
