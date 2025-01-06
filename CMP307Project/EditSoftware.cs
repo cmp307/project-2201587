@@ -22,13 +22,20 @@ namespace CMP307Project
             this.software = software;
         }
 
+        public EditSoftware(mssql2201587Entities dbContext, Software software)
+        {
+            InitializeComponent();
+            this.db = dbContext;
+            this.software = software;
+        }
+
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             // close add page
             this.Close();
         }
 
-        private void EditSoftware_Load(object sender, EventArgs e)
+        public void EditSoftware_Load(object sender, EventArgs e)
         {
             // autofill fields
             osNameTB.Text = software.OSname;
@@ -36,7 +43,7 @@ namespace CMP307Project
             manuTB.Text = software.manufacturer;
         }
 
-        private void editBtn_Click(object sender, EventArgs e)
+        public void editBtn_Click(object sender, EventArgs e)
         {
             try
             {

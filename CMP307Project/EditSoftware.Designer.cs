@@ -148,9 +148,9 @@
         private System.Windows.Forms.Label manufacturerLbl;
         private System.Windows.Forms.Label versionLbl;
         private System.Windows.Forms.Label osNameLbl;
-        private System.Windows.Forms.TextBox manuTB;
-        private System.Windows.Forms.TextBox versionTB;
-        private System.Windows.Forms.TextBox osNameTB;
         private System.Windows.Forms.Label editSoftwareLbl;
+        public System.Windows.Forms.TextBox manuTB;
+        public System.Windows.Forms.TextBox versionTB;
+        public System.Windows.Forms.TextBox osNameTB;
     }
 }
