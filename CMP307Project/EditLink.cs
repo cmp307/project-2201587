@@ -25,13 +25,21 @@ namespace CMP307Project
             this.employeeID = employeeID;
         }
 
+        public EditLink(mssql2201587Entities dbContext, Link link, int employeeID = 0)
+        {
+            InitializeComponent();
+            this.link = link;
+            this.employeeID = employeeID;
+            this.db = dbContext;
+        }
+
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             // close form
             this.Close();
         }
 
-        private void EditLink_Load(object sender, EventArgs e)
+        public void EditLink_Load(object sender, EventArgs e)
         {
             // on load, fill in labels to clarify which link is being edited
             string softText = "Link for Software: ";
@@ -52,7 +60,7 @@ namespace CMP307Project
 
         }
 
-        private void editBtn_Click(object sender, EventArgs e)
+        public void editBtn_Click(object sender, EventArgs e)
         {
             try
             {

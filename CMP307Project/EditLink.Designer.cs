@@ -118,9 +118,9 @@
 
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button editBtn;
-        private System.Windows.Forms.CheckBox activeCB;
-        private System.Windows.Forms.Label softwareLbl;
         private System.Windows.Forms.Label editLinkLbl;
-        private System.Windows.Forms.Label assetLbl;
+        public System.Windows.Forms.CheckBox activeCB;
+        public System.Windows.Forms.Label softwareLbl;
+        public System.Windows.Forms.Label assetLbl;
     }
 }
