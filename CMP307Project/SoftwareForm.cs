@@ -24,10 +24,26 @@ namespace CMP307Project
             InitializeComponent();
         }
 
+        public SoftwareForm(mssql2201587Entities dbContext)
+        {
+            InitializeComponent();
+            this.db = dbContext;
+            loadTables(db);
+        }
         private void loadTables()
         {
             // get data from the database and update the assets table on the form
             db = new mssql2201587Entities();
+            IQueryable<Software> softwares = from f in db.Softwares select f;
+            softwareTable.DataSource = softwares.ToList();
+            IQueryable<Link> links = from f in db.Links select f;
+            // order links by software ID
+            linksTable.DataSource = links.OrderBy(link => link.SoftID).ToList();
+        }
+
+        public void loadTables(mssql2201587Entities db)
+        {
+            // get data from the database and update the assets table on the form
             IQueryable<Software> softwares = from f in db.Softwares select f;
             softwareTable.DataSource = softwares.ToList();
             IQueryable<Link> links = from f in db.Links select f;
@@ -94,7 +110,7 @@ namespace CMP307Project
             }
         }
 
-        private void deleteBtn_Click(object sender, EventArgs e)
+        public void deleteBtn_Click(object sender, EventArgs e)
         {
             try
             {

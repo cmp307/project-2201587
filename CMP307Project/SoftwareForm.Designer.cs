@@ -358,7 +358,6 @@
         private System.Windows.Forms.BindingSource mssql2201587DataSetBindingSource;
         private System.Windows.Forms.BindingSource assetBindingSource;
         private System.Windows.Forms.Button refreshBtn;
-        private System.Windows.Forms.DataGridView softwareTable;
         private System.Windows.Forms.Label softwareLbl;
         private softwareBindingSource softwareBindingSource;
         private System.Windows.Forms.BindingSource softwareBindingSource1;
@@ -379,5 +378,6 @@
         private System.Windows.Forms.Button addLinkBtn;
         private System.Windows.Forms.Button editLinkBtn;
         private System.Windows.Forms.Button deleteLinkBtn;
+        public System.Windows.Forms.DataGridView softwareTable;
     }
 }
