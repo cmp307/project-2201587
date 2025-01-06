@@ -22,6 +22,7 @@ namespace CMP307Project
             this.software = software;
         }
 
+        // constructor for testing
         public EditSoftware(mssql2201587Entities dbContext, Software software)
         {
             InitializeComponent();

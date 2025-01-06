@@ -22,6 +22,7 @@ namespace CMP307Project
             this.employee = employee;
         }
 
+        // constructor for testing
         public EditEmployee(mssql2201587Entities dbContext, Employee employee)
         {
             InitializeComponent();

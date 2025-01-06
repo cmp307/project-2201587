@@ -25,6 +25,7 @@ namespace CMP307Project
             this.employeeID = employeeID;
         }
 
+        // constructor for testing
         public EditAsset(mssql2201587Entities dbContext, Asset asset, int employeeID = 0)
         {
             InitializeComponent();

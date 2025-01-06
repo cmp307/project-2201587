@@ -19,7 +19,7 @@ namespace CMP307ProjectTests
         [TestInitialize]
         public void Setup()
         {
-            // Initialize mocks
+            // Initialise mocks
             mockDB = new Mock<mssql2201587Entities>();
             mockEmployee = new Mock<DbSet<Employee>>();
 
@@ -43,7 +43,7 @@ namespace CMP307ProjectTests
 
             mockDB.Setup(m => m.Employees).Returns(mockEmployee.Object);
 
-            // Initialize form
+            // Initialise form
             loginForm = new LoginForm(mockDB.Object);
         }
 

@@ -24,6 +24,7 @@ namespace CMP307Project
             InitializeComponent();
         }
 
+        // constructor for testing
         public AssetsForm(mssql2201587Entities dbContext)
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace CMP307Project
             assetsTable.DataSource = assets.ToList();
         }
 
+        // load table for testing
         public void loadTable(mssql2201587Entities db)
         {
             IQueryable<Asset> assets = from f in db.Assets select f;

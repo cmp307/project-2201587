@@ -19,6 +19,7 @@ namespace CMP307Project
             InitializeComponent();
         }
 
+        // constructor for testing
         public LoginForm(mssql2201587Entities dbContext)
         {
             InitializeComponent();

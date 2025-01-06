@@ -20,6 +20,7 @@ namespace CMP307Project
             InitializeComponent();
         }
 
+        // constructor for testing
         public EmployeesForm(mssql2201587Entities dbContext)
         {
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace CMP307Project
             employeesTable.DataSource = employees.ToList();
         }
 
+        // load table for testing
         public void loadTable(mssql2201587Entities db)
         {
             // get data from the database and update the employees table on the form

@@ -25,6 +25,7 @@ namespace CMP307Project
             this.employeeID = employeeID;
         }
 
+        // constructor for testing
         public EditLink(mssql2201587Entities dbContext, Link link, int employeeID = 0)
         {
             InitializeComponent();

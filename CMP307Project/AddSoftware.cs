@@ -24,6 +24,7 @@ namespace CMP307Project
             this.employeeID = employeeID;
         }
 
+        // constructor for testing
         public AddSoftware(mssql2201587Entities dbContext, int employeeID = 0)
         {
             InitializeComponent();

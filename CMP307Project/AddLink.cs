@@ -23,7 +23,8 @@ namespace CMP307Project
             this.software = software;
             this.employeeID = employeeID;
         }
-
+        
+        // constructor for testing
         public AddLink(mssql2201587Entities dbContext, Software software, int employeeID = 0)
         {
             InitializeComponent();

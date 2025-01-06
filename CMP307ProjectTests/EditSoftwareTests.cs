@@ -18,7 +18,7 @@ namespace CMP307ProjectTests
         [TestInitialize]
         public void Setup()
         {
-            // Initialize mocks
+            // Initialise mocks
             mockDB = new Mock<mssql2201587Entities>();
             mockSoftware = new Mock<DbSet<Software>>();
 
@@ -40,7 +40,7 @@ namespace CMP307ProjectTests
 
             mockDB.Setup(m => m.Softwares).Returns(mockSoftware.Object);
 
-            // Initialize form with test software
+            // Initialise form with test software
             editSoftwareForm = new EditSoftware(mockDB.Object, testSoftware);
         }
 

@@ -21,7 +21,7 @@ namespace CMP307ProjectTests
         [TestInitialize]
         public void Setup()
         {
-            // Initialize mocks
+            // Initialise mocks
             mockDB = new Mock<mssql2201587Entities>();
             mockAsset = new Mock<DbSet<Asset>>();
             mockEmployee = new Mock<DbSet<Employee>>();
@@ -67,7 +67,7 @@ namespace CMP307ProjectTests
             mockDB.Setup(m => m.Assets).Returns(mockAsset.Object);
             mockDB.Setup(m => m.Employees).Returns(mockEmployee.Object);
 
-            // Initialize form with test asset
+            // Initialise form with test asset
             editAssetForm = new EditAsset(mockDB.Object, testAsset);
         }
 

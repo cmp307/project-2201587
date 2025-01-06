@@ -24,6 +24,7 @@ namespace CMP307Project
             InitializeComponent();
         }
 
+        // constructor for testing
         public SoftwareForm(mssql2201587Entities dbContext)
         {
             InitializeComponent();
@@ -41,6 +42,7 @@ namespace CMP307Project
             linksTable.DataSource = links.OrderBy(link => link.SoftID).ToList();
         }
 
+        // load tables for testing
         public void loadTables(mssql2201587Entities db)
         {
             // get data from the database and update the assets table on the form
