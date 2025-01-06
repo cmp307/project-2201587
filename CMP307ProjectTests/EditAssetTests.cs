@@ -4,6 +4,7 @@ using Moq;
 using CMP307Project;
 using System.Data.Entity;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace CMP307ProjectTests
 {
@@ -12,8 +13,10 @@ namespace CMP307ProjectTests
     {
         private Mock<mssql2201587Entities> mockDB;
         private Mock<DbSet<Asset>> mockAsset;
+        private Mock<DbSet<Employee>> mockEmployee;
         private EditAsset editAssetForm;
         private Asset testAsset;
+        private Employee testEmployee;
 
         [TestInitialize]
         public void Setup()
@@ -21,6 +24,18 @@ namespace CMP307ProjectTests
             // Initialize mocks
             mockDB = new Mock<mssql2201587Entities>();
             mockAsset = new Mock<DbSet<Asset>>();
+            mockEmployee = new Mock<DbSet<Employee>>();
+
+            // Create test employee
+            testEmployee = new Employee
+            {
+                EmployeeID = 1,
+                FirstName = "John",
+                LastName = "Doe",
+                Email = "john.doe@test.com",
+                Password = "password",
+                DepartmentID = 1
+            };
 
             // Create a test asset
             testAsset = new Asset
@@ -31,18 +46,26 @@ namespace CMP307ProjectTests
                 Manufacturer = "OriginalManufacturer",
                 Type = "Desktop",
                 IPAddress = "192.168.1.1",
-                EmployeeID = 1,
+                EmployeeID = testEmployee.EmployeeID,
                 Notes = "Original Notes"
             };
 
-            // Setup mock database operations
-            var queryable = new[] { testAsset }.AsQueryable();
-            mockAsset.As<IQueryable<Asset>>().Setup(m => m.Provider).Returns(queryable.Provider);
-            mockAsset.As<IQueryable<Asset>>().Setup(m => m.Expression).Returns(queryable.Expression);
-            mockAsset.As<IQueryable<Asset>>().Setup(m => m.ElementType).Returns(queryable.ElementType);
-            mockAsset.As<IQueryable<Asset>>().Setup(m => m.GetEnumerator()).Returns(queryable.GetEnumerator());
+            // Setup mock database operations for Asset
+            var assetQueryable = new[] { testAsset }.AsQueryable();
+            mockAsset.As<IQueryable<Asset>>().Setup(m => m.Provider).Returns(assetQueryable.Provider);
+            mockAsset.As<IQueryable<Asset>>().Setup(m => m.Expression).Returns(assetQueryable.Expression);
+            mockAsset.As<IQueryable<Asset>>().Setup(m => m.ElementType).Returns(assetQueryable.ElementType);
+            mockAsset.As<IQueryable<Asset>>().Setup(m => m.GetEnumerator()).Returns(assetQueryable.GetEnumerator());
+
+            // Setup mock database operations for Employee
+            var employeeQueryable = new[] { testEmployee }.AsQueryable();
+            mockEmployee.As<IQueryable<Employee>>().Setup(m => m.Provider).Returns(employeeQueryable.Provider);
+            mockEmployee.As<IQueryable<Employee>>().Setup(m => m.Expression).Returns(employeeQueryable.Expression);
+            mockEmployee.As<IQueryable<Employee>>().Setup(m => m.ElementType).Returns(employeeQueryable.ElementType);
+            mockEmployee.As<IQueryable<Employee>>().Setup(m => m.GetEnumerator()).Returns(employeeQueryable.GetEnumerator());
 
             mockDB.Setup(m => m.Assets).Returns(mockAsset.Object);
+            mockDB.Setup(m => m.Employees).Returns(mockEmployee.Object);
 
             // Initialize form with test asset
             editAssetForm = new EditAsset(mockDB.Object, testAsset);
@@ -57,14 +80,14 @@ namespace CMP307ProjectTests
             editAssetForm.manuTB.Text = "UpdatedManufacturer";
             editAssetForm.typeTB.Text = "Laptop";
             editAssetForm.ipTB.Text = "192.168.1.2";
-            editAssetForm.employeeNum.Value = 2;
+            editAssetForm.employeeNum.Value = testEmployee.EmployeeID;
             editAssetForm.notesTB.Text = "Updated Notes";
 
             // Act
             editAssetForm.editBtn_Click(null, EventArgs.Empty);
 
             // Assert
-            mockDB.Verify(m => m.SaveChanges(), Times.Once);
+            mockDB.Verify(m => m.SaveChanges(), Times.Once());
             var updatedAsset = mockDB.Object.Assets.FirstOrDefault(a => a.AssID == testAsset.AssID);
             Assert.IsNotNull(updatedAsset);
             Assert.AreEqual("UpdatedPC", updatedAsset.SystemName);
@@ -72,7 +95,7 @@ namespace CMP307ProjectTests
             Assert.AreEqual("UpdatedManufacturer", updatedAsset.Manufacturer);
             Assert.AreEqual("Laptop", updatedAsset.Type);
             Assert.AreEqual("192.168.1.2", updatedAsset.IPAddress);
-            Assert.AreEqual(2, updatedAsset.EmployeeID);
+            Assert.AreEqual(testEmployee.EmployeeID, updatedAsset.EmployeeID);
             Assert.AreEqual("Updated Notes", updatedAsset.Notes);
         }
 
@@ -80,14 +103,55 @@ namespace CMP307ProjectTests
         public void EditAsset_WithNoEmployeeID_ShouldNotSaveToDatabase()
         {
             // Arrange
+            editAssetForm.sysNameTB.Text = "UpdatedPC";
+            editAssetForm.employeeNum.Maximum = 1000; // Set maximum value
             editAssetForm.employeeNum.Value = 0;
+
+            // Setup mock for finding asset
+            mockDB.Setup(m => m.Assets)
+                  .Returns(mockAsset.Object);
 
             // Act
             editAssetForm.editBtn_Click(null, EventArgs.Empty);
 
             // Assert
-            mockDB.Verify(m => m.SaveChanges(), Times.Never,
+            mockDB.Verify(m => m.SaveChanges(), Times.Never(),
                 "SaveChanges should not be called when employee ID is 0");
+        }
+
+        [TestMethod]
+        public void EditAsset_WithNonExistentEmployee_ShouldNotSaveToDatabase()
+        {
+            // Arrange
+            editAssetForm.sysNameTB.Text = "UpdatedPC";
+            editAssetForm.modelTB.Text = "UpdatedModel";
+            editAssetForm.manuTB.Text = "UpdatedManufacturer";
+            editAssetForm.typeTB.Text = "Laptop";
+            editAssetForm.ipTB.Text = "192.168.1.2";
+            editAssetForm.employeeNum.Maximum = 1000; // Set maximum value
+            editAssetForm.employeeNum.Value = 100; // Use a valid number that doesn't match existing employee
+            editAssetForm.notesTB.Text = "Updated Notes";
+
+            // Setup mock for finding asset
+            mockDB.Setup(m => m.Assets)
+                  .Returns(mockAsset.Object);
+
+            // Setup mock for employee query to return null
+            var emptyEmployees = new List<Employee>().AsQueryable();
+            var mockEmptyEmployee = new Mock<DbSet<Employee>>();
+            mockEmptyEmployee.As<IQueryable<Employee>>().Setup(m => m.Provider).Returns(emptyEmployees.Provider);
+            mockEmptyEmployee.As<IQueryable<Employee>>().Setup(m => m.Expression).Returns(emptyEmployees.Expression);
+            mockEmptyEmployee.As<IQueryable<Employee>>().Setup(m => m.ElementType).Returns(emptyEmployees.ElementType);
+            mockEmptyEmployee.As<IQueryable<Employee>>().Setup(m => m.GetEnumerator()).Returns(emptyEmployees.GetEnumerator());
+
+            mockDB.Setup(m => m.Employees).Returns(mockEmptyEmployee.Object);
+
+            // Act
+            editAssetForm.editBtn_Click(null, EventArgs.Empty);
+
+            // Assert
+            mockDB.Verify(m => m.SaveChanges(), Times.Never(),
+                "SaveChanges should not be called when employee doesn't exist");
         }
 
         [TestMethod]
@@ -112,13 +176,13 @@ namespace CMP307ProjectTests
             var testDate = new DateTime(2024, 1, 1);
             editAssetForm.dateCB.Checked = true;
             editAssetForm.datePick.Value = testDate;
-            editAssetForm.employeeNum.Value = 1;
+            editAssetForm.employeeNum.Value = testEmployee.EmployeeID;
 
             // Act
             editAssetForm.editBtn_Click(null, EventArgs.Empty);
 
             // Assert
-            mockDB.Verify(m => m.SaveChanges(), Times.Once);
+            mockDB.Verify(m => m.SaveChanges(), Times.Once());
             var updatedAsset = mockDB.Object.Assets.FirstOrDefault(a => a.AssID == testAsset.AssID);
             Assert.IsNotNull(updatedAsset);
             Assert.AreEqual(testDate, updatedAsset.PurchaseDate);
